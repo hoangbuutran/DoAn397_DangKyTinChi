@@ -5,47 +5,40 @@
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
 }
 
-<h2>XemLichSuDangKy</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
+<h2>Xem Lịch Sử Đăng Ký</h2>
+<p class="btn">
+    @Html.ActionLink("Tạo Mới Phiếu Đăng Ký", "Create")
 </p>
+<hr />
 <table class="table table-bordered table-responsive">
     <tr class="active">
-        <th>
-            @Html.DisplayNameFor(model => model.ID_SINHVIEN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_HOC_KY)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_NAM_HOC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TONG_SO_TIN_CHI)
-        </th>
-        <th></th>
-    </tr>
 
+        <th>
+            @Html.DisplayName("NĂM HỌC")
+        </th>
+        <th>
+            @Html.DisplayName("HỌC KỲ")
+        </th>
+        <th>
+            @Html.DisplayName("SỐ TÍN CHỈ")
+        </th>
+        <th>Tùy Chọn</th>
+    </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ID_SINHVIEN)
+                @Html.DisplayFor(modelItem => item.NAM_HOC.TEN_NAM_HOC)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ID_HOC_KY)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_NAM_HOC)
+                @Html.DisplayFor(modelItem => item.HOC_KY.TEN_HOC_KY)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TONG_SO_TIN_CHI)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_PHIEU_DANG_KY }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_PHIEU_DANG_KY }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_PHIEU_DANG_KY })
+                @Html.ActionLink("Sửa Phiếu", "Edit", new { id = item.ID_PHIEU_DANG_KY }) |
+                @Html.ActionLink("Chi Tiết Phiếu", "Details", new { id = item.ID_PHIEU_DANG_KY })
             </td>
         </tr>
     }

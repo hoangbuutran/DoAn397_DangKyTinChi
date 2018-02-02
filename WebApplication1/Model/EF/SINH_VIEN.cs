@@ -13,7 +13,6 @@ namespace Model.EF
             CHUONG_TRINH_HOC = new HashSet<CHUONG_TRINH_HOC>();
             PHIEU_DANG_KY = new HashSet<PHIEU_DANG_KY>();
         }
-
         [Key]
         public int ID_SINHVIEN { get; set; }
 

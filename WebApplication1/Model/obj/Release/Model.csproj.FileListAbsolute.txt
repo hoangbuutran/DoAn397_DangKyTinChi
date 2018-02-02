@@ -8,3 +8,13 @@ E:\TRANHOANGBUU\397\WebApplication1\Model\bin\Release\EntityFramework.SqlServer.
 E:\TRANHOANGBUU\397\WebApplication1\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 E:\TRANHOANGBUU\397\WebApplication1\Model\obj\Release\Model.dll
 E:\TRANHOANGBUU\397\WebApplication1\Model\obj\Release\Model.pdb
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\Model.dll.config
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\Model.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\Model.pdb
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\EntityFramework.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\EntityFramework.SqlServer.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\EntityFramework.xml
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Release\EntityFramework.SqlServer.xml
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Release\Model.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Release\Model.pdb

@@ -196,6 +196,9 @@
     <Content Include="Assets\SinhVien\css\demo.css" />
     <Content Include="Assets\SinhVien\css\paper-dashboard.css" />
     <Content Include="Assets\SinhVien\css\themify-icons.css" />
+    <Content Include="Assets\SinhVien\cu\css\easy-responsive-tabs.css" />
+    <Content Include="Assets\SinhVien\cu\css\global.css" />
+    <Content Include="Assets\SinhVien\cu\css\style.css" />
     <Content Include="Assets\SinhVien\fonts\themify.svg" />
     <Content Include="Assets\SinhVien\img\apple-icon.png" />
     <Content Include="Assets\SinhVien\img\background.jpg" />
