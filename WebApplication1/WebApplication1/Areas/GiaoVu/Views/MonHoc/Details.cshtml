@@ -1,0 +1,107 @@
+﻿@model Model.EF.MON_HOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MON_HOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MA_MON_HOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MA_MON_HOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_MON_HOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_MON_HOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SO_CHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_CHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAI_DVHT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAI_DVHT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAI_HINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAI_HINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MON_TIEN_QUYET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MON_TIEN_QUYET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MON_SONG_HANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MON_SONG_HANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MO_TA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MO_TA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_LOAI_MON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_LOAI_MON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_CHUYEN_NGANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_CHUYEN_NGANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANG_THAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANG_THAI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_MON_HOC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

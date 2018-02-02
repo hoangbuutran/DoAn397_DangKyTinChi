@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Model.EF.PHIEU_DANG_KY>
+
+@{
+    ViewBag.Title = "XemLichSuDangKy";
+    Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
+}
+
+<h2>XemLichSuDangKy</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-responsive">
+    <tr class="active">
+        <th>
+            @Html.DisplayNameFor(model => model.ID_SINHVIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_HOC_KY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_NAM_HOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TONG_SO_TIN_CHI)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_SINHVIEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_HOC_KY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_NAM_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TONG_SO_TIN_CHI)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_PHIEU_DANG_KY }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_PHIEU_DANG_KY }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_PHIEU_DANG_KY })
+            </td>
+        </tr>
+    }
+
+</table>

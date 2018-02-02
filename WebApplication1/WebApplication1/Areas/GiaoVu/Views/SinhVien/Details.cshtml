@@ -1,0 +1,83 @@
+﻿@model Model.EF.SINH_VIEN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SINH_VIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_SINH_VIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_SINH_VIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_SINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_SINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIEN_THOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIEN_THOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIA_CHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIA_CHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_TAI_KHOAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_TAI_KHOAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_CHUYEN_NGANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_CHUYEN_NGANH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_SINHVIEN }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

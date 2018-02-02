@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Model.EF.MON_HOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MA_MON_HOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_MON_HOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SO_CHI)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.MON_TIEN_QUYET)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MON_SONG_HANH)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MA_MON_HOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_MON_HOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO_CHI)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.MON_TIEN_QUYET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MON_SONG_HANH)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_MON_HOC }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_MON_HOC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_MON_HOC })
+        </td>
+    </tr>
+}
+
+</table>
