@@ -22,6 +22,11 @@ namespace Model.DAO
             db = new CoSoDuLieuDbContext();
         }
 
+        public PHIEU_DANG_KY PhieuDKSinger(int id)
+        {
+            return db.PHIEU_DANG_KY.SingleOrDefault(x => x.ID_PHIEU_DANG_KY == id);
+        }
+
         public List<NAM_HOC> ListNamHoc()
         {
             return db.NAM_HOC.ToList();

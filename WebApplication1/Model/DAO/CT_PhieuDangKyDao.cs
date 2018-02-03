@@ -23,12 +23,17 @@ namespace Model.DAO
 
         public int AddCTPHIEUDANGKY(CT_PHIEU_DANG_KY phieu)
         {
-            int i;
+            int i = 0;
             try
             {
-                db.CT_PHIEU_DANG_KY.Add(phieu);
-                db.SaveChanges();
-                i = 1;
+                var daomon = new MonHocDao().MonHocSinger((int)phieu.ID_MON_HOC);
+                var daophieu = new PhieuDangKyDao().PhieuDKSinger((int)phieu.ID_PHIEU_DANG_KY);
+                if (daophieu.TONG_SO_TIN_CHI + daomon.SO_CHI <= 20)
+                {
+                    db.CT_PHIEU_DANG_KY.Add(phieu);
+                    db.SaveChanges();
+                    i = 1;
+                }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {

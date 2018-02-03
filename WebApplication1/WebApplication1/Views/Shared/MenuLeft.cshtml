@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    var IDSinhVien = WebApplication1.Common.Masinhvien.IDSINHVIEN;
+    var SinhVien = (WebApplication1.Common.SinhVienModel)Session["USER_SESSION"];
 }
 
 <div class="s-main">
@@ -10,9 +10,9 @@
     </div>
     <div class="text1-nav">
         <ul>
-            <li><a href="/Home/TaoPhieuDangKy">TẠO PHIẾU ĐĂNG KÍ</a></li>
+            <li><a href="/Home/TaoPhieuDangKy"><strong>PHIẾU ĐĂNG KÍ</strong> </a></li>
             <li><a href="/Home/XemLichSuDangKy">XEM PHIẾU ĐĂNG KÍ</a></li>
-            <li><a href="#">XEM CHƯƠNG TRÌNH HỌC</a></li>
+            <li><a href="/Home/XemChuongTrinhHoc">XEM CHƯƠNG TRÌNH HỌC</a></li>
         </ul>
     </div>
 </div>

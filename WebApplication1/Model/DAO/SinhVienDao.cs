@@ -30,6 +30,10 @@ namespace Model.DAO
         {
             return db.SINH_VIEN.SingleOrDefault(x => x.ID_SINHVIEN == id);
         }
+        public SINH_VIEN SinhVienSingerWithIDTaiKhoan(int id)
+        {
+            return db.SINH_VIEN.SingleOrDefault(x => x.ID_TAI_KHOAN == id);
+        }
         /// <summary>
         /// trả về danh sách sinh viên có trong table
         /// </summary>

@@ -10,7 +10,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LoginChungController
     {
         CoSoDuLieuDbContext db = null;
         PhieuDangKyDao dao = null;
@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers
             }
             catch
             {
-                ModelState.AddModelError("", "Loi roi");
+                ModelState.AddModelError("", "Tạo Phiếu không thành công");
                 return View();
             }
             return View();
@@ -79,7 +79,12 @@ namespace WebApplication1.Controllers
         public ActionResult ThemMonVaoPhieuCTH(CT_PHIEU_DANG_KY model)
         {
             int i = daoCTPhieuDK.AddCTPHIEUDANGKY(model);
-            return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
+            if (i != 0)
+            {
+                return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
+            }
+            ModelState.AddModelError("","Không thể đăng kí thêm vì quá 20 chỉ");
+            return View();
         }
         public ActionResult XemChuongTrinhHoc()
         {
@@ -87,8 +92,8 @@ namespace WebApplication1.Controllers
         }
         public ActionResult XemLichSuDangKy() 
         {
-            var IDSinhVien = WebApplication1.Common.Masinhvien.IDSINHVIEN;
-            return View(dao.ListPhieuDangKy(IDSinhVien));
+            var IDSinhVien = (SinhVienModel)Session["USER_SESSION"];
+            return View(dao.ListPhieuDangKy(IDSinhVien.IdSinhVien));
         }
 
     }

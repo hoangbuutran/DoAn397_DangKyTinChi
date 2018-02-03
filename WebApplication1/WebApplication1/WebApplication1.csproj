@@ -157,12 +157,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\GiaoVu\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\MonHocController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\SinhVienController.cs" />
+    <Compile Include="Areas\GiaoVu\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\GiaoVu\GiaoVuAreaRegistration.cs" />
     <Compile Include="Common\Masinhvien.cs" />
     <Compile Include="Common\SinhVienModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginChungController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -289,6 +293,8 @@
     <Content Include="Assets\SinhVien\img\faces\.DS_Store" />
     <Content Include="Assets\SinhVien\img\tables\.DS_Store" />
     <Content Include="Assets\SinhVien\js\.DS_Store" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -319,14 +325,16 @@
     <Content Include="Views\Home\XemLichSuDangKy.cshtml" />
     <Content Include="Views\Shared\MenuLeft.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Home\XemChuongTrinhHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Models\" />
     <Folder Include="Areas\GiaoVu\Views\Shared\" />
+    <Folder Include="Areas\GiaoVu\Views\ThongKe\" />
+    <Folder Include="Views\LoginChung\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

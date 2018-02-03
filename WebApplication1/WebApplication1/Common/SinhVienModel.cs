@@ -11,5 +11,7 @@ namespace WebApplication1.Common
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
         public bool NhoMatKhau { get; set; }
+        public int? idloainguoidung { get; set; }
+        public string MaSinhVien { get; set; }
     }
 }

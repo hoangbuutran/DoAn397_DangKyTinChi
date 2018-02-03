@@ -32,6 +32,11 @@ namespace Model.DAO
             return db.MON_HOC.SingleOrDefault(x => x.ID_MON_HOC == id);
         }
 
+        /// <summary>
+        /// tìm kiếm môn học với mã tìm kiếm được nhập vào.
+        /// </summary>
+        /// <param name="timkiem"></param>
+        /// <returns></returns>
         public MON_HOC MonHocSingerwithMaTimKiem(string timkiem)
         {
             return db.MON_HOC.Where(x => x.MA_MON_HOC.Contains(timkiem)).SingleOrDefault();
