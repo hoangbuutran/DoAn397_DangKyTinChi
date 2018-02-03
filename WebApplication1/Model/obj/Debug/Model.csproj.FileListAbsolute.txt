@@ -1,0 +1,10 @@
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\Model.dll.config
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\Model.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\Model.pdb
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.xml
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.dll
+E:\TRANHOANGBUU\397\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.pdb

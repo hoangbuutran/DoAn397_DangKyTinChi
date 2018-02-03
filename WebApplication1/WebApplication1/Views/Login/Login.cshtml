@@ -1,0 +1,149 @@
+﻿@model WebApplication1.Common.SinhVienModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login DTU</title>
+
+    <style>
+        body, html {
+            height: 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(rgb(175, 0, 0), rgb(136, 0, 0));
+        }
+
+        .card-container.card {
+            max-width: 251px;
+            padding: 40px 40px;
+        }
+
+        /*.btn {
+            font-weight: 700;
+            height: 36px;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: default;
+        }*/
+
+        /*
+        * Card component
+        */
+        .card {
+            background-color: #F7F7F7;
+            /* just in case there no content*/
+            padding: 20px 25px 30px;
+            margin: 0 auto 25px;
+            margin-top: 50px;
+            /* shadows and rounded borders */
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-img-card {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        /*
+        * Form styles
+        */
+        .profile-name-card {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0 0;
+            min-height: 1em;
+        }
+
+
+        .forgot-password {
+            color: rgb(104, 145, 162);
+        }
+
+            .forgot-password:hover,
+            .forgot-password:active,
+            .forgot-password:focus {
+                color: rgb(12, 97, 33);
+            }
+
+        input.btn.btn-primary {
+            width: 252px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border-radius: 15px;
+        }
+
+        input#NhoMatKhau {
+            margin-top: 13px;
+        }
+
+        input#MatKhau {
+            margin-top: 13px;
+            width: 247px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-radius: 8px;
+        }
+
+        input#inputEmail {
+            margin-top: 13px;
+            width: 247px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @id = "inputEmail", @placeholder = "Tên Đăng Nhập", @class = "form-control" } })
+                    <br />
+                    @Html.PasswordFor(model => model.MatKhau, new { htmlAttributes = new { @id = "inputPassword", @placeholder = "Mật Khẩu", @class = "form-control" } })
+                    <br />
+                    @Html.EditorFor(model => model.NhoMatKhau)Nhớ mật khẩu
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng Nhập" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+</body>
+</html>
+

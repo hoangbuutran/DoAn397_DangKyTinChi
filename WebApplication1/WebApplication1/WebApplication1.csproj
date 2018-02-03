@@ -161,7 +161,9 @@
     <Compile Include="Areas\GiaoVu\Controllers\SinhVienController.cs" />
     <Compile Include="Areas\GiaoVu\GiaoVuAreaRegistration.cs" />
     <Compile Include="Common\Masinhvien.cs" />
+    <Compile Include="Common\SinhVienModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -316,6 +318,7 @@
     <Content Include="Views\Home\TimMonDangKy.cshtml" />
     <Content Include="Views\Home\XemLichSuDangKy.cshtml" />
     <Content Include="Views\Shared\MenuLeft.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
