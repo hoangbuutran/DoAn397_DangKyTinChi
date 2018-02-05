@@ -41,10 +41,12 @@ body {
 /*logo*/
 .logo{
 	float:left;
+    width:50%;
 }
 /*header-right*/
 .header-right{
 	float:right;
+    width:50%;
 }
 /*---contact-info---*/
 .contact-info{
@@ -575,8 +577,9 @@ body {
 	color: #6FA200;
 }
 .footer1{
-	padding:3% 0 0;
-	text-align:center;
+	text-align: center;
+    padding-bottom: 7px;
+    padding-top: 20px;
 }
 .footer1 p{
 	line-height:1.8em;

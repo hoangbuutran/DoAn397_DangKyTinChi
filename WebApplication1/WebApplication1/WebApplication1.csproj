@@ -216,6 +216,7 @@
     <Content Include="Assets\SinhVien\img\favicon.png" />
     <Content Include="Assets\SinhVien\img\logo-dtu-vn.png" />
     <Content Include="Assets\SinhVien\img\logo-dtu.gif" />
+    <Content Include="Assets\SinhVien\img\logoDuytan.png" />
     <Content Include="Assets\SinhVien\img\new_logo.png" />
     <Content Include="Assets\SinhVien\img\tim_80x80.png" />
     <Content Include="Assets\SinhVien\js\bootstrap-checkbox-radio.js" />
