@@ -5,37 +5,73 @@
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
     var i = (int)ViewBag.IDPhieuDangKy;
 }
+<style>
+    input#tentimkiem {
+        margin-left: 75px;
+        padding-left: 30px;
+        padding-right: 33px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-radius: 11px;
+    }
 
-<h2>TimMonDangKy2</h2>
+    select#idPhieu {
+        margin-left: 75px;
+        padding-left: 39px;
+        padding-right: 33px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-radius: 11px;
+    }
 
-@using (Html.BeginForm("TimMonDangKyPost", "Home", FormMethod.Post))
+    input.btn.btn-default {
+        margin-left: 23px;
+        padding-left: 77px;
+        padding-right: 92px;
+        border-radius: 18px;
+    }
+
+    h2#tikiem {
+        margin-left: 52px;
+        margin-top: 8px;
+    }
+</style>
+<h2 id="tikiem">Tìm Kiếm Môn Đăng Ký</h2>
+
+@using (Html.BeginForm("TimMonDangKy", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>TimKiemModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.chuoitimkiem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.chuoitimkiem, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.LabelFor(model => model.chuoitimkiem, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.chuoitimkiem, new { htmlAttributes = new { @id = "tentimkiem", @name="timkiem", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.chuoitimkiem, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idPhieu, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.idPhieu, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
                 @Html.DropDownList("idPhieu", new List<SelectListItem> { new SelectListItem { Text = i.ToString(), Value = i.ToString() } })
                 @Html.ValidationMessageFor(model => model.idPhieu, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <script language="Javascript">
+                function IsEmpty() {
+                    if (document.getElementById('tentimkiem').value === '') {
+                        alert("Mời nhập đầy đủ thông tin");
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+            <div class="col-md-3">
+                <input onclick=" return IsEmpty()" type="submit" value="Tìm Môn" class="btn btn-default" />
             </div>
+
         </div>
     </div>
 }

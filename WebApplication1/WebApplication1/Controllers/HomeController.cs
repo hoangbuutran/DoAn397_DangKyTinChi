@@ -57,13 +57,14 @@ namespace WebApplication1.Controllers
             }
             return View();
         }
-
+        [HttpGet]
         public ActionResult TimMonDangKy(int id)
         {
             ViewBag.IDPhieuDangKy = id;
             return View();
         }
-        public ActionResult TimMonDangKyPost(TimKiemModel model)
+        [HttpPost]
+        public ActionResult TimMonDangKy(TimKiemModel model)
         {
             return RedirectToAction("ThemMonVaoPhieuCTH", "Home", new { searchstring = model.chuoitimkiem, idphieu = model.idPhieu });
         }
@@ -83,17 +84,22 @@ namespace WebApplication1.Controllers
             {
                 return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
             }
-            ModelState.AddModelError("","Không thể đăng kí thêm vì quá 20 chỉ");
+            ModelState.AddModelError("", "Không thể đăng kí thêm vì quá 20 chỉ");
             return View();
         }
         public ActionResult XemChuongTrinhHoc()
         {
             return View();
         }
-        public ActionResult XemLichSuDangKy() 
+        public ActionResult XemLichSuDangKy()
         {
             var IDSinhVien = (SinhVienModel)Session["USER_SESSION"];
             return View(dao.ListPhieuDangKy(IDSinhVien.IdSinhVien));
+        }
+
+        public ActionResult XemChiTietPhieu(int id)
+        {
+            return View(dao.PhieuDKSinger(id));
         }
 
     }

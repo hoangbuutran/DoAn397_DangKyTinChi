@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -15,13 +15,14 @@ namespace Model.EF
 
         [Key]
         public int ID_PHIEU_DANG_KY { get; set; }
-
+        [Display(Name = "Mã Sinh Viên")]
         public int? ID_SINHVIEN { get; set; }
-
+        [Display(Name="Học Kỳ")]
         public int? ID_HOC_KY { get; set; }
-
+        [Display(Name = "Năm Học")]
         public int? ID_NAM_HOC { get; set; }
 
+        [Display(Name = "Tổng số chỉ")]
         public int? TONG_SO_TIN_CHI { get; set; }
 
         public virtual ICollection<CT_PHIEU_DANG_KY> CT_PHIEU_DANG_KY { get; set; }

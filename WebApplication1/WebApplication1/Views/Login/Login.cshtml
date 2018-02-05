@@ -123,7 +123,15 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-
+                <script language="Javascript">
+                    function IsEmpty() {
+                        if (document.getElementById('inputEmail').value === '' || document.getElementById('inputPassword').value === '') {
+                            alert("Mời nhập đầy đủ thông tin");
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
                 <div class="form-horizontal">
                     <hr />
                     @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @id = "inputEmail", @placeholder = "Tên Đăng Nhập", @class = "form-control" } })
@@ -133,7 +141,7 @@
                     @Html.EditorFor(model => model.NhoMatKhau)Nhớ mật khẩu
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Đăng Nhập" class="btn btn-primary" />
+                            <input type="submit" onclick=" return IsEmpty()" value="Đăng Nhập" class="btn btn-primary" />
                         </div>
                     </div>
                 </div>
@@ -146,4 +154,3 @@
 
 </body>
 </html>
-

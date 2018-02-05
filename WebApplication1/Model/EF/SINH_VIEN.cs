@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -13,18 +13,19 @@ namespace Model.EF
             CHUONG_TRINH_HOC = new HashSet<CHUONG_TRINH_HOC>();
             PHIEU_DANG_KY = new HashSet<PHIEU_DANG_KY>();
         }
+        [Display(Name = "Sinh Viên")]
         [Key]
         public int ID_SINHVIEN { get; set; }
-
+        [Display(Name = "Mã Sinh Viên")]
         [Required]
         [StringLength(500)]
         public string MA_SINH_VIEN { get; set; }
-
+        [Display(Name = "Tên Sinh Viên")]
         [StringLength(500)]
         public string TEN_SINH_VIEN { get; set; }
-
+        [Display(Name = "Ngày Sinh")]
         public DateTime? NGAY_SINH { get; set; }
-
+        [Display(Name = "Số CMND")]
         [StringLength(500)]
         public string CMND { get; set; }
 

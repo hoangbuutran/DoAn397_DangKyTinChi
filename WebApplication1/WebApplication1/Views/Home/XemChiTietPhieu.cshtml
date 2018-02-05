@@ -1,0 +1,48 @@
+﻿@model Model.EF.PHIEU_DANG_KY
+
+@{
+    ViewBag.Title = "XemChiTietPhieu";
+    Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
+}
+
+<div>
+    <h4>PHIEU_DANG_KY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_SINHVIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_SINHVIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_HOC_KY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_HOC_KY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_NAM_HOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_NAM_HOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TONG_SO_TIN_CHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TONG_SO_TIN_CHI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_PHIEU_DANG_KY })
+</p>

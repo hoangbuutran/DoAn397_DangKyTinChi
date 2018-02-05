@@ -163,7 +163,6 @@
     <Compile Include="Areas\GiaoVu\Controllers\SinhVienController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\GiaoVu\GiaoVuAreaRegistration.cs" />
-    <Compile Include="Common\Masinhvien.cs" />
     <Compile Include="Common\SinhVienModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginChungController.cs" />
@@ -327,6 +326,7 @@
     <Content Include="Views\Shared\MenuLeft.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\XemChuongTrinhHoc.cshtml" />
+    <Content Include="Views\Home\XemChiTietPhieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

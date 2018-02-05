@@ -6,35 +6,59 @@
     var DSMonHoc = (Model.EF.MON_HOC)ViewBag.MONHOC;
     var i = (int)ViewBag.IDPhieuDangKy;
 }
+<style>
+    select#ID_MON_HOC {
+        margin-left: 75px;
+        padding-left: 30px;
+        padding-right: 33px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-radius: 11px;
+    }
 
-<h2>ThemMonVaoPhieuCTH</h2>
+    select#ID_PHIEU_DANG_KY {
+        margin-left: 75px;
+        padding-left: 39px;
+        padding-right: 33px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-radius: 11px;
+    }
+
+    input.btn.btn-default {
+        margin-left: 6px;
+        padding-left: 52px;
+        padding-right: 47px;
+        border-radius: 18px;
+    }
+
+    h2#themmon {
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+</style>
+<h2 id="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>CT_PHIEU_DANG_KY</h4>
         <hr />
-
         <div class="form-group">
-            @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_PHIEU_DANG_KY", new List<SelectListItem> { new SelectListItem { Text = i.ToString(), Value = i.ToString() } })
-                @Html.ValidationMessageFor(model => model.ID_PHIEU_DANG_KY, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_MON_HOC, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.ID_MON_HOC, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
                 @Html.DropDownList("ID_MON_HOC", new List<SelectListItem> { new SelectListItem { Text = DSMonHoc.TEN_MON_HOC, Value = DSMonHoc.ID_MON_HOC.ToString() } })
                 @Html.ValidationMessageFor(model => model.ID_MON_HOC, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.DropDownList("ID_PHIEU_DANG_KY", new List<SelectListItem> { new SelectListItem { Text = i.ToString(), Value = i.ToString() } })
+                @Html.ValidationMessageFor(model => model.ID_PHIEU_DANG_KY, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
