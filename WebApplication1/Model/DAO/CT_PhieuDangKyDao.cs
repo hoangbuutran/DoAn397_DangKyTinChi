@@ -53,5 +53,10 @@ namespace Model.DAO
             return i;
         }
 
+        public List<CT_PHIEU_DANG_KY> DanhSachMonWithIdPhieu(int id)
+        {
+            return db.CT_PHIEU_DANG_KY.Where(x => x.ID_PHIEU_DANG_KY == id).ToList();
+        }
+
     }
 }

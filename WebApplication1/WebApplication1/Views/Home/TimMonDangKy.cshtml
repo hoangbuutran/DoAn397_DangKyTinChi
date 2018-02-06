@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "TimMonDangKy";
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
-    var i = (int)ViewBag.IDPhieuDangKy;
+    var i = (Model.EF.PHIEU_DANG_KY)ViewBag.IDPhieuDangKy;
 }
 <style>
     input#tentimkiem {
@@ -17,23 +17,28 @@
 
     select#idPhieu {
         margin-left: 75px;
-        padding-left: 39px;
-        padding-right: 33px;
+        padding-left: 10px;
+        padding-right: 5px;
         padding-bottom: 5px;
         padding-top: 5px;
         border-radius: 11px;
     }
 
     input.btn.btn-default {
-        margin-left: 23px;
-        padding-left: 77px;
-        padding-right: 92px;
+        margin-left: -29px;
+        padding-left: 71px;
+        padding-right: 82px;
         border-radius: 18px;
     }
 
     h2#tikiem {
-        margin-left: 52px;
+        margin-left: 243px;
         margin-top: 8px;
+    }
+
+    div#tongchilabel {
+        padding-top: 6px;
+        padding-left: 26px;
     }
 </style>
 <h2 id="tikiem">Tìm Kiếm Môn Đăng Ký</h2>
@@ -48,16 +53,19 @@
         <div class="form-group">
             @Html.LabelFor(model => model.chuoitimkiem, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-6">
-                @Html.EditorFor(model => model.chuoitimkiem, new { htmlAttributes = new { @id = "tentimkiem", @name="timkiem", @class = "form-control" } })
+                @Html.EditorFor(model => model.chuoitimkiem, new { htmlAttributes = new { @id = "tentimkiem", @name = "timkiem", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.chuoitimkiem, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.idPhieu, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-3">
-                @Html.DropDownList("idPhieu", new List<SelectListItem> { new SelectListItem { Text = i.ToString(), Value = i.ToString() } })
+            <div class="col-md-2">
+                @Html.DropDownList("idPhieu", new List<SelectListItem> { new SelectListItem { Text = i.ID_PHIEU_DANG_KY.ToString(), Value = i.ID_PHIEU_DANG_KY.ToString() } })
                 @Html.ValidationMessageFor(model => model.idPhieu, "", new { @class = "text-danger" })
+            </div>
+            <div id="tongchilabel" class="col-md-2">
+                @Html.Label("Tổng Chỉ: " + i.TONG_SO_TIN_CHI.ToString())
             </div>
             <script language="Javascript">
                 function IsEmpty() {

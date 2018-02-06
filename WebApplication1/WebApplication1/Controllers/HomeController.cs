@@ -23,6 +23,7 @@ namespace WebApplication1.Controllers
             daoMonHoc = new MonHocDao();
             daoCTPhieuDK = new CT_PhieuDangKyDao();
         }
+
         // GET: Home
         public ActionResult Index()
         {
@@ -57,21 +58,24 @@ namespace WebApplication1.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public ActionResult TimMonDangKy(int id)
         {
-            ViewBag.IDPhieuDangKy = id;
+            ViewBag.IDPhieuDangKy = dao.PhieuDKSinger(id);
             return View();
         }
+
         [HttpPost]
         public ActionResult TimMonDangKy(TimKiemModel model)
         {
             return RedirectToAction("ThemMonVaoPhieuCTH", "Home", new { searchstring = model.chuoitimkiem, idphieu = model.idPhieu });
         }
+
         [HttpGet]
         public ActionResult ThemMonVaoPhieuCTH(string searchstring, int idphieu)
         {
-            ViewBag.IDPhieuDangKy = idphieu;
+            ViewBag.IDPhieuDangKy = dao.PhieuDKSinger(idphieu);
             ViewBag.MONHOC = daoMonHoc.MonHocSingerwithMaTimKiem(searchstring);
             return View();
         }
@@ -87,10 +91,12 @@ namespace WebApplication1.Controllers
             ModelState.AddModelError("", "Không thể đăng kí thêm vì quá 20 chỉ");
             return View();
         }
+
         public ActionResult XemChuongTrinhHoc()
         {
             return View();
         }
+
         public ActionResult XemLichSuDangKy()
         {
             var IDSinhVien = (SinhVienModel)Session["USER_SESSION"];
@@ -99,6 +105,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult XemChiTietPhieu(int id)
         {
+            ViewBag.DsMon = daoCTPhieuDK.DanhSachMonWithIdPhieu(id);
             return View(dao.PhieuDKSinger(id));
         }
 

@@ -4,7 +4,7 @@
     ViewBag.Title = "ThemMonVaoPhieuCTH";
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
     var DSMonHoc = (Model.EF.MON_HOC)ViewBag.MONHOC;
-    var i = (int)ViewBag.IDPhieuDangKy;
+    var i = (Model.EF.PHIEU_DANG_KY)ViewBag.IDPhieuDangKy;
 }
 <style>
     select#ID_MON_HOC {
@@ -18,23 +18,32 @@
 
     select#ID_PHIEU_DANG_KY {
         margin-left: 75px;
-        padding-left: 39px;
-        padding-right: 33px;
+        padding-left: 5px;
+        padding-right: 5px;
         padding-bottom: 5px;
         padding-top: 5px;
         border-radius: 11px;
     }
 
     input.btn.btn-default {
-        margin-left: 6px;
-        padding-left: 52px;
-        padding-right: 47px;
+        margin-left: -15px;
+        padding-left: 39px;
+        padding-right: 40px;
         border-radius: 18px;
     }
 
     h2#themmon {
-        margin-left: 40px;
+        margin-left: 188px;
         margin-top: 10px;
+    }
+
+    div#tongchilabel {
+        padding-top: 6px;
+        padding-left: 26px;
+    }
+
+    div#formhienthithongtin {
+        margin-left: 117px;
     }
 </style>
 <h2 id="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
@@ -52,14 +61,34 @@
                 @Html.ValidationMessageFor(model => model.ID_MON_HOC, "", new { @class = "text-danger" })
             </div>
         </div>
+        <pre>
+               - SốChỉ:               @DSMonHoc.SO_CHI.ToString()
+               - Loại hình:           @DSMonHoc.LOAI_HINH.ToString()
+               - Môn học tiên quyết:  @DSMonHoc.MON_TIEN_QUYET.ToString()
+               - Môn học song hành:   @DSMonHoc.MON_SONG_HANH.ToString()
+        </pre>
         <div class="form-group">
             @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-3">
-                @Html.DropDownList("ID_PHIEU_DANG_KY", new List<SelectListItem> { new SelectListItem { Text = i.ToString(), Value = i.ToString() } })
+            <div class="col-md-2">
+                @Html.DropDownList("ID_PHIEU_DANG_KY", new List<SelectListItem> { new SelectListItem { Text = i.ID_PHIEU_DANG_KY.ToString(), Value = i.ID_PHIEU_DANG_KY.ToString() } })
                 @Html.ValidationMessageFor(model => model.ID_PHIEU_DANG_KY, "", new { @class = "text-danger" })
             </div>
+            <div id="tongchilabel" class="col-md-2">
+                @Html.Label("Tổng Chỉ: " + i.TONG_SO_TIN_CHI.ToString())
+            </div>
+            <script>
+                function CheckSoChi() {
+                    var tongchi = @i.TONG_SO_TIN_CHI;
+                    var sochicongtiep = @DSMonHoc.SO_CHI;
+                    if (tongchi + sochicongtiep > 20) {
+                        alert('Hơn 20 chỉ');
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
             <div class="col-md-3">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" onclick="return CheckSoChi()" value="Thêm vào Phiếu" class="btn btn-default" />
             </div>
         </div>
     </div>

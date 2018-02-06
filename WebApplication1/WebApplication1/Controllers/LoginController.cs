@@ -26,6 +26,7 @@ namespace WebApplication1.Controllers
                 var sinhviensession = new SinhVienModel();
                 sinhviensession.TenDangNhap = dao.USERNAME;
                 sinhviensession.MatKhau = dao.PASS;
+                sinhviensession.idloainguoidung = dao.ID_QUYEN;
                 Session.Add("USER_SESSION", sinhviensession);
                 return RedirectToAction("Index", "Home", new { area = "Admin" });
             }

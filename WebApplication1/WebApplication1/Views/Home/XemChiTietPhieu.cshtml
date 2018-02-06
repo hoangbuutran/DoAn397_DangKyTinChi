@@ -3,10 +3,21 @@
 @{
     ViewBag.Title = "XemChiTietPhieu";
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
+    var dsMon = (List<Model.EF.CT_PHIEU_DANG_KY>)ViewBag.DsMon;
 }
-
+<style>
+    h3#labelchitietphieu {
+    margin-left: 71px;
+    padding-top: 10px;
+}button#btnsuaphieu {
+    border-radius: 26px;
+    float: right;
+    margin-right: 37px;
+    margin-bottom: 11px;
+}
+</style>
 <div>
-    <h4>PHIEU_DANG_KY</h4>
+    <h3 id="labelchitietphieu">Chi Tiết Phiếu Đăng Ký</h3>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,9 +51,41 @@
         <dd>
             @Html.DisplayFor(model => model.TONG_SO_TIN_CHI)
         </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_PHIEU_DANG_KY })
+    <button id="btnsuaphieu">
+        @Html.ActionLink("Sửa Phiếu", "Edit", new { id = Model.ID_PHIEU_DANG_KY })
+    </button>
 </p>
+<table class="table table-bordered table-responsive">
+    <tr class="active">
+
+        <th>
+            @Html.DisplayName("Mã Môn")
+        </th>
+        <th>
+            @Html.DisplayName("Tên Môn")
+        </th>
+        <th>
+            @Html.DisplayName("Số Chỉ")
+        </th>
+        
+    </tr>
+    @foreach (var item in dsMon)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.MA_MON_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.TEN_MON_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.SO_CHI)
+            </td>
+            
+        </tr>
+    }
+
+</table>
