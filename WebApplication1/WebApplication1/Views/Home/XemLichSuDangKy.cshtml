@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
 }
 
-<h2>Xem Lịch Sử Đăng Ký</h2>
+<h2 id="labellichsu">Xem Lịch Sử Đăng Ký</h2>
 <p class="btn">
     @Html.ActionLink("Tạo Mới Phiếu Đăng Ký", "Create")
 </p>
@@ -44,7 +44,8 @@
 
 </table>
 <style>
-    h2 {
+    h2#labellichsu {
         padding-left: 28px;
+        margin-top:15px;
     }
 </style>

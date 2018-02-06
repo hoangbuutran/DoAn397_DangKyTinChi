@@ -14,16 +14,24 @@ namespace WebApplication1.Areas.GiaoVu
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            
-
             context.MapRoute(
-                "SinhVienController",
+                "ThongTinChungGiaoVu",
+                "GiaoVu/SinhVien/{action}/{id}",
+                new { action = "Index", controller = "ThongTinChung", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
+                "ThongKeGiaoVu",
+                "GiaoVu/ThongKe/{action}/{id}",
+                new { action = "Index", controller = "ThongKe", id = UrlParameter.Optional }
+            );
+            context.MapRoute(
+                "SinhVienGiaoVu",
                 "GiaoVu/SinhVien/{action}/{id}",
                 new { action = "Index", controller = "SinhVien", id = UrlParameter.Optional }
             );
 
             context.MapRoute(
-                "MonHocController",
+                "MonHocGiaoVu",
                 "GiaoVu/MonHoc/{action}/{id}",
                 new { action = "Index", controller = "MonHoc", id = UrlParameter.Optional }
             );
