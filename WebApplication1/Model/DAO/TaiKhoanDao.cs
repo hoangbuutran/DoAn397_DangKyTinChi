@@ -21,6 +21,17 @@ namespace Model.DAO
         {
             db = new CoSoDuLieuDbContext();
         }
+
+        public List<TAIKHOAN> listTaiKhoan()
+        {
+            return db.TAIKHOANs.ToList();
+        }
+
+        public TAIKHOAN TaiKhoanSingleWithID(int id)
+        {
+            return db.TAIKHOANs.Where(x => x.ID_TAI_KHOAN == id).SingleOrDefault();
+        }
+
         public int AddTaiKhoan(TAIKHOAN taikhoan)
         {
             int i;

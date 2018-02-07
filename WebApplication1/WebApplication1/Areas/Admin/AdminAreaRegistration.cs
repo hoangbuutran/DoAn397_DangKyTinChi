@@ -15,9 +15,9 @@ namespace WebApplication1.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "NguoiDungAdmin",
-                "Admin/NguoiDung/{action}/{id}",
-                new { action = "Index", controller = "NguoiDung", id = UrlParameter.Optional }
+                "TaiKhoanAdmin",
+                "Admin/TaiKhoan/{action}/{id}",
+                new { action = "Index", controller = "TaiKhoan", id = UrlParameter.Optional }
             );
             context.MapRoute(
                 "LoaiNguoiDungAdmin",

@@ -14,12 +14,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             return View();
         }
 
-        // GET: Admin/LoaiNguoiDung/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: Admin/LoaiNguoiDung/Create
         public ActionResult Create()
         {
@@ -64,26 +58,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/LoaiNguoiDung/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/LoaiNguoiDung/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }
