@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.USERNAME)
@@ -24,23 +24,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.USERNAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PASS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_QUYEN)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_TAI_KHOAN }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_TAI_KHOAN }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_TAI_KHOAN })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.USERNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PASS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_QUYEN)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID_TAI_KHOAN })
+            </td>
+        </tr>
+    }
 
 </table>

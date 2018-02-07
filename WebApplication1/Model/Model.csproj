@@ -57,6 +57,7 @@
     <Compile Include="DAO\PhieuDangKyDao.cs" />
     <Compile Include="DAO\SinhVienDao.cs" />
     <Compile Include="DAO\TaiKhoanDao.cs" />
+    <Compile Include="DAO\ThongKeDao.cs" />
     <Compile Include="EF\CHUONG_TRINH_HOC.cs" />
     <Compile Include="EF\CHUYEN_NGANH.cs" />
     <Compile Include="EF\CoSoDuLieuDbContext.cs" />
