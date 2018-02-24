@@ -166,6 +166,7 @@
     <Compile Include="Areas\GiaoVu\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\ThongTinChungController.cs" />
     <Compile Include="Areas\GiaoVu\GiaoVuAreaRegistration.cs" />
+    <Compile Include="Areas\GiaoVu\Models\KetQuaThongKe.cs" />
     <Compile Include="Areas\GiaoVu\Models\ThongKeModel.cs" />
     <Compile Include="Common\SinhVienModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -302,6 +303,9 @@
     <Content Include="Areas\Admin\Views\TaiKhoan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoan\Details.cshtml" />
     <Content Include="Areas\GiaoVu\Views\ThongKe\Index.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\ThongKe\ThongKe.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiNguoiDung\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiNguoiDung\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -340,8 +344,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\LoaiNguoiDung\" />
-    <Folder Include="Areas\Admin\Views\NguoiDung\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\ThongTinChung\" />

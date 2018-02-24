@@ -29,7 +29,7 @@ namespace Model.DAO
 
         public List<NAM_HOC> ListNamHoc()
         {
-            return db.NAM_HOC.ToList();
+            return db.NAM_HOC.Where(x=>x.TRANGTHAI == true).ToList();
         }
 
         public List<HOC_KY> ListHocKy()

@@ -22,35 +22,17 @@ namespace Model.DAO
             db = new CoSoDuLieuDbContext();
         }
 
-        
+
         public QUYEN QuyenSinger(int id)
         {
             return db.QUYENs.SingleOrDefault(x => x.ID_QUYEN == id);
         }
 
-        
+
         public List<QUYEN> ListQuyen()
         {
-            return db.QUYENs.ToList();
+            return db.QUYENs.Where(x => x.TRANG_THAI == true).ToList();
         }
-
-        
-        public int AddQuyen(QUYEN quyen)
-        {
-            int i;
-            try
-            {
-                db.QUYENs.Add(quyen);
-                db.SaveChanges();
-                i = 1;
-            }
-            catch (Exception)
-            {
-                i = 0;
-            }
-            return i;
-        }
-
 
         public int SuaQuyen(QUYEN quyen)
         {

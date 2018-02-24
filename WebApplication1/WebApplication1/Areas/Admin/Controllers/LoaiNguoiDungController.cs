@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.DAO;
+using Model.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,51 +13,27 @@ namespace WebApplication1.Areas.Admin.Controllers
         // GET: Admin/LoaiNguoiDung
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: Admin/LoaiNguoiDung/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/LoaiNguoiDung/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var model = new QuyenDao().ListQuyen();
+            return View(model);
         }
 
         // GET: Admin/LoaiNguoiDung/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = new QuyenDao().QuyenSinger(id);
+            return View(model);
         }
 
         // POST: Admin/LoaiNguoiDung/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(QUYEN model, FormCollection collection)
         {
-            try
+            int dao = new QuyenDao().SuaQuyen(model);
+            if (dao != 0)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                return View("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         

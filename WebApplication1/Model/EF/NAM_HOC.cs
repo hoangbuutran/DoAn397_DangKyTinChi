@@ -19,6 +19,7 @@
         [StringLength(500)]
         public string TEN_NAM_HOC { get; set; }
 
+        public bool? TRANGTHAI { get; set; }
         public virtual ICollection<PHIEU_DANG_KY> PHIEU_DANG_KY { get; set; }
     }
 }

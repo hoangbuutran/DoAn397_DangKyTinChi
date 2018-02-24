@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "ThongKe";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var modell = (List<WebApplication1.Areas.GiaoVu.Models.KetQuaThongKe>)ViewBag.thongkedao;
+    var thongtinnam = (Model.EF.NAM_HOC)ViewBag.ThongTinNam;
+    var thongtinhocky = (Model.EF.HOC_KY)ViewBag.ThongTinHocKy;
+}
+<style>
+    h3#panelthongke {
+        margin-left: 314px;
+    }
+
+    p#panel {
+        padding-left: 440px;
+    }
+</style>
+<h3 id="panelthongke">THỐNG KÊ TÍN CHỈ SINH VIÊN ĐĂNG KÝ</h3>
+<p id="panel">Năm: @thongtinnam.TEN_NAM_HOC - Học Kỳ: @thongtinhocky.TEN_HOC_KY</p>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Tên Môn
+            </th>
+            <th>
+                Tổng chỉ sinh viên đăng ký
+            </th>
+        </tr>
+    </thead>
+    @foreach (var item in modell)
+    {
+        var tongchimon = item.TONGCHIMON;
+        <tbody>
+            <tr>
+                <th>
+                    @Html.Label(item.TEN_MON_HOC)
+                </th>
+                <th>
+                    @tongchimon
+                </th>
+            </tr>
+        </tbody>
+    }
+
+</table>

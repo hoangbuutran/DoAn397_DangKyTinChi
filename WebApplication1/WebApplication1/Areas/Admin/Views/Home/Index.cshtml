@@ -2,7 +2,75 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var soquyen = (List<Model.EF.QUYEN>)ViewBag.quyen;
+    var sogiaovu = (List<Model.EF.TAIKHOAN>)ViewBag.giaovu;
+    var sosinhvien = (List<Model.EF.TAIKHOAN>)ViewBag.sinhvien;
 }
-
-<h2>Index</h2>
-
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@soquyen.Count</div>
+                        <div>Loại Người dùng</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/Admin/LoaiNguoiDung">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@sogiaovu.Count</div>
+                        <div>Giáo Vụ</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/Admin/TaiKhoan">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@sosinhvien.Count</div>
+                        <div>Sinh Viên</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/Admin/TaiKhoan">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
