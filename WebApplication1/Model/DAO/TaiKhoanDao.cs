@@ -46,6 +46,7 @@ namespace Model.DAO
             int i;
             try
             {
+                taikhoan.ID_QUYEN = 2;
                 db.TAIKHOANs.Add(taikhoan);
                 db.SaveChanges();
                 var taikhoantimlai = db.TAIKHOANs.Find(taikhoan.ID_TAI_KHOAN);

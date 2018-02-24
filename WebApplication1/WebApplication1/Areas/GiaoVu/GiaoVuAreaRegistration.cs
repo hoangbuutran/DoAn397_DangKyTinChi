@@ -16,7 +16,7 @@ namespace WebApplication1.Areas.GiaoVu
         {
             context.MapRoute(
                 "ThongTinChungGiaoVu",
-                "GiaoVu/SinhVien/{action}/{id}",
+                "GiaoVu/ThongTinChung/{action}/{id}",
                 new { action = "Index", controller = "ThongTinChung", id = UrlParameter.Optional }
             );
             context.MapRoute(

@@ -283,7 +283,6 @@
     <Content Include="Areas\GiaoVu\Views\SinhVien\Index.cshtml" />
     <Content Include="Areas\GiaoVu\Views\SinhVien\Details.cshtml" />
     <Content Include="Areas\GiaoVu\Views\SinhVien\Create.cshtml" />
-    <Content Include="Areas\GiaoVu\Views\SinhVien\Edit.cshtml" />
     <Content Include="Areas\GiaoVu\Views\MonHoc\Index.cshtml" />
     <Content Include="Areas\GiaoVu\Views\MonHoc\Details.cshtml" />
     <Content Include="Areas\GiaoVu\Views\MonHoc\Create.cshtml" />
@@ -306,6 +305,7 @@
     <Content Include="Areas\GiaoVu\Views\ThongKe\ThongKe.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiNguoiDung\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiNguoiDung\Edit.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\SinhVien\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -336,10 +336,10 @@
     <Content Include="Views\Home\XemLichSuDangKy.cshtml" />
     <Content Include="Views\Shared\MenuLeft.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Home\XemChuongTrinhHoc.cshtml" />
     <Content Include="Views\Home\XemChiTietPhieu.cshtml" />
     <Content Include="Views\Shared\_MenuLeftAdmin.cshtml" />
     <Content Include="Views\Shared\_MenuLeftGiaoVu.cshtml" />
+    <Content Include="Views\Home\XemChuongTrinhHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

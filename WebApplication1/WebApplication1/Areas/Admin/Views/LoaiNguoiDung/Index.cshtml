@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Quản Lý Quyền</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="btn">
+    @Html.ActionLink("Tạo Mới Quyền", "Create")
 </p>
-<table class="table">
+<hr />
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.TEN_QUYEN)
@@ -21,25 +22,26 @@
         <th>
             @Html.DisplayNameFor(model => model.TRANG_THAI)
         </th>
-        <th></th>
+        <th>Tùy Chọn</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_QUYEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MO_TA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TRANG_THAI)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_QUYEN })
-            
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_QUYEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MO_TA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRANG_THAI)
+            </td>
+            <td>
+                <p class="btn">
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_QUYEN })
+                </p>
+            </td>
+        </tr>
+    }
 </table>

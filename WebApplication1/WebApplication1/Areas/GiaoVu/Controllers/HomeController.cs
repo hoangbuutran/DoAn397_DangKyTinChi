@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,8 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         // GET: GiaoVu/Home
         public ActionResult Index()
         {
+            ViewBag.sinhvien = new SinhVienDao().ListSinhVien();
+            ViewBag.monhoc = new MonHocDao().ListMonHoc();
             return View();
         }
     }

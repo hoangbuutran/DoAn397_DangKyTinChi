@@ -2,7 +2,54 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var sinhvien = (List<Model.EF.SINH_VIEN>)ViewBag.sinhvien;
+    var monhoc = (List<Model.EF.MON_HOC>)ViewBag.monhoc;
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@sinhvien.Count</div>
+                        <div>Sinh Viên</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/GiaoVu/SinhVien">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@monhoc.Count</div>
+                        <div>Môn Học</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/GiaoVu/MonHoc">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>    
+</div>
 

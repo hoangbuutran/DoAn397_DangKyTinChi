@@ -20,7 +20,7 @@ namespace WebApplication1.Controllers
         {
             var daoTaiKhoan = new TaiKhoanDao();
             var i = daoTaiKhoan.Login(sinhvien.TenDangNhap, sinhvien.MatKhau);
-            if (i == 1)
+            if (i == 1)//ad
             {
                 var dao = daoTaiKhoan.TaiKhoanSingle(sinhvien.TenDangNhap, sinhvien.MatKhau);
                 var sinhviensession = new SinhVienModel();
@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
                 Session.Add("USER_SESSION", sinhviensession);
                 return RedirectToAction("Index", "Home", new { area = "Admin" });
             }
-            else if (i == 2)
+            else if (i == 2)//sunh vien
             {
                 var dao = daoTaiKhoan.TaiKhoanSingle(sinhvien.TenDangNhap, sinhvien.MatKhau);
                 var daosinhvien = new SinhVienDao().SinhVienSingerWithIDTaiKhoan(dao.ID_TAI_KHOAN);
@@ -42,7 +42,7 @@ namespace WebApplication1.Controllers
                 Session.Add("USER_SESSION", sinhviensession);
                 return RedirectToAction("Index", "Home");//sinh vien
             }
-            else if (i == 3)
+            else if (i == 3)// giao vu
             {
                 var dao = daoTaiKhoan.TaiKhoanSingle(sinhvien.TenDangNhap, sinhvien.MatKhau);
                 var sinhviensession = new SinhVienModel();

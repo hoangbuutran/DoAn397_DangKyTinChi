@@ -7,47 +7,36 @@
 }
 <style>
     h3#labelchitietphieu {
-    margin-left: 71px;
-    padding-top: 10px;
-}button#btnsuaphieu {
-    border-radius: 26px;
-    float: right;
-    margin-right: 37px;
-    margin-bottom: 11px;
-}
+        margin-left: 71px;
+        padding-top: 10px;
+    }
+
+    button#btnsuaphieu {
+        border-radius: 26px;
+        float: right;
+        margin-right: 37px;
+        margin-bottom: 11px;
+    }
 </style>
 <div>
     <h3 id="labelchitietphieu">Chi Tiết Phiếu Đăng Ký</h3>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ID_SINHVIEN)
+            @Html.DisplayNameFor(model => model.ID_NAM_HOC)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.ID_SINHVIEN)
+            @Html.DisplayFor(model => model.NAM_HOC.TEN_NAM_HOC)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.ID_HOC_KY)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.ID_HOC_KY)
+            @Html.DisplayFor(model => model.HOC_KY.TEN_HOC_KY)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ID_NAM_HOC)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ID_NAM_HOC)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.TONG_SO_TIN_CHI)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.TONG_SO_TIN_CHI)
         </dd>
@@ -60,7 +49,6 @@
 </p>
 <table class="table table-bordered table-responsive">
     <tr class="active">
-
         <th>
             @Html.DisplayName("Mã Môn")
         </th>
@@ -70,7 +58,6 @@
         <th>
             @Html.DisplayName("Số Chỉ")
         </th>
-        
     </tr>
     @foreach (var item in dsMon)
     {
@@ -84,8 +71,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MON_HOC.SO_CHI)
             </td>
-            
+
         </tr>
     }
-
 </table>

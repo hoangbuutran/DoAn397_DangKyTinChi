@@ -47,7 +47,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     int i = DaoTaiKhoan.AddTaiKhoan(model.TAIKHOAN);
                     if (i != 0)
@@ -71,7 +71,6 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         // GET: GiaoVu/SinhVien/Edit/5
         public ActionResult Edit(int id)
         {
-
             return View(dao.SinhVienSinger(id));
         }
 

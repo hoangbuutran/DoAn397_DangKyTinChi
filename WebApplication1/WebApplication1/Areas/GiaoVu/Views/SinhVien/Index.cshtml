@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
 
-<h2>Index</h2>
+<h3>Quản Lý Sinh Viên</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="btn">
+    @Html.ActionLink("Tạo mới sinh Viên", "Create")
 </p>
+<hr />
 <table class="table table-bordered">
     <tr class="panel-heading">
         <th>
@@ -17,9 +18,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TEN_SINH_VIEN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NGAY_SINH)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CMND)
@@ -30,37 +28,41 @@
         <th>
             @Html.DisplayNameFor(model => model.DIA_CHI)
         </th>
-        
-        <th></th>
+
+        <th>Tùy Chọn</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MA_SINH_VIEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_SINH_VIEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAY_SINH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CMND)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIEN_THOAI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIA_CHI)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SINHVIEN }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID_SINHVIEN }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID_SINHVIEN })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MA_SINH_VIEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_SINH_VIEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CMND)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIEN_THOAI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIA_CHI)
+            </td>
+
+            <td>
+                <p class="btn">
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_SINHVIEN })
+                </p>
+                <p class="btn">
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_SINHVIEN })
+                </p>
+                <p class="btn">
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID_SINHVIEN })
+                </p>
+            </td>
+        </tr>
+    }
 
 </table>
