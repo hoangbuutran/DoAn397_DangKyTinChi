@@ -29,7 +29,7 @@ namespace Model.DAO
 
         public List<NAM_HOC> ListNamHoc()
         {
-            return db.NAM_HOC.Where(x=>x.TRANGTHAI == true).ToList();
+            return db.NAM_HOC.Where(x => x.TRANGTHAI == true).ToList();
         }
 
         public List<HOC_KY> ListHocKy()
@@ -47,9 +47,13 @@ namespace Model.DAO
             int i = 0;
             try
             {
-                db.PHIEU_DANG_KY.Add(model);
-                db.SaveChanges();
-                i = model.ID_PHIEU_DANG_KY;
+                var timlai = db.PHIEU_DANG_KY.Count(x => x.ID_SINHVIEN == model.ID_SINHVIEN && x.ID_NAM_HOC == model.ID_NAM_HOC && x.ID_HOC_KY == model.ID_HOC_KY);
+                if (timlai == 0)
+                {
+                    db.PHIEU_DANG_KY.Add(model);
+                    db.SaveChanges();
+                    i = model.ID_PHIEU_DANG_KY;
+                }
             }
             catch (Exception)
             {

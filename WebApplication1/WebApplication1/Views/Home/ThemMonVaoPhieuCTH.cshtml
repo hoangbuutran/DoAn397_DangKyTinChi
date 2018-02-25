@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
     var DSMonHoc = (Model.EF.MON_HOC)ViewBag.MONHOC;
     var i = (Model.EF.PHIEU_DANG_KY)ViewBag.IDPhieuDangKy;
+    var dsMon = (List<Model.EF.CT_PHIEU_DANG_KY>)ViewBag.DsMon;
+    var j = (int)dsMon.Count();
 }
 <style>
     select#ID_MON_HOC {
@@ -44,6 +46,9 @@
 
     div#formhienthithongtin {
         margin-left: 117px;
+    }
+     p#labeltimmondsmon {
+        padding-left: 31px;
     }
 </style>
 <h2 id="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
@@ -86,6 +91,7 @@
                     }
                     return true;
                 }
+
             </script>
             <div class="col-md-3">
                 <input type="submit" onclick="return CheckSoChi()" value="Thêm vào Phiếu" class="btn btn-default" />
@@ -93,5 +99,35 @@
         </div>
     </div>
 }
+<hr />
+<p id="labeltimmondsmon"><strong>Danh sách môn có trong phiếu</strong></p>
+<table class="table table-bordered table-responsive">
+    <tr class="active panel-info">
+        <th>
+            @Html.DisplayName("Mã Môn")
+        </th>
+        <th>
+            @Html.DisplayName("Tên Môn")
+        </th>
+        <th>
+            @Html.DisplayName("Số Chỉ")
+        </th>
+    </tr>
+    @foreach (var item in dsMon)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.MA_MON_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.TEN_MON_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.SO_CHI)
+            </td>
+
+        </tr>
+    }
+</table>
 
 

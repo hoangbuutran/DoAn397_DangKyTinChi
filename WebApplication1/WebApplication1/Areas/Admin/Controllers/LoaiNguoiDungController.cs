@@ -17,6 +17,30 @@ namespace WebApplication1.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: GiaoVu/MonHoc/Create
+        [HttpPost]
+        public ActionResult Create(QUYEN model, FormCollection collection)
+        {
+            try
+            {
+                int i = new QuyenDao().AddQuyen(model);
+                if (i != 0)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Loi error");
+            }
+            return View();
+        }
+
         // GET: Admin/LoaiNguoiDung/Edit/5
         public ActionResult Edit(int id)
         {
@@ -31,7 +55,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             int dao = new QuyenDao().SuaQuyen(model);
             if (dao != 0)
             {
-                return View("Index");
+                return RedirectToAction("Index");
             }
             return View();
         }

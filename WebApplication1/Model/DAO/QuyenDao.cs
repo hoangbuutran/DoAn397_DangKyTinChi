@@ -31,7 +31,24 @@ namespace Model.DAO
 
         public List<QUYEN> ListQuyen()
         {
-            return db.QUYENs.Where(x => x.TRANG_THAI == true).ToList();
+            return db.QUYENs.ToList();
+        }
+
+        public int AddQuyen(QUYEN model)
+        {
+            int i;
+            try
+            {
+                db.QUYENs.Add(model);
+                db.SaveChanges();
+                i = model.ID_QUYEN;
+            }
+            catch (Exception)
+            {
+                i = 0;
+                throw;
+            }
+            return i;
         }
 
         public int SuaQuyen(QUYEN quyen)
@@ -40,8 +57,8 @@ namespace Model.DAO
             try
             {
                 var QuyenCu = db.QUYENs.Find(quyen.ID_QUYEN);
-                QuyenCu.TEN_QUYEN = QuyenCu.TEN_QUYEN;
-                QuyenCu.MO_TA = QuyenCu.MO_TA;
+                QuyenCu.TEN_QUYEN = quyen.TEN_QUYEN;
+                QuyenCu.MO_TA = quyen.MO_TA;
                 QuyenCu.TRANG_THAI = quyen.TRANG_THAI;
                 db.SaveChanges();
                 i = 1;

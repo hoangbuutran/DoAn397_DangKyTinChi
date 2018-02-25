@@ -4,6 +4,7 @@
     ViewBag.Title = "TimMonDangKy";
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
     var i = (Model.EF.PHIEU_DANG_KY)ViewBag.IDPhieuDangKy;
+    var dsMon = (List<Model.EF.CT_PHIEU_DANG_KY>)ViewBag.DsMon;
 }
 <style>
     input#tentimkiem {
@@ -40,6 +41,10 @@
         padding-top: 6px;
         padding-left: 26px;
     }
+
+    p#labeltimmondsmon {
+        padding-left: 31px;
+    }
 </style>
 <h2 id="tikiem">Tìm Kiếm Môn Đăng Ký</h2>
 
@@ -53,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.chuoitimkiem, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-6">
-                @Html.EditorFor(model => model.chuoitimkiem, new { htmlAttributes = new { @id = "tentimkiem", @name = "timkiem", @class = "form-control" } })
+                @Html.EditorFor(model => model.chuoitimkiem, new { htmlAttributes = new { @id = "tentimkiem", @name = "timkiem", @class = "form-control", @placeholder = "Tìm Theo mã môn. ví dụ: CS 211" } })
                 @Html.ValidationMessageFor(model => model.chuoitimkiem, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -68,6 +73,7 @@
                 @Html.Label("Tổng Chỉ: " + i.TONG_SO_TIN_CHI.ToString())
             </div>
             <script language="Javascript">
+
                 function IsEmpty() {
                     if (document.getElementById('tentimkiem').value === '') {
                         alert("Mời nhập đầy đủ thông tin");
@@ -77,9 +83,41 @@
                 }
             </script>
             <div class="col-md-3">
-                <input onclick=" return IsEmpty()" type="submit" value="Tìm Môn" class="btn btn-default" />
+                <input onclick=" return IsEmpty()"  type="submit" value="Tìm Môn" class="btn btn-default" />
             </div>
 
         </div>
     </div>
 }
+<hr />
+<p id="labeltimmondsmon"><strong>Danh sách môn có trong phiếu</strong></p>
+<table class="table table-bordered table-responsive">
+    <tr class="active panel-info">
+        <th>
+            @Html.DisplayName("Mã Môn")
+        </th>
+        <th>
+            @Html.DisplayName("Tên Môn")
+        </th>
+        <th>
+            @Html.DisplayName("Số Chỉ")
+        </th>
+    </tr>
+    @foreach (var item in dsMon)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.MA_MON_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.TEN_MON_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MON_HOC.SO_CHI)
+            </td>
+
+        </tr>
+    }
+</table>
+
+

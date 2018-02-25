@@ -27,6 +27,7 @@ namespace WebApplication1.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewData["khongtaophieu"] = 0;
             return View();
         }
 
@@ -45,10 +46,13 @@ namespace WebApplication1.Controllers
             {
                 model.TONG_SO_TIN_CHI = 0;
                 int i = dao.CreatePhieuDangKy(model);
-                // TODO: Add insert logic here
                 if (i != 0)
                 {
                     return RedirectToAction("TimMonDangKy", "Home", new { id = i });
+                }
+                else
+                {
+                    return View("DaDangKyPhieu");
                 }
             }
             catch
@@ -63,6 +67,7 @@ namespace WebApplication1.Controllers
         public ActionResult TimMonDangKy(int id)
         {
             ViewBag.IDPhieuDangKy = dao.PhieuDKSinger(id);
+            ViewBag.DsMon = daoCTPhieuDK.DanhSachMonWithIdPhieu(id);
             return View();
         }
 
@@ -77,6 +82,7 @@ namespace WebApplication1.Controllers
         {
             ViewBag.IDPhieuDangKy = dao.PhieuDKSinger(idphieu);
             ViewBag.MONHOC = daoMonHoc.MonHocSingerwithMaTimKiem(searchstring);
+            ViewBag.DsMon = daoCTPhieuDK.DanhSachMonWithIdPhieu(idphieu);
             return View();
         }
 
@@ -84,11 +90,14 @@ namespace WebApplication1.Controllers
         public ActionResult ThemMonVaoPhieuCTH(CT_PHIEU_DANG_KY model)
         {
             int i = daoCTPhieuDK.AddCTPHIEUDANGKY(model);
-            if (i != 0)
+            if (i == 1)
             {
                 return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
             }
-            ModelState.AddModelError("", "Không thể đăng kí thêm vì quá 20 chỉ");
+            else if (i == 2)
+            {
+                return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
+            }
             return View();
         }
 
