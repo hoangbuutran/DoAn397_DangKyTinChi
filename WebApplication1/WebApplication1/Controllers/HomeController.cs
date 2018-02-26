@@ -27,7 +27,6 @@ namespace WebApplication1.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewData["khongtaophieu"] = 0;
             return View();
         }
 
