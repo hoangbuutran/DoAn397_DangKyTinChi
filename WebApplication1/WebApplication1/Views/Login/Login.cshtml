@@ -112,13 +112,12 @@
             border-radius: 8px;
         }
     </style>
-
 </head>
 <body>
 
     <div class="container">
         <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <img id="profile-img" class="profile-img-card" src="~/Assets/SinhVien/img/tim_80x80.png" />
             <p id="profile-name" class="profile-name-card"></p>
             @using (Html.BeginForm())
             {
@@ -134,9 +133,9 @@
                 </script>
                 <div class="form-horizontal">
                     <hr />
-                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @id = "inputEmail", @placeholder = "Tên Đăng Nhập", @class = "form-control" } })
+                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @id = "inputEmail", @placeholder = "Tên Đăng Nhập", @class = "form-control", @required = true } })
                     <br />
-                    @Html.PasswordFor(model => model.MatKhau, new { htmlAttributes = new { @id = "inputPassword", @placeholder = "Mật Khẩu", @class = "form-control" } })
+                    @Html.PasswordFor(model => model.MatKhau, new { htmlAttributes = new { @id = "inputPassword", @placeholder = "Mật Khẩu", @class = "form-control", @required = true } })
                     <br />
                     @Html.EditorFor(model => model.NhoMatKhau)Nhớ mật khẩu
                     <div class="form-group">

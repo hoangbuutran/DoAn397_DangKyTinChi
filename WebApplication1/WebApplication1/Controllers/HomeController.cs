@@ -81,7 +81,15 @@ namespace WebApplication1.Controllers
         public ActionResult ThemMonVaoPhieuCTH(string searchstring, int idphieu)
         {
             ViewBag.IDPhieuDangKy = dao.PhieuDKSinger(idphieu);
-            ViewBag.MONHOC = daoMonHoc.MonHocSingerwithMaTimKiem(searchstring);
+            var mon = daoMonHoc.MonHocSingerwithMaTimKiem(searchstring);
+            if (mon != null)
+            {
+                ViewBag.MONHOC = mon;
+            }
+            else
+            {
+                return RedirectToAction("TimMonDangKy", "Home", new { id = idphieu });
+            }
             ViewBag.DsMon = daoCTPhieuDK.DanhSachMonWithIdPhieu(idphieu);
             return View();
         }
