@@ -15,9 +15,7 @@ namespace Model.EF
         public virtual DbSet<CHUONG_TRINH_HOC> CHUONG_TRINH_HOC { get; set; }
         public virtual DbSet<CHUYEN_NGANH> CHUYEN_NGANH { get; set; }
         public virtual DbSet<CT_PHIEU_DANG_KY> CT_PHIEU_DANG_KY { get; set; }
-        public virtual DbSet<HOC_KY> HOC_KY { get; set; }
-        public virtual DbSet<KHOA> KHOAs { get; set; }
-        public virtual DbSet<LOAI_MON> LOAI_MON { get; set; }
+        public virtual DbSet<HOC_KY> HOC_KY { get; set; }        
         public virtual DbSet<MON_HOC> MON_HOC { get; set; }
         public virtual DbSet<NAM_HOC> NAM_HOC { get; set; }
         public virtual DbSet<PHIEU_DANG_KY> PHIEU_DANG_KY { get; set; }

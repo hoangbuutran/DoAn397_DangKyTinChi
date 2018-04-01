@@ -41,7 +41,7 @@ namespace Model.EF
         [Column(TypeName = "ntext")]
         public string MO_TA { get; set; }
 
-        public int? ID_LOAI_MON { get; set; }
+
 
         public int? ID_CHUYEN_NGANH { get; set; }
 
@@ -53,6 +53,6 @@ namespace Model.EF
 
         public virtual ICollection<CT_PHIEU_DANG_KY> CT_PHIEU_DANG_KY { get; set; }
 
-        public virtual LOAI_MON LOAI_MON { get; set; }
+
     }
 }

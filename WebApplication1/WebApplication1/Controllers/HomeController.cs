@@ -108,11 +108,11 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public ActionResult XemChuongTrinhHoc(int id)
-        {
-            var model = new ChuongTrinhHocDao().ListChuongTrinhHoc(id);
-            return View(model);
-        }
+        //public ActionResult XemChuongTrinhHoc(int id)
+        //{
+        //    var model = new ChuongTrinhHocDao().ListChuongTrinhHoc(id);
+        //    return View(model);
+        //}
 
         public ActionResult XemLichSuDangKy()
         {

@@ -13,13 +13,13 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         CoSoDuLieuDbContext db = null;
         MonHocDao dao = null;
         ChuyenNganhDao DaoChuyenNganh = null;
-        LoaiMonDao DaoLoaiMon = null;
+        //LoaiMonDao DaoLoaiMon = null;
         public MonHocController()
         {
             db = new CoSoDuLieuDbContext();
             dao = new MonHocDao();
             DaoChuyenNganh = new ChuyenNganhDao();
-            DaoLoaiMon = new LoaiMonDao();
+            //DaoLoaiMon = new LoaiMonDao();
         }
 
         // GET: GiaoVu/MonHoc
@@ -38,7 +38,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         public ActionResult Create()
         {
             ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
-            ViewBag.DSLoaiMon = new SelectList(DaoLoaiMon.ListLoaiMon(), "ID_LOAI_MON", "TEN_LOAI_MON");
+            //ViewBag.DSLoaiMon = new SelectList(DaoLoaiMon.ListLoaiMon(), "ID_LOAI_MON", "TEN_LOAI_MON");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         public ActionResult Edit(int id)
         {
             ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
-            ViewBag.DSLoaiMon = new SelectList(DaoLoaiMon.ListLoaiMon(), "ID_LOAI_MON", "TEN_LOAI_MON");
+            //ViewBag.DSLoaiMon = new SelectList(DaoLoaiMon.ListLoaiMon(), "ID_LOAI_MON", "TEN_LOAI_MON");
             return View(dao.MonHocSinger(id));
         }
 

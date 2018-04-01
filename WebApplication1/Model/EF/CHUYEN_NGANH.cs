@@ -20,9 +20,6 @@ namespace Model.EF
         [StringLength(500)]
         public string TEN_CHUYEN_NGANH { get; set; }
 
-        public int? ID_KHOA { get; set; }
-
-        public virtual KHOA KHOA { get; set; }
 
         public virtual ICollection<MON_HOC> MON_HOC { get; set; }
 

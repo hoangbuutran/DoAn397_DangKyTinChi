@@ -49,6 +49,12 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    var tentaikhoan1 = model.TEN_SINH_VIEN.ToLower();
+                    var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
+                    var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
+                    var pass = model.MA_SINH_VIEN.Substring(6);//2121114026
+                    model.TAIKHOAN.USERNAME = tentaikhoan3;
+                    model.TAIKHOAN.PASS = pass;
                     int i = DaoTaiKhoan.AddTaiKhoan(model.TAIKHOAN);
                     if (i != 0)
                     {
@@ -92,6 +98,8 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             }
             return View("Index");
         }
+
+
 
         // POST: GiaoVu/SinhVien/Delete/5
         [HttpPost]
