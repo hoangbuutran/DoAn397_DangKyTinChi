@@ -10,7 +10,7 @@ namespace Model.EF
     {
         public MON_HOC()
         {
-            CHUONG_TRINH_HOC = new HashSet<CHUONG_TRINH_HOC>();
+            CHUYENNGANH_MONHOC = new HashSet<CHUYENNGANH_MONHOC>();
             CT_PHIEU_DANG_KY = new HashSet<CT_PHIEU_DANG_KY>();
         }
 
@@ -41,18 +41,10 @@ namespace Model.EF
         [Column(TypeName = "ntext")]
         public string MO_TA { get; set; }
 
-
-
-        public int? ID_CHUYEN_NGANH { get; set; }
-
         public bool? TRANG_THAI { get; set; }
 
-        public virtual ICollection<CHUONG_TRINH_HOC> CHUONG_TRINH_HOC { get; set; }
-
-        public virtual CHUYEN_NGANH CHUYEN_NGANH { get; set; }
+        public virtual ICollection<CHUYENNGANH_MONHOC> CHUYENNGANH_MONHOC { get; set; }
 
         public virtual ICollection<CT_PHIEU_DANG_KY> CT_PHIEU_DANG_KY { get; set; }
-
-
     }
 }

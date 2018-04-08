@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model.DAO
 {
-    public class MonHocDao
+    public class ChuyenNganhMonHocDao
     {
         /// <summary>
         /// biến kết nối csdl
@@ -17,7 +17,7 @@ namespace Model.DAO
         /// <summary>
         /// hàm khởi tạo
         /// </summary>
-        public MonHocDao()
+        public ChuyenNganhMonHocDao()
         {
             db = new CoSoDuLieuDbContext();
         }
@@ -27,9 +27,9 @@ namespace Model.DAO
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public MON_HOC MonHocSinger(int id)
+        public CHUYENNGANH_MONHOC ChuyenNganhMonHocSinger(int id)
         {
-            return db.MON_HOC.SingleOrDefault(x => x.ID_MON_HOC == id);
+            return db.CHUYENNGANH_MONHOC.SingleOrDefault(x => x.ID_MONHOC == id);
         }
 
         /// <summary>
@@ -55,14 +55,16 @@ namespace Model.DAO
         /// </summary>
         /// <param name="MonHoc"></param>
         /// <returns></returns>
-        public int AddMonHoc(MON_HOC MonHoc)
+        public int AddMonHoc(CHUYENNGANH_MONHOC MonHoc)
         {
             int i;
             try
             {
-                db.MON_HOC.Add(MonHoc);
+                //var j = new MonHocDao().AddMonHoc(MonHoc.MON_HOC);
+                //MonHoc.ID_MONHOC = j;
+                db.CHUYENNGANH_MONHOC.Add(MonHoc);
                 db.SaveChanges();
-                i = MonHoc.ID_MON_HOC;
+                i = 1;
             }
             catch (Exception)
             {
@@ -76,18 +78,16 @@ namespace Model.DAO
         /// </summary>
         /// <param name="MonHocMoi"></param>
         /// <returns></returns>
-        public int SuaMonHoc(MON_HOC MonHocMoi)
+        public int SuaMonHoc(CHUYENNGANH_MONHOC MonHocMoi)
         {
             int i;
             try
             {
-                var MonHocCu = db.MON_HOC.Find(MonHocMoi.ID_MON_HOC);
-                MonHocCu.SO_CHI = MonHocMoi.SO_CHI;
-                MonHocCu.LOAI_DVHT = MonHocMoi.LOAI_DVHT;
-                MonHocCu.LOAI_HINH = MonHocMoi.LOAI_HINH;
-                MonHocCu.MON_TIEN_QUYET = MonHocMoi.MON_TIEN_QUYET;
-                MonHocCu.MON_SONG_HANH = MonHocMoi.MON_SONG_HANH;
-                MonHocCu.MO_TA = MonHocMoi.MO_TA;
+                var j = new MonHocDao().SuaMonHoc(MonHocMoi.MON_HOC);
+                var MonHocCu = ChuyenNganhMonHocSinger(MonHocMoi.ID);
+                MonHocCu.ID_CHUYENNGANH = MonHocMoi.ID_CHUYENNGANH;
+                MonHocCu.TU_CHON = MonHocMoi.TU_CHON;
+                MonHocCu.NHOM_TU_CHON = MonHocMoi.NHOM_TU_CHON;
                 db.SaveChanges();
                 i = 1;
             }
@@ -108,8 +108,11 @@ namespace Model.DAO
             int i;
             try
             {
-                var MonHoc = db.MON_HOC.Find(id);
-                db.MON_HOC.Remove(MonHoc);
+
+                var MonHoc = ChuyenNganhMonHocSinger(id);
+                var MonHoc2 = db.MON_HOC.Find(id);
+                db.CHUYENNGANH_MONHOC.Remove(MonHoc);
+                db.MON_HOC.Remove(MonHoc2);
                 db.SaveChanges();
                 i = 1;
             }

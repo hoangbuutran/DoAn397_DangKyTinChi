@@ -10,8 +10,8 @@ namespace Model.EF
     {
         public CHUYEN_NGANH()
         {
-            MON_HOC = new HashSet<MON_HOC>();
             SINH_VIEN = new HashSet<SINH_VIEN>();
+            CHUYENNGANH_MONHOC = new HashSet<CHUYENNGANH_MONHOC>();
         }
 
         [Key]
@@ -20,9 +20,8 @@ namespace Model.EF
         [StringLength(500)]
         public string TEN_CHUYEN_NGANH { get; set; }
 
-
-        public virtual ICollection<MON_HOC> MON_HOC { get; set; }
-
         public virtual ICollection<SINH_VIEN> SINH_VIEN { get; set; }
+
+        public virtual ICollection<CHUYENNGANH_MONHOC> CHUYENNGANH_MONHOC { get; set; }
     }
 }

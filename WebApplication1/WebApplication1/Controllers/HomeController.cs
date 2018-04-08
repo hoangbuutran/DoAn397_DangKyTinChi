@@ -59,7 +59,6 @@ namespace WebApplication1.Controllers
                 ModelState.AddModelError("", "Tạo Phiếu không thành công");
                 return View();
             }
-            return View();
         }
 
         [HttpGet]

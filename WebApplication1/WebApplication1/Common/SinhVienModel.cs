@@ -13,6 +13,6 @@ namespace WebApplication1.Common
         public bool NhoMatKhau { get; set; }
         public int? idloainguoidung { get; set; }
         public string MaSinhVien { get; set; }
-
+        public int? idChuyenNganh { get; set; }
     }
 }

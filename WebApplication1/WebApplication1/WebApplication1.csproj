@@ -329,6 +329,7 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\ThongTinChung\" />
+    <Folder Include="Views\ChonMon\" />
     <Folder Include="Views\LoginChung\" />
   </ItemGroup>
   <ItemGroup>

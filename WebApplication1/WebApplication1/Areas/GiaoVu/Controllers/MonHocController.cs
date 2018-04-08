@@ -12,14 +12,15 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
     {
         CoSoDuLieuDbContext db = null;
         MonHocDao dao = null;
+        ChuyenNganhMonHocDao daochuyennganhmonhoc = null;
         ChuyenNganhDao DaoChuyenNganh = null;
-        //LoaiMonDao DaoLoaiMon = null;
+
         public MonHocController()
         {
             db = new CoSoDuLieuDbContext();
             dao = new MonHocDao();
+            daochuyennganhmonhoc = new ChuyenNganhMonHocDao();
             DaoChuyenNganh = new ChuyenNganhDao();
-            //DaoLoaiMon = new LoaiMonDao();
         }
 
         // GET: GiaoVu/MonHoc
@@ -38,17 +39,16 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         public ActionResult Create()
         {
             ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
-            //ViewBag.DSLoaiMon = new SelectList(DaoLoaiMon.ListLoaiMon(), "ID_LOAI_MON", "TEN_LOAI_MON");
             return View();
         }
 
         // POST: GiaoVu/MonHoc/Create
         [HttpPost]
-        public ActionResult Create(MON_HOC model, FormCollection collection)
+        public ActionResult Create(CHUYENNGANH_MONHOC model, FormCollection collection)
         {
             try
             {
-                int i = dao.AddMonHoc(model);
+                int i = daochuyennganhmonhoc.AddMonHoc(model);
                 if (i == 1)
                 {
                     return RedirectToAction("Index");
@@ -65,17 +65,16 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         public ActionResult Edit(int id)
         {
             ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
-            //ViewBag.DSLoaiMon = new SelectList(DaoLoaiMon.ListLoaiMon(), "ID_LOAI_MON", "TEN_LOAI_MON");
-            return View(dao.MonHocSinger(id));
+            return View(daochuyennganhmonhoc.ChuyenNganhMonHocSinger(id));
         }
 
         // POST: GiaoVu/MonHoc/Edit/5
         [HttpPost]
-        public ActionResult Edit(MON_HOC model, FormCollection collection)
+        public ActionResult Edit(CHUYENNGANH_MONHOC model, FormCollection collection)
         {
             try
             {
-                if (dao.SuaMonHoc(model) == 1)
+                if (daochuyennganhmonhoc.SuaMonHoc(model) == 1)
                 {
                     return RedirectToAction("Index");
                 }
@@ -83,16 +82,17 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             catch
             {
                 ModelState.AddModelError("", "Loi");
-                return RedirectToAction("Edit", "MonHoc", new { id = model.ID_MON_HOC });
+                return RedirectToAction("Edit", "MonHoc", new { id = model.ID_MONHOC });
             }
             return View();
         }
 
         // POST: GiaoVu/MonHoc/Delete/5
-        [HttpPost]
-        public void Delete(int id, FormCollection collection)
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            dao.XoaMonHoc(id);
+            daochuyennganhmonhoc.XoaMonHoc(id);
+            return RedirectToAction("Index");
         }
     }
 }

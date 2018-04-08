@@ -39,6 +39,7 @@ namespace WebApplication1.Controllers
                 sinhviensession.TenDangNhap = daosinhvien.TAIKHOAN.USERNAME;
                 sinhviensession.MatKhau = daosinhvien.TAIKHOAN.PASS;
                 sinhviensession.MaSinhVien = daosinhvien.MA_SINH_VIEN;
+                sinhviensession.idChuyenNganh = daosinhvien.ID_CHUYEN_NGANH;
                 Session.Add("USER_SESSION", sinhviensession);
                 return RedirectToAction("Index", "Home");//sinh vien
             }

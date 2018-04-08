@@ -11,6 +11,7 @@ namespace Model.EF
     {
         public TAIKHOAN()
         {
+            NHAN_VIEN = new HashSet<NHAN_VIEN>();
             SINH_VIEN = new HashSet<SINH_VIEN>();
         }
 
@@ -24,6 +25,8 @@ namespace Model.EF
         public string PASS { get; set; }
 
         public int? ID_QUYEN { get; set; }
+
+        public virtual ICollection<NHAN_VIEN> NHAN_VIEN { get; set; }
 
         public virtual QUYEN QUYEN { get; set; }
 

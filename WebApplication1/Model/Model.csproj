@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ChuongTrinhHocDao.cs" />
     <Compile Include="DAO\ChuyenNganhDao.cs" />
+    <Compile Include="DAO\ChuyenNganhMonHocDao.cs" />
     <Compile Include="DAO\CT_PhieuDangKyDao.cs" />
     <Compile Include="DAO\MonHocDao.cs" />
     <Compile Include="DAO\QuyenDao.cs" />
@@ -58,13 +58,14 @@
     <Compile Include="DAO\TaiKhoanDao.cs" />
     <Compile Include="DAO\ThongKeDao.cs" />
     <Compile Include="DAO\ThongTinChungDao.cs" />
-    <Compile Include="EF\CHUONG_TRINH_HOC.cs" />
+    <Compile Include="EF\CHUYENNGANH_MONHOC.cs" />
     <Compile Include="EF\CHUYEN_NGANH.cs" />
     <Compile Include="EF\CoSoDuLieuDbContext.cs" />
     <Compile Include="EF\CT_PHIEU_DANG_KY.cs" />
     <Compile Include="EF\HOC_KY.cs" />
     <Compile Include="EF\MON_HOC.cs" />
     <Compile Include="EF\NAM_HOC.cs" />
+    <Compile Include="EF\NHAN_VIEN.cs" />
     <Compile Include="EF\PHIEU_DANG_KY.cs" />
     <Compile Include="EF\QUYEN.cs" />
     <Compile Include="EF\SINH_VIEN.cs" />
