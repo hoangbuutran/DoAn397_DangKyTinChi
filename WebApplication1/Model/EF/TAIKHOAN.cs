@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -15,15 +15,19 @@ namespace Model.EF
             SINH_VIEN = new HashSet<SINH_VIEN>();
         }
 
+        [Display(Name = "Tài khoản")]
         [Key]
         public int ID_TAI_KHOAN { get; set; }
 
+        [Display(Name = "UserName")]
         [StringLength(500)]
         public string USERNAME { get; set; }
 
+        [Display(Name = "PassWord")]
         [StringLength(500)]
         public string PASS { get; set; }
 
+        [Display(Name = "Quyền")]
         public int? ID_QUYEN { get; set; }
 
         public virtual ICollection<NHAN_VIEN> NHAN_VIEN { get; set; }

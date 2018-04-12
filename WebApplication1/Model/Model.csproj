@@ -52,6 +52,7 @@
     <Compile Include="DAO\ChuyenNganhMonHocDao.cs" />
     <Compile Include="DAO\CT_PhieuDangKyDao.cs" />
     <Compile Include="DAO\MonHocDao.cs" />
+    <Compile Include="DAO\NamHocDao.cs" />
     <Compile Include="DAO\QuyenDao.cs" />
     <Compile Include="DAO\PhieuDangKyDao.cs" />
     <Compile Include="DAO\SinhVienDao.cs" />

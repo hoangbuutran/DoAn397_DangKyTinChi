@@ -162,6 +162,7 @@
     <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\MonHocController.cs" />
+    <Compile Include="Areas\GiaoVu\Controllers\NamHocController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\SinhVienController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\ThongTinChungController.cs" />
@@ -329,11 +330,14 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\ThongTinChung\" />
-    <Folder Include="Views\ChonMon\" />
     <Folder Include="Views\LoginChung\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Areas\GiaoVu\Views\NamHoc\Index.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\NamHoc\Details.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\NamHoc\Create.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\NamHoc\Edit.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

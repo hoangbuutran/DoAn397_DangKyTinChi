@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -12,10 +12,11 @@ namespace Model.EF
         {
             PHIEU_DANG_KY = new HashSet<PHIEU_DANG_KY>();
         }
-
+        [Display(Name = "Học kỳ")]
         [Key]
         public int ID_HOC_KY { get; set; }
 
+        [Display(Name = "Tên học kỳ")]
         [StringLength(500)]
         public string TEN_HOC_KY { get; set; }
 

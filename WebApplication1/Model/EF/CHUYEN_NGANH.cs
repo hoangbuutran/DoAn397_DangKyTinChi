@@ -14,9 +14,11 @@ namespace Model.EF
             CHUYENNGANH_MONHOC = new HashSet<CHUYENNGANH_MONHOC>();
         }
 
+                [Display(Name = "Chuyên ngành")]
         [Key]
         public int ID_CHUYEN_NGANH { get; set; }
 
+        [Display(Name = "Chuyên ngành")]
         [StringLength(500)]
         public string TEN_CHUYEN_NGANH { get; set; }
 

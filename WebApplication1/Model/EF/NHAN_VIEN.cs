@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -8,24 +8,31 @@ namespace Model.EF
 
     public partial class NHAN_VIEN
     {
+        [Display(Name = "Nhân viên")]
         [Key]
         public int ID_NHANVIEN { get; set; }
 
+        [Display(Name = "Tên nhân viên")]
         [StringLength(50)]
         public string TEN_NHANVIEN { get; set; }
 
+        [Display(Name = "Ngày sinh")]
         [Column(TypeName = "date")]
         public DateTime? NGAY_SINH { get; set; }
 
+        [Display(Name = "Điện thoại")]
         [StringLength(500)]
         public string DIEN_THOAI { get; set; }
 
+        [Display(Name = "Địa chỉ")]
         [StringLength(900)]
         public string DIA_CHI { get; set; }
 
+        [Display(Name = "Email")]
         [StringLength(500)]
         public string EMAIL { get; set; }
 
+        [Display(Name = "Tài khoản")]
         public int? ID_TAI_KHOAN { get; set; }
 
         public virtual TAIKHOAN TAIKHOAN { get; set; }

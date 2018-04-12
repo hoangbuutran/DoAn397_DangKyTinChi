@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Model.EF.NAM_HOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>Danh sách năm học</h2>
+
+<p class="btn">
+    @Html.ActionLink("Tạo mới năm học", "Create")
+</p>
+<hr />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_NAM_HOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANGTHAI)
+        </th>
+        <th>Tùy Chọn</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_NAM_HOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRANGTHAI)
+            </td>
+            <td>
+                <p class="btn">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_NAM_HOC })
+                </p>
+                <p class="btn">
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_NAM_HOC })
+                </p>
+                <p class="btn">
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_NAM_HOC })
+                </p>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -36,7 +36,6 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         public ActionResult ThongKe(ThongKeModel thongke)
         {
             ViewBag.thongkedao = THONGKETONGTINCHITHEOMON(thongke.NamHoc, thongke.HocKy);
-            
             ViewBag.ThongTinNam = new ThongTinChungDao().NamHocSinger(thongke.NamHoc);
             ViewBag.ThongTinHocKy = new ThongTinChungDao().HocKySinger(thongke.HocKy);
             return View();
