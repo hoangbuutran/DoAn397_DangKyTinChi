@@ -66,6 +66,17 @@ namespace Model.DAO
         {
             return db.CT_PHIEU_DANG_KY.Where(x => x.ID_PHIEU_DANG_KY == id).ToList();
         }
+        public CT_PHIEU_DANG_KY MonTrongPhieuSinger(int idCtPhieu)
+        {
+            return db.CT_PHIEU_DANG_KY.Where(x => x.ID_CT_PHIEU_DANG_KY == idCtPhieu).SingleOrDefault();
+        }
+
+
+        public void XoaMonTrongPhieuSinger(CT_PHIEU_DANG_KY Mon)
+        {
+            db.CT_PHIEU_DANG_KY.Remove(Mon);
+            db.SaveChanges();
+        }
 
     }
 }
