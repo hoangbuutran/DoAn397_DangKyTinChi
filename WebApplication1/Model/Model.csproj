@@ -53,6 +53,7 @@
     <Compile Include="DAO\CT_PhieuDangKyDao.cs" />
     <Compile Include="DAO\MonHocDao.cs" />
     <Compile Include="DAO\NamHocDao.cs" />
+    <Compile Include="DAO\NhanVienDao.cs" />
     <Compile Include="DAO\QuyenDao.cs" />
     <Compile Include="DAO\PhieuDangKyDao.cs" />
     <Compile Include="DAO\SinhVienDao.cs" />
@@ -72,13 +73,22 @@
     <Compile Include="EF\SINH_VIEN.cs" />
     <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\TAIKHOAN.cs" />
+    <Compile Include="Migrations\201804190040425_addDb.cs" />
+    <Compile Include="Migrations\201804190040425_addDb.Designer.cs">
+      <DependentUpon>201804190040425_addDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804190040425_addDb.resx">
+      <DependentUpon>201804190040425_addDb.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

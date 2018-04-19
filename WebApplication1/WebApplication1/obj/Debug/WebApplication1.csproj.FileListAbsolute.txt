@@ -112,3 +112,6 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Micr
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Model.dll.config
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete

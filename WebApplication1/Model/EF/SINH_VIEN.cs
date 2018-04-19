@@ -13,7 +13,7 @@
             PHIEU_DANG_KY = new HashSet<PHIEU_DANG_KY>();
         }
 
-        [Display(Name = "Sinh viên")]
+        [Display(Name = "Mã sinh viên")]
         [Key]
         public int ID_SINHVIEN { get; set; }
 
@@ -37,7 +37,7 @@
         [StringLength(500)]
         public string DIEN_THOAI { get; set; }
 
-        [Display(Name = "Điện thoại")]
+        [Display(Name = "Địa chỉ")]
         [StringLength(900)]
         public string DIA_CHI { get; set; }
         [Display(Name = "Email")]
@@ -47,7 +47,7 @@
         [Display(Name = "Tài khoản")]
         public int? ID_TAI_KHOAN { get; set; }
 
-        [Display(Name = "Tổng số tín chỉ")]
+        [Display(Name = "Chuyên Ngành")]
         public int? ID_CHUYEN_NGANH { get; set; }
 
         public virtual CHUYEN_NGANH CHUYEN_NGANH { get; set; }

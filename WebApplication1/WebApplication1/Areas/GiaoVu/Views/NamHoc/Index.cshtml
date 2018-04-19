@@ -34,15 +34,15 @@
             </td>
             <td>
                 <p class="btn">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_NAM_HOC })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_NAM_HOC })
                 </p>
                 <p class="btn">
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_NAM_HOC })
+                    @Html.ActionLink("Xem chi tiết", "Details", new { id = item.ID_NAM_HOC })
                 </p>
-                <p class="btn">
+                @*<p class="btn">
 
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID_NAM_HOC })
-                </p>
+                </p>*@
             </td>
         </tr>
     }

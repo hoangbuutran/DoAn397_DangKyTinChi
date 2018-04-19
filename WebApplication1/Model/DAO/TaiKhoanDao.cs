@@ -29,7 +29,7 @@ namespace Model.DAO
 
         public List<TAIKHOAN> listCountTaiKhoanGiaoVu()
         {
-            return db.TAIKHOANs.Where(x=>x.ID_QUYEN != 1 && x.ID_QUYEN != 2).ToList();
+            return db.TAIKHOANs.Where(x=>x.ID_QUYEN != 1 && x.ID_QUYEN != 3).ToList();
         }
 
         public List<TAIKHOAN> listCountTaiKhoanSinhVien()
@@ -46,7 +46,7 @@ namespace Model.DAO
             int i;
             try
             {
-                taikhoan.ID_QUYEN = 2;
+                //taikhoan.ID_QUYEN = 2;
                 db.TAIKHOANs.Add(taikhoan);
                 db.SaveChanges();
                 var taikhoantimlai = db.TAIKHOANs.Find(taikhoan.ID_TAI_KHOAN);

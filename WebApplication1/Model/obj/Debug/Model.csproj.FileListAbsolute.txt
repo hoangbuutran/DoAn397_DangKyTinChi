@@ -18,3 +18,7 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFr
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.pdb
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.CopyComplete
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.addDb.resources
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.GenerateResource.cache

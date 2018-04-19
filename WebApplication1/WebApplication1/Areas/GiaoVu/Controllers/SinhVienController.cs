@@ -47,36 +47,53 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                var tentaikhoan1 = model.TEN_SINH_VIEN.ToLower();
+                var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
+                var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
+                var pass = model.MA_SINH_VIEN.Substring(6);//2121114026
+                var taikhoan = new TAIKHOAN {
+                    USERNAME = tentaikhoan3,
+                    PASS = pass,
+                    ID_QUYEN = 3
+                };
+                //model.TAIKHOAN.USERNAME = tentaikhoan3;
+                //model.TAIKHOAN.PASS = pass;
+                int i = DaoTaiKhoan.AddTaiKhoan(taikhoan);
+                if (i != 0)
                 {
-                    var tentaikhoan1 = model.TEN_SINH_VIEN.ToLower();
-                    var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
-                    var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
-                    var pass = model.MA_SINH_VIEN.Substring(6);//2121114026
-                    model.TAIKHOAN.USERNAME = tentaikhoan3;
-                    model.TAIKHOAN.PASS = pass;
-                    int i = DaoTaiKhoan.AddTaiKhoan(model.TAIKHOAN);
-                    if (i != 0)
+                    model.ID_TAI_KHOAN = i;
+                    int j = dao.AddSinhVien(model);
+                    if (j == 1)
                     {
-                        model.ID_TAI_KHOAN = i;
-                        int j = dao.AddSinhVien(model);
-                        if (j == 1)
-                        {
-                            return RedirectToAction("Index");
-                        }
+                        return RedirectToAction("Index");
                     }
+
                 }
             }
-            catch
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
-                ModelState.AddModelError("", "Loi error");
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting  
+                        // the current instance as InnerException  
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         // GET: GiaoVu/SinhVien/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.DsChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
             return View(dao.SinhVienSinger(id));
         }
 

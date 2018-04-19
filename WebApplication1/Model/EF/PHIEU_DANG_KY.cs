@@ -15,7 +15,7 @@
         [Display(Name = "Số Phiếu")]
         [Key]
         public int ID_PHIEU_DANG_KY { get; set; }
-        [Display(Name = "ID Sinh viên")]
+        [Display(Name = "Mã Sinh viên")]
         public int? ID_SINHVIEN { get; set; }
 
         [Display(Name = "Học kỳ")]
