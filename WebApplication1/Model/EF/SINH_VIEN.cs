@@ -27,6 +27,7 @@
         public string TEN_SINH_VIEN { get; set; }
 
         [Display(Name = "Ngày sinh")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? NGAY_SINH { get; set; }
 
         [Display(Name = "Số CMND")]

@@ -12,15 +12,18 @@
         [Key]
         public int ID_NHANVIEN { get; set; }
 
+        [Required]
         [Display(Name = "Tên nhân viên")]
         [StringLength(50)]
         public string TEN_NHANVIEN { get; set; }
 
         [Display(Name = "Ngày sinh")]
         [Column(TypeName = "date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? NGAY_SINH { get; set; }
 
         [Display(Name = "Điện thoại")]
+        [Required]
         [StringLength(500)]
         public string DIEN_THOAI { get; set; }
 

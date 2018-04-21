@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Controllers;
 
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
-    public class NamHocController : Controller
+    public class NamHocController : LoginChungController
     {
         NamHocDao namHocDao = new NamHocDao();
         // GET: GiaoVu/NamHoc

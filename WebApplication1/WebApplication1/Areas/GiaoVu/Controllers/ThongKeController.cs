@@ -7,10 +7,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Areas.GiaoVu.Models;
+using WebApplication1.Controllers;
 
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
-    public class ThongKeController : Controller
+    public class ThongKeController : LoginChungController
     {
 
         public ActionResult Index()

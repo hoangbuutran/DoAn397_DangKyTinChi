@@ -60,11 +60,9 @@ namespace Model.DAO
             int i;
             try
             {
-                //var j = new MonHocDao().AddMonHoc(MonHoc.MON_HOC);
-                //MonHoc.ID_MONHOC = j;
                 db.CHUYENNGANH_MONHOC.Add(MonHoc);
                 db.SaveChanges();
-                i = 1;
+                i = MonHoc.MON_HOC.ID_MON_HOC;
             }
             catch (Exception)
             {

@@ -34,9 +34,9 @@
         border-radius: 18px;
     }
 
-    h2#themmon {
-        margin-left: 188px;
-        margin-top: 10px;
+    .themmon {
+        margin-top: 27px;
+        text-align: center;
     }
 
     div#tongchilabel {
@@ -47,11 +47,21 @@
     div#formhienthithongtin {
         margin-left: 117px;
     }
-     p#labeltimmondsmon {
+
+    p#labeltimmondsmon {
         padding-left: 31px;
     }
+
+    .PreThongTinMon {
+        display: block;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #333;
+        padding-left: 3%;
+        padding-right: 18%;
+    }
 </style>
-<h2 id="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
+<h2 class="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
 
 @using (Html.BeginForm())
 {
@@ -66,11 +76,11 @@
                 @Html.ValidationMessageFor(model => model.ID_MON_HOC, "", new { @class = "text-danger" })
             </div>
         </div>
-        <pre>
-               - Số Chỉ:              @DSMonHoc.SO_CHI.ToString()
-               - Loại hình:           @DSMonHoc.LOAI_HINH.ToString()
-               - Môn học tiên quyết:  @DSMonHoc.MON_TIEN_QUYET.ToString()
-               - Môn học song hành:   @DSMonHoc.MON_SONG_HANH.ToString()
+        <pre class="PreThongTinMon">
+               - Số Chỉ             :  @DSMonHoc.SO_CHI.ToString() chỉ
+               - Loại hình          :  @DSMonHoc.LOAI_HINH.ToString()
+               - Môn học tiên quyết :  @DSMonHoc.MON_TIEN_QUYET.ToString()
+               - Môn học song hành  :  @DSMonHoc.MON_SONG_HANH.ToString()
         </pre>
         <div class="form-group">
             @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @class = "control-label col-md-3" })

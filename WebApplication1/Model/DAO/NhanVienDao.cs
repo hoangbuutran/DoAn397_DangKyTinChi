@@ -138,13 +138,12 @@ namespace Model.DAO
             int i;
             try
             {
-                NHAN_VIEN NVCu = db.NHAN_VIEN.Find(NVMoi.ID_NHANVIEN);
+                var NVCu = NhanVienSinger(NVMoi.ID_NHANVIEN);
                 NVCu.TEN_NHANVIEN = NVMoi.TEN_NHANVIEN;
                 NVCu.NGAY_SINH = NVMoi.NGAY_SINH;
                 NVCu.DIEN_THOAI = NVMoi.DIEN_THOAI;
                 NVCu.DIA_CHI = NVMoi.DIA_CHI;
                 NVCu.EMAIL = NVMoi.EMAIL;
-                NVCu.ID_TAI_KHOAN = NVMoi.ID_TAI_KHOAN;
                 db.SaveChanges();
                 i = 1;
             }

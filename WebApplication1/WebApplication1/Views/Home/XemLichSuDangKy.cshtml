@@ -4,9 +4,13 @@
     ViewBag.Title = "XemLichSuDangKy";
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
 }
-
+<style>
+    p#btntaophieuXem {
+        margin-left: 16px;
+    }
+</style>
 <h2 id="labellichsu">Xem Lịch Sử Đăng Ký</h2>
-<p class="btn">
+<p id="btntaophieuXem" class="btn">
     @Html.ActionLink("Tạo Mới Phiếu Đăng Ký", "TaoPhieuDangKy")
 </p>
 <hr />
@@ -14,13 +18,13 @@
     <tr class="active">
 
         <th>
-            @Html.DisplayName("NĂM HỌC")
+            @Html.DisplayName("Năm Học")
         </th>
         <th>
-            @Html.DisplayName("HỌC KỲ")
+            @Html.DisplayName("Học Kỳ")
         </th>
         <th>
-            @Html.DisplayName("SỐ TÍN CHỈ")
+            @Html.DisplayName("Số tín chỉ")
         </th>
         <th>Tùy Chọn</th>
     </tr>
@@ -37,7 +41,9 @@
                 @Html.DisplayFor(modelItem => item.TONG_SO_TIN_CHI)
             </td>
             <td>
-                @Html.ActionLink("Xem Chi Tiết Phiếu", "XemChiTietPhieu", new { id = item.ID_PHIEU_DANG_KY })
+                <p class="btn">
+                    @Html.ActionLink("Xem Phiếu", "XemChiTietPhieu", new { id = item.ID_PHIEU_DANG_KY })
+                </p>
             </td>
         </tr>
     }
@@ -46,6 +52,6 @@
 <style>
     h2#labellichsu {
         padding-left: 28px;
-        margin-top:15px;
+        margin-top: 15px;
     }
 </style>

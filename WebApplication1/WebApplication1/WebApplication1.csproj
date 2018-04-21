@@ -172,6 +172,7 @@
     <Compile Include="Areas\GiaoVu\GiaoVuAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVu\Models\KetQuaThongKe.cs" />
     <Compile Include="Areas\GiaoVu\Models\ThongKeModel.cs" />
+    <Compile Include="Common\DropdownList.cs" />
     <Compile Include="Common\SinhVienModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginChungController.cs" />
@@ -179,12 +180,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Common\LoginModel.cs" />
     <Compile Include="Models\TimKiemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\QuanLy\assets\css\animate.min.css" />
     <Content Include="Assets\QuanLy\assets\css\bootstrap.min.css" />
+    <Content Include="Assets\QuanLy\assets\css\CssTuLam.css" />
     <Content Include="Assets\QuanLy\assets\css\demo.css" />
     <Content Include="Assets\QuanLy\assets\css\paper-dashboard.css" />
     <Content Include="Assets\QuanLy\assets\css\themify-icons.css" />
@@ -344,6 +347,8 @@
     <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\MonHoc\CreateMonNhieuNganh.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

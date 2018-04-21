@@ -26,15 +26,19 @@
     }
 
     input.btn.btn-default {
-        margin-left: -29px;
-        padding-left: 71px;
-        padding-right: 82px;
-        border-radius: 18px;
+        margin-left: 7px;
+        padding-left: 52px;
+        padding-right: 65px;
+        border-radius: 13px;
     }
 
-    h2#tikiem {
-        margin-left: 243px;
-        margin-top: 8px;
+    label {
+        margin-left: 14px;
+    }
+
+    .timkiem {
+        margin-top: 21px;
+        text-align: center;
     }
 
     div#tongchilabel {
@@ -46,7 +50,7 @@
         padding-left: 31px;
     }
 </style>
-<h2 id="tikiem">Tìm Kiếm Môn Đăng Ký</h2>
+<h2 class="timkiem">Tìm Kiếm Môn Đăng Ký</h2>
 
 @using (Html.BeginForm("TimMonDangKy", "Home", FormMethod.Post))
 {
@@ -91,7 +95,7 @@
 <hr />
 <p id="labeltimmondsmon"><strong>Danh sách môn có trong phiếu</strong></p>
 <table class="table table-bordered table-responsive">
-    <tr class="active panel-info">
+    <tr class="panel-heading">
         <th>
             @Html.DisplayName("Mã Môn")
         </th>

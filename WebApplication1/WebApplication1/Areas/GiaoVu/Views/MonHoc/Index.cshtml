@@ -9,53 +9,62 @@
 <p class="btn">
     @Html.ActionLink("Tạo mới môn học", "Create")
 </p>
+<p class="btn">
+    @Html.ActionLink("Tạo mới môn học nhiều ngành", "CreateMonNhieuNganh")
+</p>
 <hr />
-<table class="table table-bordered">
-    <tr class="panel-heading">
-        <th>
-            @Html.DisplayNameFor(model => model.MA_MON_HOC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TEN_MON_HOC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SO_CHI)
-        </th>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.MON_TIEN_QUYET)
-        </th>
-       
-        <th>Tùy Chọn</th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MA_MON_HOC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_MON_HOC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SO_CHI)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.MON_TIEN_QUYET)
-        </td>
-        <td>
-            <p class="btn">
-                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_MON_HOC })
-            </p>
-            <p class="btn">
-                @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_MON_HOC })
-            </p>
-            <p class="btn">
-                @Html.ActionLink("Xóa", "Delete", new { id = item.ID_MON_HOC })
-            </p>
-        </td>
-    </tr>
-}
+<div class="cardTuLamIndex">
 
-</table>
+    <table class="table table-bordered">
+        <tr class="panel-heading">
+            <th>
+                @Html.DisplayNameFor(model => model.MA_MON_HOC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TEN_MON_HOC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SO_CHI)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.MON_TIEN_QUYET)
+            </th>
+
+            <th>Tùy Chọn</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MA_MON_HOC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_MON_HOC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SO_CHI)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.MON_TIEN_QUYET)
+                </td>
+                <td>
+                    <p class="btn">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID_MON_HOC })
+                    </p>
+                    <p class="btn">
+                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_MON_HOC })
+                    </p>
+                    <p class="btn">
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID_MON_HOC })
+                    </p>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

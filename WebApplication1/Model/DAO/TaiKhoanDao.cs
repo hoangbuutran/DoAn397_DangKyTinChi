@@ -29,12 +29,12 @@ namespace Model.DAO
 
         public List<TAIKHOAN> listCountTaiKhoanGiaoVu()
         {
-            return db.TAIKHOANs.Where(x=>x.ID_QUYEN != 1 && x.ID_QUYEN != 3).ToList();
+            return db.TAIKHOANs.Where(x=>x.ID_QUYEN == 2).ToList();
         }
 
         public List<TAIKHOAN> listCountTaiKhoanSinhVien()
         {
-            return db.TAIKHOANs.Where(x => x.ID_QUYEN == 2).ToList();
+            return db.TAIKHOANs.Where(x => x.ID_QUYEN == 3).ToList();
         }
         public TAIKHOAN TaiKhoanSingleWithID(int id)
         {

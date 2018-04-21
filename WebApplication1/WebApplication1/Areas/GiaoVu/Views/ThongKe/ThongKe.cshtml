@@ -14,39 +14,53 @@
         padding-left: 440px;
     }
 </style>
-<h3 id="panelthongke"><strong>THỐNG KÊ TÍN CHỈ SINH VIÊN ĐĂNG KÝ</strong> </h3>
-<p id="panel">Năm: @thongtinnam.TEN_NAM_HOC - Học Kỳ: @thongtinhocky.TEN_HOC_KY</p>
-<hr />
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>
-                Mã Môn
-            </th>
-            <th>
-                Tên Môn
-            </th>
-            <th>
-                Tổng chỉ sinh viên đăng ký
-            </th>
-        </tr>
-    </thead>
-    @foreach (var item in modell)
-    {
-        var tongchimon = item.TONGCHIMON;
-        <tbody>
-            <tr>
+
+
+<div class="cardTuLamIndex">
+
+    <h3 id="panelthongke"><strong>THỐNG KÊ TÍN CHỈ SINH VIÊN ĐĂNG KÝ</strong> </h3>
+    <p id="panel">Năm: @thongtinnam.TEN_NAM_HOC - Học Kỳ: @thongtinhocky.TEN_HOC_KY</p>
+    <hr />
+    <table class="table table-bordered">
+        <thead>
+            <tr class="panel-heading">
                 <th>
-                    @Html.Label(item.MA_MON_HOC)
+                    Mã Môn
                 </th>
                 <th>
-                    @Html.Label(item.TEN_MON_HOC)
+                    Tên Môn
                 </th>
                 <th>
-                    @tongchimon
+                    Tổng chỉ sinh viên đăng ký
+                </th>
+                <th>
+                    Số lớp dự kiến
                 </th>
             </tr>
-        </tbody>
-    }
+        </thead>
+        @foreach (var item in modell)
+        {
+            var tongchimon = item.TONGCHIMON;
+            var solop = item.TONGCHIMON / 45;
+            <tbody>
+                <tr>
+                    <th>
+                        @Html.Label(item.MA_MON_HOC)
+                    </th>
+                    <th>
+                        @Html.Label(item.TEN_MON_HOC)
+                    </th>
+                    <th>
+                        @tongchimon
+                    </th>
+                    <th>
+                        @solop
+                    </th>
+                </tr>
+            </tbody>
+        }
+    </table>
 
-</table>
+</div>
+
+

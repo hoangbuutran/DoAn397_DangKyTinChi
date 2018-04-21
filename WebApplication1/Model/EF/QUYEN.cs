@@ -18,7 +18,8 @@
         [Key]
         public int ID_QUYEN { get; set; }
 
-        [Display(Name = "Tê quyền")]
+        [Required(ErrorMessage = "Mời nhập tên quyền")]
+        [Display(Name = "Tên quyền")]
         [StringLength(500)]
         public string TEN_QUYEN { get; set; }
 

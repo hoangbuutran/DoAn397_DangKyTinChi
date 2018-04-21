@@ -1,0 +1,23 @@
+﻿body {
+}
+.cardTuLam {
+    padding: 49px;
+    margin: 3px;
+    background: #fff;
+    border-radius: 19px;
+    display: inline-block;
+    width: 90%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin-left: 58px;
+}
+
+.cardTuLamIndex {
+    padding: 36px;
+    margin: 3px;
+    background: #fff;
+    border-radius: 19px;
+    display: inline-block;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin-left: 2px;
+}

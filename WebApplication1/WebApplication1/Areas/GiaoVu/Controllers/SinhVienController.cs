@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Controllers;
 
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
-    public class SinhVienController : Controller
+    public class SinhVienController : LoginChungController
     {
         CoSoDuLieuDbContext db = null;
         SinhVienDao dao = null;
@@ -56,8 +57,6 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
                     PASS = pass,
                     ID_QUYEN = 3
                 };
-                //model.TAIKHOAN.USERNAME = tentaikhoan3;
-                //model.TAIKHOAN.PASS = pass;
                 int i = DaoTaiKhoan.AddTaiKhoan(taikhoan);
                 if (i != 0)
                 {
