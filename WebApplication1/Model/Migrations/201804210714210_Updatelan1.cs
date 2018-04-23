@@ -3,7 +3,7 @@ namespace Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addDb : DbMigration
+    public partial class Updatelan1 : DbMigration
     {
         public override void Up()
         {
@@ -38,8 +38,8 @@ namespace Model.Migrations
                     {
                         ID_MON_HOC = c.Int(nullable: false, identity: true),
                         MA_MON_HOC = c.String(nullable: false, maxLength: 500, fixedLength: true, unicode: false),
-                        TEN_MON_HOC = c.String(maxLength: 500),
-                        SO_CHI = c.Int(),
+                        TEN_MON_HOC = c.String(nullable: false, maxLength: 500),
+                        SO_CHI = c.Int(nullable: false),
                         LOAI_DVHT = c.String(maxLength: 500),
                         LOAI_HINH = c.String(maxLength: 500),
                         MON_TIEN_QUYET = c.String(maxLength: 500),
@@ -139,9 +139,9 @@ namespace Model.Migrations
                 c => new
                     {
                         ID_NHANVIEN = c.Int(nullable: false, identity: true),
-                        TEN_NHANVIEN = c.String(maxLength: 50),
+                        TEN_NHANVIEN = c.String(nullable: false, maxLength: 50),
                         NGAY_SINH = c.DateTime(storeType: "date"),
-                        DIEN_THOAI = c.String(maxLength: 500, fixedLength: true, unicode: false),
+                        DIEN_THOAI = c.String(nullable: false, maxLength: 500, fixedLength: true, unicode: false),
                         DIA_CHI = c.String(maxLength: 900),
                         EMAIL = c.String(maxLength: 500, fixedLength: true, unicode: false),
                         ID_TAI_KHOAN = c.Int(),
@@ -155,7 +155,7 @@ namespace Model.Migrations
                 c => new
                     {
                         ID_QUYEN = c.Int(nullable: false, identity: true),
-                        TEN_QUYEN = c.String(maxLength: 500),
+                        TEN_QUYEN = c.String(nullable: false, maxLength: 500),
                         MO_TA = c.String(storeType: "ntext"),
                         TRANG_THAI = c.Boolean(),
                     })

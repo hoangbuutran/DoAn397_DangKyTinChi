@@ -31,6 +31,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -47,7 +49,19 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -162,16 +176,19 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiNguoiDungController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanVienController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLTaiKhoanController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\MonHocController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\NamHocController.cs" />
+    <Compile Include="Areas\GiaoVu\Controllers\QLTaiKhoanController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\SinhVienController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\GiaoVu\Controllers\ThongTinChungController.cs" />
     <Compile Include="Areas\GiaoVu\GiaoVuAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVu\Models\KetQuaThongKe.cs" />
     <Compile Include="Areas\GiaoVu\Models\ThongKeModel.cs" />
+    <Compile Include="Common\DoiMatKhauModel.cs" />
+    <Compile Include="Common\DropdownList.cs" />
     <Compile Include="Common\SinhVienModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginChungController.cs" />
@@ -179,12 +196,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Common\LoginModel.cs" />
     <Compile Include="Models\TimKiemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\QuanLy\assets\css\animate.min.css" />
     <Content Include="Assets\QuanLy\assets\css\bootstrap.min.css" />
+    <Content Include="Assets\QuanLy\assets\css\CssTuLam.css" />
     <Content Include="Assets\QuanLy\assets\css\demo.css" />
     <Content Include="Assets\QuanLy\assets\css\paper-dashboard.css" />
     <Content Include="Assets\QuanLy\assets\css\themify-icons.css" />
@@ -235,6 +254,7 @@
     <Content Include="Assets\SinhVien\js\jquery-1.10.2.js" />
     <Content Include="Assets\SinhVien\js\paper-dashboard.js" />
     <Content Include="favicon.ico" />
+    <Content Include="FileExcel\SinhVien.xlsx" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\GiaoVu\Views\web.config" />
@@ -297,8 +317,6 @@
     <Content Include="Assets\SinhVien\js\.DS_Store" />
     <Content Include="Areas\GiaoVu\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiKhoan\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiKhoan\Details.cshtml" />
     <Content Include="Areas\GiaoVu\Views\ThongKe\Index.cshtml" />
     <Content Include="Areas\GiaoVu\Views\ThongKe\ThongKe.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiNguoiDung\Index.cshtml" />
@@ -338,12 +356,18 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Areas\GiaoVu\Views\NamHoc\Index.cshtml" />
-    <Content Include="Areas\GiaoVu\Views\NamHoc\Details.cshtml" />
     <Content Include="Areas\GiaoVu\Views\NamHoc\Create.cshtml" />
     <Content Include="Areas\GiaoVu\Views\NamHoc\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\MonHoc\CreateMonNhieuNganh.cshtml" />
+    <Content Include="Areas\Admin\Views\QLTaiKhoan\DoiMatKhauAdmin.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\QLTaiKhoan\DoiMatKhauGiaoVu.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\SinhVien\UploadExcel.cshtml" />
+    <Content Include="Areas\GiaoVu\Views\NamHoc\UploadExcel.cshtml" />
+    <Content Include="FileExcel\NamHoc.xlsx" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

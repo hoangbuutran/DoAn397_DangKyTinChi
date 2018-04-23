@@ -68,9 +68,22 @@ namespace Model.DAO
             }
             return i;
         }
-        public NAM_HOC NamHocDelete(int id)
+        public int KhoaMo(int id)
         {
-            return db.NAM_HOC.Remove(db.NAM_HOC.Find(id));
+            int i;
+            try
+            {
+                var namHoc = db.NAM_HOC.Find(id);
+                namHoc.TRANGTHAI = !namHoc.TRANGTHAI;
+                db.SaveChanges();
+                i = 1;
+            }
+            catch (Exception)
+            {
+                i = 0;
+            }
+
+            return i;
         }
     }
 }

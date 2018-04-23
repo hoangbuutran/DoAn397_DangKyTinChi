@@ -15,10 +15,23 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFr
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.SqlServer.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.xml
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.SqlServer.xml
-E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.pdb
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.CopyComplete
-E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.addDb.resources
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\Model.dll.config
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\Model.dll
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\Model.pdb
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.dll
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.xml
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.addDb.resources
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.GenerateResource.Cache
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.dll
+E:\TRANHOANGBUU\397\pull\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.pdb
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.Updatelan1.resources
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.GenerateResource.cache
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.addTrangThai.resources
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

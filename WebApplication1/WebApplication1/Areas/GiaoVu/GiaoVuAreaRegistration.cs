@@ -34,7 +34,11 @@ namespace WebApplication1.Areas.GiaoVu
                 "GiaoVu/SinhVien/{action}/{id}",
                 new { action = "Index", controller = "SinhVien", id = UrlParameter.Optional }
             );
-
+            context.MapRoute(
+                "QLTaiKhoanGiaoVu",
+                "GiaoVu/QLTaiKhoan/{action}/{id}",
+                new { action = "DoiMatKhauGiaoVu", controller = "QLTaiKhoan", id = UrlParameter.Optional }
+            );
             context.MapRoute(
                 "MonHocGiaoVu",
                 "GiaoVu/MonHoc/{action}/{id}",

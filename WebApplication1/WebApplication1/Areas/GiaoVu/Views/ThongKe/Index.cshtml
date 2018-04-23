@@ -6,7 +6,7 @@
 }
 <style>
     div#formthongke {
-        margin-left: 245px;
+        margin-left: 180px;
     }
 
     select#NamHoc {
@@ -26,7 +26,7 @@
     }
 
     div#btnthongke {
-        margin-left: 372px;
+        margin-left: 284px;
         margin-top: 31px;
         padding-left: 18px;
     }
@@ -36,29 +36,34 @@
         padding-right: 120px;
     }
 </style>
-<h3 id="labelthongke">Thống kê</h3>
 
-@using (Html.BeginForm("ThongKe", "ThongKe", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group" id="formthongke">
-            <div class="col-md-5" id="formnamthongke">
-                @Html.Label("Chọn Năm Học:")
-                @Html.DropDownList("NamHoc", ViewBag.DSNamHoc as SelectList, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NamHoc, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-5" id="formhockythongke">
-                @Html.Label("Chọn Học Kỳ:")
-                @Html.DropDownList("HocKy", ViewBag.DSHocKy as SelectList, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HocKy, "", new { @class = "text-danger" })
-            </div>
+<div class="cardTuLam">
 
+    <h2 id="labelthongke">Thống kê</h2>
+
+    @using (Html.BeginForm("ThongKe", "ThongKe", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" id="formthongke">
+                <div class="col-md-5" id="formnamthongke">
+                    @Html.Label("Chọn Năm Học:")
+                    @Html.DropDownList("NamHoc", ViewBag.DSNamHoc as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NamHoc, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-5" id="formhockythongke">
+                    @Html.Label("Chọn Học Kỳ:")
+                    @Html.DropDownList("HocKy", ViewBag.DSHocKy as SelectList, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HocKy, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="col-md-3" id="btnthongke">
+                <input id="btnthongke" type="submit" value="Thống Kê" class="btn btn-default" />
+            </div>
         </div>
-        <div class="col-md-3" id="btnthongke">
-            <input id="btnthongke" type="submit" value="Thống Kê" class="btn btn-default" />
-        </div>
-    </div>
-}
+    }
+
+</div>

@@ -5,77 +5,81 @@
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
 
-<h2>Chi tiết sinh viên</h2>
+<div class="cardTuLam">
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN_SINH_VIEN)
-        </dt>
+    <h2>Chi tiết sinh viên</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.TEN_SINH_VIEN)
-        </dd>
+    <div>
         <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAY_SINH)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TEN_SINH_VIEN)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NGAY_SINH)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.CMND)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TEN_SINH_VIEN)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.NGAY_SINH)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CMND)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.DIEN_THOAI)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NGAY_SINH)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.CMND)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DIEN_THOAI)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.DIA_CHI)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CMND)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DIEN_THOAI)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DIA_CHI)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.EMAIL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DIEN_THOAI)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DIA_CHI)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EMAIL)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.TAIKHOAN.USERNAME)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DIA_CHI)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TAIKHOAN.USERNAME)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.CHUYEN_NGANH.TEN_CHUYEN_NGANH)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EMAIL)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.TAIKHOAN.USERNAME)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CHUYEN_NGANH.TEN_CHUYEN_NGANH)
-        </dd>
-        <hr />
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.TAIKHOAN.USERNAME)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.CHUYEN_NGANH.TEN_CHUYEN_NGANH)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CHUYEN_NGANH.TEN_CHUYEN_NGANH)
+            </dd>
+            <hr />
+        </dl>
+    </div>
+    <p class="button btn">
+        @Html.ActionLink("Sửa sinh viên", "Edit", new { id = Model.ID_SINHVIEN })
+    </p>
+
 </div>
-<p class="button btn">
-    @Html.ActionLink("Sửa sinh viên", "Edit", new { id = Model.ID_SINHVIEN })
-</p>

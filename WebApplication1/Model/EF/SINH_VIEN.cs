@@ -27,6 +27,7 @@
         public string TEN_SINH_VIEN { get; set; }
 
         [Display(Name = "Ngày sinh")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? NGAY_SINH { get; set; }
 
         [Display(Name = "Số CMND")]
@@ -43,6 +44,9 @@
         [Display(Name = "Email")]
         [StringLength(500)]
         public string EMAIL { get; set; }
+
+        [Display(Name = "Trạng thái")]
+        public bool? TRANG_THAI { get; set; }
 
         [Display(Name = "Tài khoản")]
         public int? ID_TAI_KHOAN { get; set; }

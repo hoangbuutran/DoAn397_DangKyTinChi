@@ -41,12 +41,12 @@ body {
 /*logo*/
 .logo{
 	float:left;
-    width:50%;
+    width:auto;
 }
 /*header-right*/
 .header-right{
 	float:right;
-    width:50%;
+    width:auto;
 }
 /*---contact-info---*/
 .contact-info{
@@ -479,7 +479,7 @@ body {
 	font-family: 'Cabin Condensed', sans-serif;
 	font-size: 0.925em;
 	border: none;
-	padding: 8px 20px;
+	padding: 5px 20px;
 	color: #ffffff;
 	cursor: pointer;
 	background: rgb(136,136,136);

@@ -144,6 +144,7 @@ namespace Model.DAO
                 SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI;
                 SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI;
                 SinhVienCu.EMAIL = SinhVienMoi.EMAIL;
+                SinhVienCu.TRANG_THAI = SinhVienMoi.TRANG_THAI;
                 SinhVienCu.ID_TAI_KHOAN = SinhVienMoi.ID_TAI_KHOAN;
                 SinhVienCu.ID_CHUYEN_NGANH = SinhVienMoi.ID_CHUYEN_NGANH;
                 db.SaveChanges();
@@ -162,13 +163,13 @@ namespace Model.DAO
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int XoaSinhVien(int id)
+        public int KhoaMo(int id)
         {
             int i;
             try
             {
                 var sinhvien = db.SINH_VIEN.Find(id);
-                db.SINH_VIEN.Remove(sinhvien);
+                sinhvien.TRANG_THAI = !sinhvien.TRANG_THAI;
                 db.SaveChanges();
                 i = 1;
             }

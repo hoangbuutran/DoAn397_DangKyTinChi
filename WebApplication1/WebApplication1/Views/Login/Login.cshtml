@@ -121,10 +121,20 @@
             <p id="profile-name" class="profile-name-card"></p>
             @using (Html.BeginForm())
             {
+                
                 @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <script language="Javascript">
                     function IsEmpty() {
                         if (document.getElementById('inputEmail').value === '' || document.getElementById('inputPassword').value === '') {
+                            alert("Mời nhập đầy đủ thông tin");
+                            return false;
+                        }
+                        if (document.getElementById('inputEmail').value === '' ) {
+                            alert("Mời nhập đầy đủ thông tin");
+                            return false;
+                        }
+                        if (document.getElementById('inputPassword').value === '') {
                             alert("Mời nhập đầy đủ thông tin");
                             return false;
                         }

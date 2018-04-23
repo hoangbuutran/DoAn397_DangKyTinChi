@@ -13,8 +13,10 @@
     <title>Trang Quản Lý</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
     <!-- Bootstrap core CSS     -->
+
+    <link href="~/Assets/QuanLy/assets/css/CssTuLam.css" rel="stylesheet" />
+
     <link href="~/Assets/QuanLy/assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
     <link href="~/Assets/QuanLy/assets/css/animate.min.css" rel="stylesheet" />
@@ -50,14 +52,14 @@
                 {
                     @RenderPage("_MenuLeftGiaoVu.cshtml")
                 }
-                
+
             </div>
         </div>
         <div class="main-panel">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                       
+
                         <a class="navbar-brand" href="#"> ĐẠI HỌC DUY TÂN</a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -69,7 +71,14 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Đổi Mật Khẩu</a></li>
+                                    @if (user.idloainguoidung == 1)
+                                    {
+                                        <li><a href="/Admin/QLTaiKhoan">Đổi Mật Khẩu</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/GiaoVu/QLTaiKhoan">Đổi Mật Khẩu</a></li>
+                                    }
                                     <li><a href="/Login">Đăng Xuất</a></li>
                                 </ul>
                             </li>

@@ -119,5 +119,11 @@ namespace WebApplication1.Controllers
             return View(dao.PhieuDKSinger(id));
         }
 
+        public ActionResult XoaMonTrongPhieu(int id, int idCtPhieu)
+        {
+            var monTrongPhieu = daoCTPhieuDK.MonTrongPhieuSinger(idCtPhieu);
+            daoCTPhieuDK.XoaMonTrongPhieuSinger(monTrongPhieu);
+            return RedirectToAction("XemChiTietPhieu", "Home", new { id = id }); 
+        }
     }
 }

@@ -1,0 +1,154 @@
+﻿@model IList<Model.EF.CHUYENNGANH_MONHOC>
+
+@{
+    ViewBag.Title = "CreateMonNhieuNganh";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var listChuyenNganh = (IList<Model.EF.CHUYEN_NGANH>)ViewBag.DSChuyenNganh;
+    var soCN = listChuyenNganh.Count();
+}
+
+<style>
+    h3#labelCNM {
+        margin-left: 55px;
+    }
+
+    label#selectCNM {
+        margin-left: 196px;
+    }
+
+    select {
+        padding: 6px;
+        border-radius: 23px;
+    }
+</style>
+<div class="cardTuLam">
+
+    <h2>Tạo mới môn học</h2>
+
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @for (int i = 0; i < soCN; i++)
+            {
+                if (i == 0)
+                {
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.MA_MON_HOC, htmlAttributes: new { @class = "control-label col-md-2" })*
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.MA_MON_HOC, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.MA_MON_HOC, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.TEN_MON_HOC, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.TEN_MON_HOC, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.TEN_MON_HOC, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.SO_CHI, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.SO_CHI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.SO_CHI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.LOAI_DVHT, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.LOAI_DVHT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.LOAI_DVHT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.LOAI_HINH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.LOAI_HINH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.LOAI_HINH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.MON_TIEN_QUYET, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.MON_TIEN_QUYET, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.MON_TIEN_QUYET, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.MON_SONG_HANH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.MON_SONG_HANH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.MON_SONG_HANH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.MO_TA, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].MON_HOC.MO_TA, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.MO_TA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model[i].TU_CHON, new SelectList(new[] {new { Value = "true", Text = "YES" },
+                                                                                    new { Value = "false", Text = "NO" },}, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].TU_CHON, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].NHOM_TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model[i].NHOM_TU_CHON, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model[i].NHOM_TU_CHON, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.TRANG_THAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model[i].MON_HOC.TRANG_THAI, new SelectList(new[] {
+                                                                                    new { Value = "true", Text = "Mở Môn Học" },
+                                                                                    new { Value = "false", Text = "Khóa Môn Học" },
+                                                                                    }, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.TRANG_THAI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <hr />
+                    <h3 id="labelCNM">Môn Thuộc Chuyên Ngành:</h3>
+                }
+                <div class="form-group">
+                    @Html.Label(listChuyenNganh[i].TEN_CHUYEN_NGANH, htmlAttributes: new { @id = "selectCNM", @class = "col-md-3" })
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model[i].ID_CHUYENNGANH, new SelectList(new[] {
+                                                                                    new { Value = "0", Text = "Không Chọn" },
+                                                                                    new { Value = listChuyenNganh[i].ID_CHUYEN_NGANH.ToString(), Text = "Chọn ngành" },
+                                                                                    }, "Value", "Text"))
+                        @Html.ValidationMessageFor(model => model[i].ID_CHUYENNGANH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

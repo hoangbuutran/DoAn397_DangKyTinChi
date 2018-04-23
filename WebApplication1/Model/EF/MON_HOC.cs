@@ -24,9 +24,11 @@
 
         [Display(Name = "Tên môn học")]
         [StringLength(500)]
+        [Required]
         public string TEN_MON_HOC { get; set; }
 
         [Display(Name = "Số tín chỉ")]
+        [Required]
         public int? SO_CHI { get; set; }
 
         [Display(Name = "Loại DVHT")]

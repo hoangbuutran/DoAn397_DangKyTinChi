@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "UploadExcel";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<style>
+    input#FileUpload {
+        padding: 6px;
+    }
+</style>
+
+
+<h4>Thêm năm học bằng Excel</h4>
+<hr />
+@using (Html.BeginForm("UploadExcel", "NamHoc", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return myFunction()" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="control-label col-md-2">Tải file excel mẫu:</div>
+            <div class="col-md-10">
+                <a href="/NamHoc/DownloadExcel/"><img src="data:image/png;base64,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" width="25" height="25" title="Download Excel format" alt="excel" /></a>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <div class="control-label col-md-2">Excel:</div>
+            <div class="col-md-10">
+                <input type="file" id="FileUpload" name="FileUpload" class="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary" />
+
+            </div>
+        </div>
+    </div>
+}
+

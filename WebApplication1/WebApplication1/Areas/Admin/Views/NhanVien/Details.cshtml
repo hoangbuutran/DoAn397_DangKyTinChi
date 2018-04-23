@@ -4,64 +4,61 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
+<div class="cardTuLam">
+    <h2>Chi tiết giáo vụ</h2>
 
-<h2>Details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TAIKHOAN.USERNAME)
+            </dt>
 
-<div>
-    <h4>NHAN_VIEN</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TAIKHOAN.USERNAME)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TAIKHOAN.USERNAME)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.TEN_NHANVIEN)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TAIKHOAN.USERNAME)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TEN_NHANVIEN)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.NGAY_SINH)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN_NHANVIEN)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NGAY_SINH)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DIEN_THOAI)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TEN_NHANVIEN)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DIEN_THOAI)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DIA_CHI)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAY_SINH)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DIA_CHI)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NGAY_SINH)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EMAIL)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DIEN_THOAI)
-        </dt>
+        </dl>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DIEN_THOAI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DIA_CHI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DIA_CHI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EMAIL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EMAIL)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_NHANVIEN }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

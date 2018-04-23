@@ -73,9 +73,13 @@
     <Compile Include="EF\SINH_VIEN.cs" />
     <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\TAIKHOAN.cs" />
-    <Compile Include="Migrations\201804190040425_addDb.cs" />
-    <Compile Include="Migrations\201804190040425_addDb.Designer.cs">
-      <DependentUpon>201804190040425_addDb.cs</DependentUpon>
+    <Compile Include="Migrations\201804210714210_Updatelan1.cs" />
+    <Compile Include="Migrations\201804210714210_Updatelan1.Designer.cs">
+      <DependentUpon>201804210714210_Updatelan1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804221336245_addTrangThai.cs" />
+    <Compile Include="Migrations\201804221336245_addTrangThai.Designer.cs">
+      <DependentUpon>201804221336245_addTrangThai.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +89,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804190040425_addDb.resx">
-      <DependentUpon>201804190040425_addDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804210714210_Updatelan1.resx">
+      <DependentUpon>201804210714210_Updatelan1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221336245_addTrangThai.resx">
+      <DependentUpon>201804221336245_addTrangThai.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

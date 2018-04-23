@@ -77,5 +77,9 @@ namespace Model.EF
                 .IsFixedLength()
                 .IsUnicode(false);
         }
+
+        //public System.Data.Entity.DbSet<WebApplication1.Common.DoiMatKhauModel> DoiMatKhauModels { get; set; }
+
+        //public System.Data.Entity.DbSet<WebApplication1.Common.DoiMatKhauModel> DoiMatKhauModels { get; set; }
     }
 }

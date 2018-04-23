@@ -70,5 +70,23 @@ namespace Model.DAO
             return i;
         }
 
+        public int KhoaMo(int id)
+        {
+            int i;
+            try
+            {
+                var quyen = db.QUYENs.Find(id);
+                quyen.TRANG_THAI = !quyen.TRANG_THAI;
+                db.SaveChanges();
+                i = 1;
+            }
+            catch (Exception)
+            {
+                i = 0;
+            }
+
+            return i;
+        }
+
     }
 }

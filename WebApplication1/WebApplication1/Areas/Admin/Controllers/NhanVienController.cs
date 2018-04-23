@@ -5,57 +5,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Controllers;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
-    public class NhanVienController : Controller
+    public class NhanVienController : LoginChungController
     {
         CoSoDuLieuDbContext db = null;
         NhanVienDao dao = null;
-        //ChuyenNganhDao DaoChuyenNganh = null;
         TaiKhoanDao DaoTaiKhoan = null;
         public NhanVienController()
         {
             db = new CoSoDuLieuDbContext();
             dao = new NhanVienDao();
-            //DaoChuyenNganh = new ChuyenNganhDao();
             DaoTaiKhoan = new TaiKhoanDao();
         }
-        // GET: GiaoVu/SinhVien
+        [HttpGet]
         public ActionResult Index()
         {
             return View(dao.ListNhanVien());
         }
-
-        // GET: GiaoVu/SinhVien/Details/5
+        [HttpGet]
         public ActionResult Details(int id)
         {
             return View(dao.NhanVienSinger(id));
         }
 
-        // GET: GiaoVu/SinhVien/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            //ViewBag.DsChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
             return View();
         }
 
-        // POST: GiaoVu/SinhVien/Create
         [HttpPost]
         public ActionResult Create(NHAN_VIEN model, FormCollection collection)
         {
             try
             {
-                int i = DaoTaiKhoan.AddTaiKhoan(model.TAIKHOAN);
-                if (i != 0)
+                if (ModelState.IsValid)
                 {
-                    model.ID_TAI_KHOAN = i;
-                    int j = dao.AddNhanVien(model);
-                    if (j == 1)
+                    var tentaikhoan1 = model.TEN_NHANVIEN.ToLower();
+                    var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
+                    var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
+                    var pass = model.DIEN_THOAI.Substring(6);//01266625412
+                    var taikhoan = new TAIKHOAN
                     {
-                        return RedirectToAction("Index");
-                    }
+                        USERNAME = tentaikhoan3,
+                        PASS = pass,
+                        ID_QUYEN = 2
+                    };
+                    int i = DaoTaiKhoan.AddTaiKhoan(taikhoan);
+                    if (i != 0)
+                    {
+                        model.ID_TAI_KHOAN = i;
+                        int j = dao.AddNhanVien(model);
+                        if (j == 1)
+                        {
+                            return RedirectToAction("Index");
+                        }
 
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Mời nhập đầy đủ thông tin");
+                    return View(model);
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
@@ -68,8 +82,6 @@ namespace WebApplication1.Areas.Admin.Controllers
                         string message = string.Format("{0}:{1}",
                             validationErrors.Entry.Entity.ToString(),
                             validationError.ErrorMessage);
-                        // raise a new exception nesting  
-                        // the current instance as InnerException  
                         raise = new InvalidOperationException(message, raise);
                     }
                 }
@@ -78,29 +90,28 @@ namespace WebApplication1.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: GiaoVu/SinhVien/Edit/5
         public ActionResult Edit(int id)
         {
             return View(dao.NhanVienSinger(id));
         }
 
-        // POST: GiaoVu/SinhVien/Edit/5
         [HttpPost]
         public ActionResult Edit(NHAN_VIEN model, FormCollection collection)
         {
-            try
+
+            int i = dao.SuaNhaVien(model);
+            if (i == 1)
             {
-                int i = dao.SuaNhaVien(model);
-                if (i == 1)
-                {
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                ModelState.AddModelError("", "Loi error");
-            }
-            return View("Index");
+            return RedirectToAction("Edit", new { id = model.ID_NHANVIEN });
+        }
+        [HttpGet]
+        public ActionResult KhoaMo(int id)
+        {
+
+            dao.KhoaMo(id);
+            return RedirectToAction("Index");
         }
     }
 }

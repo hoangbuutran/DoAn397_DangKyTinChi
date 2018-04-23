@@ -29,12 +29,12 @@ namespace Model.DAO
 
         public List<TAIKHOAN> listCountTaiKhoanGiaoVu()
         {
-            return db.TAIKHOANs.Where(x=>x.ID_QUYEN != 1 && x.ID_QUYEN != 3).ToList();
+            return db.TAIKHOANs.Where(x=>x.ID_QUYEN == 2).ToList();
         }
 
         public List<TAIKHOAN> listCountTaiKhoanSinhVien()
         {
-            return db.TAIKHOANs.Where(x => x.ID_QUYEN == 2).ToList();
+            return db.TAIKHOANs.Where(x => x.ID_QUYEN == 3).ToList();
         }
         public TAIKHOAN TaiKhoanSingleWithID(int id)
         {
@@ -84,6 +84,21 @@ namespace Model.DAO
                 }
             }
             return 0;
+        }
+        public bool DoiMatKhauAdmin(string matKhauMoi,string matKhauCu, string tenDangNhap)
+        {
+            try
+            {
+                var taiKhoan = TaiKhoanSingle(tenDangNhap, matKhauCu);
+                taiKhoan.PASS = matKhauMoi;
+                db.SaveChanges();
+                return true;
+            }
+            catch (NullReferenceException)
+            {
+                return false;
+            }
+
         }
     }
 }

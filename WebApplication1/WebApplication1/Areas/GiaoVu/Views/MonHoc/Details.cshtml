@@ -5,82 +5,85 @@
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
 
-<h2>Chi tiết môn học</h2>
+<div class="cardTuLam">
+    <h2>Chi tiết môn học</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MA_MON_HOC)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MA_MON_HOC)
-        </dd>
+    <div>
         <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN_MON_HOC)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MA_MON_HOC)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TEN_MON_HOC)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.SO_CHI)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MA_MON_HOC)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.TEN_MON_HOC)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SO_CHI)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.LOAI_DVHT)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TEN_MON_HOC)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.SO_CHI)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LOAI_DVHT)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.LOAI_HINH)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SO_CHI)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.LOAI_DVHT)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LOAI_HINH)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.MON_TIEN_QUYET)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LOAI_DVHT)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.LOAI_HINH)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MON_TIEN_QUYET)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.MON_SONG_HANH)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LOAI_HINH)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.MON_TIEN_QUYET)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MON_SONG_HANH)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.MO_TA)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MON_TIEN_QUYET)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.MON_SONG_HANH)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MO_TA)
-        </dd>
-        <hr />
-        <dt>
-            @Html.DisplayNameFor(model => model.TRANG_THAI)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MON_SONG_HANH)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.MO_TA)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TRANG_THAI)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.MO_TA)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.TRANG_THAI)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.TRANG_THAI)
+            </dd>
+
+        </dl>
+    </div>
+
 </div>
