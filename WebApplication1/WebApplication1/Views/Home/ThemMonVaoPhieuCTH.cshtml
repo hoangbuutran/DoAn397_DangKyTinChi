@@ -7,6 +7,19 @@
     var i = (Model.EF.PHIEU_DANG_KY)ViewBag.IDPhieuDangKy;
     var dsMon = (List<Model.EF.CT_PHIEU_DANG_KY>)ViewBag.DsMon;
     var j = (int)dsMon.Count();
+    var ketQuaTrungMon = 0;
+    foreach (var item in dsMon)
+    {
+        if (item.ID_MON_HOC == DSMonHoc.ID_MON_HOC)
+        {
+            ketQuaTrungMon = 1;
+        }
+    }
+    var ketQuaKhoaMon = 0;
+    if (!(bool)DSMonHoc.TRANG_THAI)
+    {
+        ketQuaKhoaMon = 1;
+    }
 }
 <style>
     select#ID_MON_HOC {
@@ -19,7 +32,7 @@
     }
 
     select#ID_PHIEU_DANG_KY {
-        margin-left: 75px;
+        /*margin-left: 75px;*/
         padding-left: 5px;
         padding-right: 5px;
         padding-bottom: 5px;
@@ -32,6 +45,8 @@
         padding-left: 39px;
         padding-right: 40px;
         border-radius: 18px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .themmon {
@@ -41,7 +56,7 @@
 
     div#tongchilabel {
         padding-top: 6px;
-        padding-left: 26px;
+        /*padding-left: 26px;*/
     }
 
     div#formhienthithongtin {
@@ -60,6 +75,9 @@
         padding-left: 3%;
         padding-right: 18%;
         padding-bottom: 19px;
+    }
+    label#labelSoPhieu {
+        margin-left: 33px;
     }
 </style>
 <h2 class="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
@@ -89,7 +107,7 @@
                                         {<span class="label label-danger">Không được đăng kí</span>}
         </pre>
         <div class="form-group">
-            @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @class = "control-label col-md-3" })
+            @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @id = "labelSoPhieu", @class = "control-label col-md-3" })
             <div class="col-md-2">
                 @Html.DropDownList("ID_PHIEU_DANG_KY", new List<SelectListItem> { new SelectListItem { Text = i.ID_PHIEU_DANG_KY.ToString(), Value = i.ID_PHIEU_DANG_KY.ToString() } })
                 @Html.ValidationMessageFor(model => model.ID_PHIEU_DANG_KY, "", new { @class = "text-danger" })
@@ -99,10 +117,19 @@
             </div>
             <script>
                 function CheckSoChi() {
+
                     var tongchi = @i.TONG_SO_TIN_CHI;
                     var sochicongtiep = @DSMonHoc.SO_CHI;
                     if (tongchi + sochicongtiep > 20) {
-                        alert('Hơn 20 chỉ');
+                        alert('Phiếu đăng ký hơn 20 chỉ');
+                        return false;
+                    }
+                    if (@ketQuaTrungMon === 1) {
+                        alert('Môn học đã có trong phiếu đăng ký');
+                        return false;
+                    }
+                    if (@ketQuaKhoaMon === 1) {
+                        alert('Môn học đã bị khóa, không thể đăng ký');
                         return false;
                     }
                     return true;
