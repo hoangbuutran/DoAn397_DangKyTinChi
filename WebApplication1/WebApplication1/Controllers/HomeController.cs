@@ -104,7 +104,10 @@ namespace WebApplication1.Controllers
             {
                 return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
             }
-            return View();
+            else
+            {
+                return RedirectToAction("TimMonDangKy", "Home", new { id = model.ID_PHIEU_DANG_KY });
+            }
         }
 
         public ActionResult XemLichSuDangKy()

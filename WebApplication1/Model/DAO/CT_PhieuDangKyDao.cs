@@ -9,8 +9,8 @@ namespace Model.DAO
 {
     public class CT_PhieuDangKyDao
     {/// <summary>
-        /// biến kết nối csdl
-        /// </summary>
+     /// biến kết nối csdl
+     /// </summary>
         private CoSoDuLieuDbContext db = null;
 
         /// <summary>
@@ -28,20 +28,26 @@ namespace Model.DAO
             {
                 var daomon = new MonHocDao().MonHocSinger((int)phieu.ID_MON_HOC);
                 var daophieu = new PhieuDangKyDao().PhieuDKSinger((int)phieu.ID_PHIEU_DANG_KY);
-                if (daophieu.TONG_SO_TIN_CHI + daomon.SO_CHI <= 20)
+                if (daomon.TRANG_THAI == false)
                 {
-                    var timlai = db.CT_PHIEU_DANG_KY.Count(x => x.ID_MON_HOC == phieu.ID_MON_HOC && x.ID_PHIEU_DANG_KY == phieu.ID_PHIEU_DANG_KY);
-                    if (timlai == 0)
+                    i = 3;
+                }
+                else
+                {
+                    if (daophieu.TONG_SO_TIN_CHI + daomon.SO_CHI <= 20)
                     {
-                        db.CT_PHIEU_DANG_KY.Add(phieu);
-                        db.SaveChanges();
-                        i = 1;
+                        var timlai = db.CT_PHIEU_DANG_KY.Count(x => x.ID_MON_HOC == phieu.ID_MON_HOC && x.ID_PHIEU_DANG_KY == phieu.ID_PHIEU_DANG_KY);
+                        if (timlai == 0)
+                        {
+                            db.CT_PHIEU_DANG_KY.Add(phieu);
+                            db.SaveChanges();
+                            i = 1;
+                        }
+                        else
+                        {
+                            i = 2;
+                        }
                     }
-                    else
-                    {
-                        i = 2;
-                    }
-
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)

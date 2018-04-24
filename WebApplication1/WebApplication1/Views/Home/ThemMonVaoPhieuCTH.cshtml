@@ -59,6 +59,7 @@
         color: #333;
         padding-left: 3%;
         padding-right: 18%;
+        padding-bottom: 19px;
     }
 </style>
 <h2 class="themmon">Thêm Môn Vào Phiếu Đăng Ký</h2>
@@ -76,11 +77,16 @@
                 @Html.ValidationMessageFor(model => model.ID_MON_HOC, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <pre class="PreThongTinMon">
                - Số Chỉ             :  @DSMonHoc.SO_CHI.ToString() chỉ
                - Loại hình          :  @DSMonHoc.LOAI_HINH.ToString()
                - Môn học tiên quyết :  @DSMonHoc.MON_TIEN_QUYET.ToString()
                - Môn học song hành  :  @DSMonHoc.MON_SONG_HANH.ToString()
+               - Trạng thái môn     :  @if ((bool)DSMonHoc.TRANG_THAI)
+                                        {<span class="label label-success">Được đăng kí</span>}
+                                        else
+                                        {<span class="label label-danger">Không được đăng kí</span>}
         </pre>
         <div class="form-group">
             @Html.LabelFor(model => model.ID_PHIEU_DANG_KY, htmlAttributes: new { @class = "control-label col-md-3" })

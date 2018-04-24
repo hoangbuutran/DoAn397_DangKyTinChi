@@ -16,6 +16,10 @@
 
     <h2>Tạo mới sinh viên</h2>
 
+    <p class="btn">
+        @Html.ActionLink("Upload file", "UploadExcel")
+    </p>
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

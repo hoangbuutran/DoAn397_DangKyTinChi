@@ -66,7 +66,7 @@ namespace Model.DAO
         public int Login(string tendangnhap, string matkhau)
         {
             var dem = 0;
-            dem = db.TAIKHOANs.Count(x => x.USERNAME == tendangnhap && x.PASS == matkhau);
+            dem = db.TAIKHOANs.Count(x => x.USERNAME == tendangnhap && x.PASS == matkhau && (x.QUYEN.TRANG_THAI == true));
             if (dem != 0)
             {
                 var taikhoan = TaiKhoanSingle(tendangnhap, matkhau);

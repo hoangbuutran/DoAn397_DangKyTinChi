@@ -101,16 +101,15 @@ namespace Model.DAO
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int XoaMonHoc(int id)
+        public int KhoaMo(int id)
         {
             int i;
             try
             {
 
-                var MonHoc = ChuyenNganhMonHocSinger(id);
-                var MonHoc2 = db.MON_HOC.Find(id);
-                db.CHUYENNGANH_MONHOC.Remove(MonHoc);
-                db.MON_HOC.Remove(MonHoc2);
+                //var MonHoc = ChuyenNganhMonHocSinger(id);
+                var MonHoc = db.MON_HOC.Find(id);
+                MonHoc.TRANG_THAI = !MonHoc.TRANG_THAI;
                 db.SaveChanges();
                 i = 1;
             }

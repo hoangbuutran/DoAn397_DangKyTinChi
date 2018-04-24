@@ -25,9 +25,16 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         }
 
         // GET: GiaoVu/MonHoc
-        public ActionResult Index()
+        public ActionResult Index(string ChuoiTimKiem)
         {
-            return View(dao.ListMonHoc());
+            if (ChuoiTimKiem == null)
+            {
+                return View(dao.ListMonHoc());
+            }
+            else
+            {
+                return View(dao.ListMonHocByCondition(ChuoiTimKiem));
+            }
         }
 
         // GET: GiaoVu/MonHoc/Details/5
@@ -36,39 +43,39 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             return View(dao.MonHocSinger(id));
         }
 
-        // GET: GiaoVu/MonHoc/Create
-        public ActionResult Create()
-        {
-            ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
-            return View();
-        }
+        //// GET: GiaoVu/MonHoc/Create
+        //public ActionResult Create()
+        //{
+        //    ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
+        //    return View();
+        //}
 
-        // POST: GiaoVu/MonHoc/Create
-        [HttpPost]
-        public ActionResult Create(CHUYENNGANH_MONHOC model, FormCollection collection)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    int i = daochuyennganhmonhoc.AddMonHoc(model);
-                    if (i == 1)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Mời Nhập thông tin đầy đủ");
-                    return RedirectToAction("Create");
-                }
-            }
-            catch
-            {
-                ModelState.AddModelError("", "Loi error");
-            }
-            return View();
-        }
+        //// POST: GiaoVu/MonHoc/Create
+        //[HttpPost]
+        //public ActionResult Create(CHUYENNGANH_MONHOC model, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            int i = daochuyennganhmonhoc.AddMonHoc(model);
+        //            if (i == 1)
+        //            {
+        //                return RedirectToAction("Index");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ModelState.AddModelError("", "Mời Nhập thông tin đầy đủ");
+        //            return RedirectToAction("Create");
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        ModelState.AddModelError("", "Loi error");
+        //    }
+        //    return View();
+        //}
 
         // GET: GiaoVu/MonHoc/Edit/5
         public ActionResult Edit(int id)
@@ -98,9 +105,9 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
 
         // POST: GiaoVu/MonHoc/Delete/5
         [HttpGet]
-        public ActionResult Delete(int id)
+        public ActionResult KhoaMo(int id)
         {
-            daochuyennganhmonhoc.XoaMonHoc(id);
+            daochuyennganhmonhoc.KhoaMo(id);
             return RedirectToAction("Index");
         }
 

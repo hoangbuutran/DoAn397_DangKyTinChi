@@ -44,6 +44,17 @@ namespace Model.DAO
             return db.SINH_VIEN.ToList();
         }
 
+        public List<SINH_VIEN> ListSinhVienByCondition(string chuoiTimKiem)
+        {
+            return db.SINH_VIEN.Where(x => x.TEN_SINH_VIEN.Contains(chuoiTimKiem) ||
+                                           x.MA_SINH_VIEN.Contains(chuoiTimKiem) ||
+                                           x.EMAIL.Contains(chuoiTimKiem) ||
+                                           x.DIA_CHI.Contains(chuoiTimKiem) ||
+                                           x.CMND.Contains(chuoiTimKiem) ||
+                                           x.CHUYEN_NGANH.TEN_CHUYEN_NGANH.Contains(chuoiTimKiem) ||
+                                           x.DIEN_THOAI.Contains(chuoiTimKiem)
+                                        ).ToList();
+        }
 
         public string RejectMarks(string text)
         {

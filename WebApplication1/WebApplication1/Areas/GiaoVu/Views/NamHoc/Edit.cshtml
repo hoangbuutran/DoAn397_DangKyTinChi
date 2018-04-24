@@ -4,6 +4,12 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
+<style>
+    select#TRANGTHAI {
+        border-radius: 12px;
+        padding: 7px;
+    }
+</style>
 <div class="cardTuLam">
     <h2>Chỉnh sửa năm học</h2>
 
@@ -28,9 +34,9 @@
                 @Html.LabelFor(model => model.TRANGTHAI, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-8">
                     @Html.DropDownListFor(model => model.TRANGTHAI, new SelectList(new[] {
-                                                                                    new { Value = "true", Text = "Mở Năm Học" },
-                                                                                    new { Value = "false", Text = "Khóa Năm Học" },
-                                                                                    }, "Value", "Text"))
+                                                                                        new { Value = "true", Text = "Mở Năm Học" },
+                                                                                        new { Value = "false", Text = "Khóa Năm Học" },
+                                                                                        }, "Value", "Text"))
                     @Html.ValidationMessageFor(model => model.TRANGTHAI, "", new { @class = "text-danger" })
                 </div>
             </div>

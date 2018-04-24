@@ -49,7 +49,19 @@ namespace Model.DAO
         {
             return db.MON_HOC.ToList();
         }
-
+        public List<MON_HOC> ListMonHocByCondition(string chuoiTimKiem)
+        {
+            return db.MON_HOC.Where(x => x.TEN_MON_HOC.Contains(chuoiTimKiem) ||
+                                           x.MA_MON_HOC.Contains(chuoiTimKiem) ||
+                                           x.SO_CHI.ToString().Contains(chuoiTimKiem) ||
+                                           x.TRANG_THAI.ToString().Contains(chuoiTimKiem) ||
+                                           x.LOAI_DVHT.Contains(chuoiTimKiem) ||
+                                           x.MON_SONG_HANH.Contains(chuoiTimKiem) ||
+                                           x.MON_TIEN_QUYET.Contains(chuoiTimKiem) ||
+                                           x.LOAI_HINH.Contains(chuoiTimKiem) ||
+                                           x.MO_TA.Contains(chuoiTimKiem)
+                                        ).ToList();
+        }
         /// <summary>
         /// 
         /// </summary>

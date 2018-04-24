@@ -1,7 +1,9 @@
 ﻿body {
 }
 .cardTuLam {
-    padding: 49px;
+    padding-left: 49px;
+    padding-right: 49px;
+    padding-bottom: 49px;
     margin: 3px;
     background: #fff;
     border-radius: 19px;
@@ -12,7 +14,9 @@
 }
 
 .cardTuLamIndex {
-    padding: 36px;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-bottom: 36px;
     margin: 3px;
     background: #fff;
     border-radius: 19px;

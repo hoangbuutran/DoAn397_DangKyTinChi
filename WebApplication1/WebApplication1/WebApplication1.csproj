@@ -201,6 +201,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\bg.jpg" />
+    <Content Include="Assets\images\logo.png" />
     <Content Include="Assets\QuanLy\assets\css\animate.min.css" />
     <Content Include="Assets\QuanLy\assets\css\bootstrap.min.css" />
     <Content Include="Assets\QuanLy\assets\css\CssTuLam.css" />
@@ -253,6 +255,7 @@
     <Content Include="Assets\SinhVien\js\demo.js" />
     <Content Include="Assets\SinhVien\js\jquery-1.10.2.js" />
     <Content Include="Assets\SinhVien\js\paper-dashboard.js" />
+    <Content Include="Assets\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="FileExcel\SinhVien.xlsx" />
     <Content Include="Global.asax" />

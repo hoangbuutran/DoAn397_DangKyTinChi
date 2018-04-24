@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Controllers;
+using WebApplication1.Common;
 
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
@@ -28,9 +29,18 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
 
         }
         // GET: GiaoVu/SinhVien
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(string ChuoiTimKiem)
         {
-            return View(dao.ListSinhVien());
+            if (ChuoiTimKiem == null)
+            {
+                return View(dao.ListSinhVien());
+            }
+            else
+            {
+                return View(dao.ListSinhVienByCondition(ChuoiTimKiem));
+            }
+            
         }
 
         // GET: GiaoVu/SinhVien/Details/5
