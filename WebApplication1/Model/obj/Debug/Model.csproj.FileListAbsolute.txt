@@ -35,3 +35,4 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Mi
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csproj.GenerateResource.cache
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.addTrangThai.resources
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\Model\obj\Debug\Model.Migrations.Passfield.resources

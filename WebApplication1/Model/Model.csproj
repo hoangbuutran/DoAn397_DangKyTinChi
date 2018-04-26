@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201804221336245_addTrangThai.Designer.cs">
       <DependentUpon>201804221336245_addTrangThai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804251317249_Passfield.cs" />
+    <Compile Include="Migrations\201804251317249_Passfield.Designer.cs">
+      <DependentUpon>201804251317249_Passfield.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804221336245_addTrangThai.resx">
       <DependentUpon>201804221336245_addTrangThai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804251317249_Passfield.resx">
+      <DependentUpon>201804251317249_Passfield.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -80,25 +80,49 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         // GET: GiaoVu/MonHoc/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
-            return View(daochuyennganhmonhoc.ChuyenNganhMonHocSinger(id));
+            //ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
+            ViewBag.DSChuyenNganh = DaoChuyenNganh.ListChuyenNganh();
+            return View(daochuyennganhmonhoc.ChuyenNganhMonHocListWithIdMon(id));
         }
 
         // POST: GiaoVu/MonHoc/Edit/5
         [HttpPost]
-        public ActionResult Edit(CHUYENNGANH_MONHOC model, FormCollection collection)
+        public ActionResult Edit(IList<CHUYENNGANH_MONHOC> model, FormCollection collection)
         {
             try
             {
-                if (daochuyennganhmonhoc.SuaMonHoc(model) == 1)
+
+                int x = 0;
+                int so = model.Count();
+                int idMonNew = new int();
+                bool? tuChonNew = new bool();
+                int? nhomTuChonNew = new int();
+                int k = 1;
+                for (int i = 0; i < so; i++)
+                {
+                    if (model[i].ID_CHUYENNGANH != 0 && k == 1)
+                    {
+                        model[0].ID_CHUYENNGANH = model[i].ID_CHUYENNGANH;
+                        idMonNew = daochuyennganhmonhoc.SuaMonHoc(model[0]);
+                        tuChonNew = (bool)model[0].MON_HOC.TU_CHON;
+                        nhomTuChonNew = (int)model[0].MON_HOC.NHOM_TU_CHON;
+                        k++;
+                    }
+                    else if (model[i].ID_CHUYENNGANH != 0 && i != 0)
+                    {
+                        model[i].ID_MONHOC = idMonNew;
+                        daochuyennganhmonhoc.SuaMonHoc(model[i]);
+                    }
+                    x++;
+                }
+                if (x == so)
                 {
                     return RedirectToAction("Index");
                 }
             }
             catch
             {
-                ModelState.AddModelError("", "Loi");
-                return RedirectToAction("Edit", "MonHoc", new { id = model.ID_MONHOC });
+                ModelState.AddModelError("", "Loi error");
             }
             return View();
         }
@@ -127,39 +151,32 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                int x = 0;
+                int so = model.Count();
+                int idMonNew = new int();
+                bool? tuChonNew = new bool();
+                int? nhomTuChonNew = new int();
+                int k = 1;
+                for (int i = 0; i < so; i++)
                 {
-                    int x = 0;
-                    int so = model.Count();
-                    int idMonNew = new int();
-                    bool? tuChonNew = new bool();
-                    int? nhomTuChonNew = new int();
-                    for (int i = 0; i < so; i++)
+                    if (model[i].ID_CHUYENNGANH != 0 && k == 1)
                     {
-                        if (model[i].ID_CHUYENNGANH != 0 && i == 0)
-                        {
-                            idMonNew = daochuyennganhmonhoc.AddMonHoc(model[i]);
-                            tuChonNew = model[i].TU_CHON;
-                            nhomTuChonNew = model[i].NHOM_TU_CHON;
-                        }
-                        else if (model[i].ID_CHUYENNGANH != 0 && i != 0)
-                        {
-                            model[i].ID_MONHOC = idMonNew;
-                            model[i].TU_CHON = tuChonNew;
-                            model[i].NHOM_TU_CHON = nhomTuChonNew;
-                            daochuyennganhmonhoc.AddMonHoc(model[i]);
-                        }
-                        x++;
+                        model[0].ID_CHUYENNGANH = model[i].ID_CHUYENNGANH;
+                        idMonNew = daochuyennganhmonhoc.AddMonHoc(model[0]);
+                        tuChonNew = (bool)model[0].MON_HOC.TU_CHON;
+                        nhomTuChonNew = (int)model[0].MON_HOC.NHOM_TU_CHON;
+                        k++;
                     }
-                    if (x == so)
+                    else if (model[i].ID_CHUYENNGANH != 0 && i != 0)
                     {
-                        return RedirectToAction("Index");
+                        model[i].ID_MONHOC = idMonNew;
+                        daochuyennganhmonhoc.AddMonHoc(model[i]);
                     }
+                    x++;
                 }
-                else
+                if (x == so)
                 {
-                    ModelState.AddModelError("", "Mời Nhập thông tin đầy đủ");
-                    return RedirectToAction("Create");
+                    return RedirectToAction("Index");
                 }
             }
             catch

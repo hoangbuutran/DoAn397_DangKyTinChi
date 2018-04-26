@@ -54,6 +54,13 @@
         [Display(Name = "Trạng thái")]
         public bool? TRANG_THAI { get; set; }
 
+
+        [Display(Name = "Môn tự chọn ?")]
+        public bool? TU_CHON { get; set; }
+
+        [Display(Name = "Thuộc nhóm tự chọn")]
+        public int? NHOM_TU_CHON { get; set; }
+
         public virtual ICollection<CHUYENNGANH_MONHOC> CHUYENNGANH_MONHOC { get; set; }
 
         public virtual ICollection<CT_PHIEU_DANG_KY> CT_PHIEU_DANG_KY { get; set; }

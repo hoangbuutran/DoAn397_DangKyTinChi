@@ -86,7 +86,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
 
         public FileResult DownloadExcel()
         {
-            string path = "/Doc/NamHoc.xlsx";
+            string path = "/FileExcel/NamHoc.xlsx";
             return File(path, "application/vnd.ms-excel", "NamHoc.xlsx");
         }
 

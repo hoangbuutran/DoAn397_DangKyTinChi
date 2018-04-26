@@ -32,6 +32,15 @@ namespace Model.DAO
             return db.CHUYENNGANH_MONHOC.SingleOrDefault(x => x.ID_MONHOC == id);
         }
 
+        public int ChuyenNganhMonHocWithIdMonIdChuyenNganh(int idMon, int idCN)
+        {
+            return db.CHUYENNGANH_MONHOC.Count(x => x.ID_MONHOC == idMon && x.ID_CHUYENNGANH == idCN);
+        }
+
+        public List<CHUYENNGANH_MONHOC> ChuyenNganhMonHocListWithIdMon(int id)
+        {
+            return db.CHUYENNGANH_MONHOC.Where(x => x.ID_MONHOC == id).ToList();
+        }
         /// <summary>
         /// tìm kiếm môn học với mã tìm kiếm được nhập vào.
         /// </summary>
@@ -84,8 +93,6 @@ namespace Model.DAO
                 var j = new MonHocDao().SuaMonHoc(MonHocMoi.MON_HOC);
                 var MonHocCu = ChuyenNganhMonHocSinger(MonHocMoi.ID);
                 MonHocCu.ID_CHUYENNGANH = MonHocMoi.ID_CHUYENNGANH;
-                MonHocCu.TU_CHON = MonHocMoi.TU_CHON;
-                MonHocCu.NHOM_TU_CHON = MonHocMoi.NHOM_TU_CHON;
                 db.SaveChanges();
                 i = 1;
             }

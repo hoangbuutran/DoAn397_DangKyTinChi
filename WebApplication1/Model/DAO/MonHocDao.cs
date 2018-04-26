@@ -99,6 +99,8 @@ namespace Model.DAO
                 MonHocCu.LOAI_HINH = MonHocMoi.LOAI_HINH;
                 MonHocCu.MON_TIEN_QUYET = MonHocMoi.MON_TIEN_QUYET;
                 MonHocCu.MON_SONG_HANH = MonHocMoi.MON_SONG_HANH;
+                MonHocCu.TU_CHON = MonHocMoi.TU_CHON;
+                MonHocCu.NHOM_TU_CHON = MonHocMoi.NHOM_TU_CHON;
                 MonHocCu.MO_TA = MonHocMoi.MO_TA;
                 db.SaveChanges();
                 i = 1;

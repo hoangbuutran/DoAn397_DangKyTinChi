@@ -28,27 +28,27 @@ namespace Model.DAO
             {
                 var daomon = new MonHocDao().MonHocSinger((int)phieu.ID_MON_HOC);
                 var daophieu = new PhieuDangKyDao().PhieuDKSinger((int)phieu.ID_PHIEU_DANG_KY);
-                if (daomon.TRANG_THAI == false)
+                //if (daomon.TRANG_THAI == false)
+                //{
+                //    i = 3;
+                //}
+                //else
+                //{
+                //    if (daophieu.TONG_SO_TIN_CHI + daomon.SO_CHI <= 20)
+                //    {
+                var timlai = db.CT_PHIEU_DANG_KY.Count(x => x.ID_MON_HOC == phieu.ID_MON_HOC && x.ID_PHIEU_DANG_KY == phieu.ID_PHIEU_DANG_KY);
+                if (timlai == 0)
                 {
-                    i = 3;
+                    db.CT_PHIEU_DANG_KY.Add(phieu);
+                    db.SaveChanges();
+                    i = 1;
                 }
                 else
                 {
-                    if (daophieu.TONG_SO_TIN_CHI + daomon.SO_CHI <= 20)
-                    {
-                        var timlai = db.CT_PHIEU_DANG_KY.Count(x => x.ID_MON_HOC == phieu.ID_MON_HOC && x.ID_PHIEU_DANG_KY == phieu.ID_PHIEU_DANG_KY);
-                        if (timlai == 0)
-                        {
-                            db.CT_PHIEU_DANG_KY.Add(phieu);
-                            db.SaveChanges();
-                            i = 1;
-                        }
-                        else
-                        {
-                            i = 2;
-                        }
-                    }
+                    i = 2;
                 }
+                //    }
+                //}
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
@@ -72,6 +72,7 @@ namespace Model.DAO
         {
             return db.CT_PHIEU_DANG_KY.Where(x => x.ID_PHIEU_DANG_KY == id).ToList();
         }
+
         public CT_PHIEU_DANG_KY MonTrongPhieuSinger(int idCtPhieu)
         {
             return db.CT_PHIEU_DANG_KY.Where(x => x.ID_CT_PHIEU_DANG_KY == idCtPhieu).SingleOrDefault();

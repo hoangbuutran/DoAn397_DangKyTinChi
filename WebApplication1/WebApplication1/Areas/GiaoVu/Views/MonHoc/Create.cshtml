@@ -104,19 +104,19 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MON_HOC.TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.DropDownListFor(model => model.TU_CHON, new SelectList(new[] {new { Value = "true", Text = "YES" },
+                @Html.DropDownListFor(model => model.MON_HOC.TU_CHON, new SelectList(new[] {new { Value = "true", Text = "YES" },
                                                                                     new { Value = "false", Text = "NO" },}, "Value", "Text"))
-                @Html.ValidationMessageFor(model => model.TU_CHON, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.MON_HOC.TU_CHON, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NHOM_TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MON_HOC.NHOM_TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.NHOM_TU_CHON, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NHOM_TU_CHON, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.MON_HOC.NHOM_TU_CHON, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MON_HOC.NHOM_TU_CHON, "", new { @class = "text-danger" })
             </div>
         </div>
 

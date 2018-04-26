@@ -75,8 +75,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MON_HOC.SO_CHI)
             </td>
-            <td class="btn">
-                @Html.ActionLink("Xóa Môn", "XoaMonTrongPhieu", new { id = item.ID_MON_HOC, idCtPhieu = item.ID_CT_PHIEU_DANG_KY })
+            <td>
+                <div class="btn">
+                    @Html.ActionLink("Xóa Môn", "XoaMonTrongPhieu", new { idMon = item.ID_MON_HOC, idCtPhieu = item.ID_CT_PHIEU_DANG_KY, idPhieuDK = item.ID_PHIEU_DANG_KY })
+                </div>
             </td>
         </tr>
     }

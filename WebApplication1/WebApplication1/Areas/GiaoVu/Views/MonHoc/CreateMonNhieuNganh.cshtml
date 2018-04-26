@@ -46,39 +46,17 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.TEN_MON_HOC, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model[i].MON_HOC.TEN_MON_HOC, htmlAttributes: new { @class = "control-label col-md-2" })*
                         <div class="col-md-8">
                             @Html.EditorFor(model => model[i].MON_HOC.TEN_MON_HOC, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model[i].MON_HOC.TEN_MON_HOC, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.SO_CHI, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-8">
-                            @Html.EditorFor(model => model[i].MON_HOC.SO_CHI, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model[i].MON_HOC.SO_CHI, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.LOAI_DVHT, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-8">
-                            @Html.EditorFor(model => model[i].MON_HOC.LOAI_DVHT, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model[i].MON_HOC.LOAI_DVHT, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.LOAI_HINH, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-8">
-                            @Html.EditorFor(model => model[i].MON_HOC.LOAI_HINH, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model[i].MON_HOC.LOAI_HINH, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.MON_TIEN_QUYET, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model[i].MON_HOC.MON_TIEN_QUYET, htmlAttributes: new { @class = "control-label col-md-2" })*
                         <div class="col-md-8">
                             @Html.EditorFor(model => model[i].MON_HOC.MON_TIEN_QUYET, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model[i].MON_HOC.MON_TIEN_QUYET, "", new { @class = "text-danger" })
@@ -86,7 +64,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.MON_SONG_HANH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model[i].MON_HOC.MON_SONG_HANH, htmlAttributes: new { @class = "control-label col-md-2" })*
                         <div class="col-md-8">
                             @Html.EditorFor(model => model[i].MON_HOC.MON_SONG_HANH, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model[i].MON_HOC.MON_SONG_HANH, "", new { @class = "text-danger" })
@@ -94,28 +72,78 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model[i].MON_HOC.MO_TA, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model[i].MON_HOC.MO_TA, htmlAttributes: new { @class = "control-label col-md-2" })*
                         <div class="col-md-8">
                             @Html.EditorFor(model => model[i].MON_HOC.MO_TA, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model[i].MON_HOC.MO_TA, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model[i].TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model[i].MON_HOC.SO_CHI, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
-                            @Html.DropDownListFor(model => model[i].TU_CHON, new SelectList(new[] {new { Value = "true", Text = "YES" },
-                                                                                    new { Value = "false", Text = "NO" },}, "Value", "Text"))
-                            @Html.ValidationMessageFor(model => model[i].TU_CHON, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(model => model[i].MON_HOC.SO_CHI, new SelectList(new[]
+                                                                                                  {
+                                                                                new { Value = "1", Text = "1" },
+                                                                                new { Value = "2", Text = "2" },
+                                                                                new { Value = "3", Text = "3" },
+                                                                                new { Value = "4", Text = "4" },
+                                                                            }, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.SO_CHI, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model[i].NHOM_TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model[i].MON_HOC.LOAI_DVHT, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model[i].NHOM_TU_CHON, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model[i].NHOM_TU_CHON, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(model => model[i].MON_HOC.LOAI_DVHT, new SelectList(new[]
+                                                                   {
+                                                        new { Value = "Tín Chỉ", Text = "Tín Chỉ" },
+                                                        new { Value = "Học Phần", Text = "Học Phần" },
+                                                    }, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.LOAI_DVHT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.LOAI_HINH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model[i].MON_HOC.LOAI_HINH, new SelectList(new[]
+                                                                                       {
+                                                            new { Value = "LEC", Text = "LEC" },
+                                                            new { Value = "LAP", Text = "LAP" },
+                                                            new { Value = "LEC/LAP", Text = "LEC/LAP" },
+                                                        }, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.LOAI_HINH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model[i].MON_HOC.TU_CHON, new SelectList(new[] {new { Value = "true", Text = "YES" },
+                                                                                new { Value = "false", Text = "NO" },}, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.TU_CHON, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model[i].MON_HOC.NHOM_TU_CHON, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model[i].MON_HOC.NHOM_TU_CHON, new SelectList(new[]
+                                                                                                  {
+                                                                                new { Value = "0", Text = "Chọn nhóm cho môn tự chọn" },
+                                                                                new { Value = "1", Text = "Đạo Đức & Pháp Luật(Chọn 1 trong 3)" },
+                                                                                new { Value = "2", Text = "Tự chọn về Xã Hội(Chọn 2 trong 5)" },
+                                                                                new { Value = "3", Text = "Ngoại Ngữ(Chọn 12 trong 16)" },
+                                                                                new { Value = "4", Text = "Giáo Dục Thể Chất Sơ Cấp(Chọn 1 trong 6)" },
+                                                                                new { Value = "5", Text = "Giáo Dục Thể Chất Cao Cấp(Chọn 1 trong 6)" },
+                                                                                new { Value = "6", Text = "Tự chọn về Thiết Kế & Quản Lý(Chọn 1 trong 3)" },
+                                                                                new { Value = "7", Text = "Cấu Trúc & Giải Thuật(Chọn 1 trong 2)" },
+                                                                                new { Value = "8", Text = "Thực Tập & Khóa Luận(Chọn 1 trong 6)" },
+                                                                            }, "Value", "Text"))
+                            @Html.ValidationMessageFor(model => model[i].MON_HOC.NHOM_TU_CHON, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -123,9 +151,9 @@
                         @Html.LabelFor(model => model[i].MON_HOC.TRANG_THAI, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
                             @Html.DropDownListFor(model => model[i].MON_HOC.TRANG_THAI, new SelectList(new[] {
-                                                                                    new { Value = "true", Text = "Mở Môn Học" },
-                                                                                    new { Value = "false", Text = "Khóa Môn Học" },
-                                                                                    }, "Value", "Text"))
+                                                                                new { Value = "true", Text = "Mở Môn Học" },
+                                                                                new { Value = "false", Text = "Khóa Môn Học" },
+                                                                                }, "Value", "Text"))
                             @Html.ValidationMessageFor(model => model[i].MON_HOC.TRANG_THAI, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -136,9 +164,9 @@
                     @Html.Label(listChuyenNganh[i].TEN_CHUYEN_NGANH, htmlAttributes: new { @id = "selectCNM", @class = "col-md-3" })
                     <div class="col-md-3">
                         @Html.DropDownListFor(model => model[i].ID_CHUYENNGANH, new SelectList(new[] {
-                                                                                    new { Value = "0", Text = "Không Chọn" },
-                                                                                    new { Value = listChuyenNganh[i].ID_CHUYEN_NGANH.ToString(), Text = "Chọn ngành" },
-                                                                                    }, "Value", "Text"))
+                                                                    new { Value = "0", Text = "Không Chọn" },
+                                                                    new { Value = listChuyenNganh[i].ID_CHUYEN_NGANH.ToString(), Text = "Chọn ngành" },
+                                                                    }, "Value", "Text"))
                         @Html.ValidationMessageFor(model => model[i].ID_CHUYENNGANH, "", new { @class = "text-danger" })
                     </div>
                 </div>

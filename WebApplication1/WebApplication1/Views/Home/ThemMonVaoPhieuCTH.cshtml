@@ -4,6 +4,7 @@
     ViewBag.Title = "ThemMonVaoPhieuCTH";
     Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
     var DSMonHoc = (Model.EF.MON_HOC)ViewBag.MONHOC;
+    var SoNamDangHoc = (int)ViewBag.soNamDangHoc;
     var i = (Model.EF.PHIEU_DANG_KY)ViewBag.IDPhieuDangKy;
     var dsMon = (List<Model.EF.CT_PHIEU_DANG_KY>)ViewBag.DsMon;
     var j = (int)dsMon.Count();
@@ -20,6 +21,9 @@
     {
         ketQuaKhoaMon = 1;
     }
+
+    var KetQuaTrungNhomMon = (int)ViewBag.KetQuaTrungNhomMon;
+    var KetQuaMonChuyenNganh = (int)ViewBag.KetQuaMonChuyenNganh;
 }
 <style>
     select#ID_MON_HOC {
@@ -32,7 +36,6 @@
     }
 
     select#ID_PHIEU_DANG_KY {
-        /*margin-left: 75px;*/
         padding-left: 5px;
         padding-right: 5px;
         padding-bottom: 5px;
@@ -44,7 +47,7 @@
         margin-left: -15px;
         padding-left: 39px;
         padding-right: 40px;
-        border-radius: 18px;
+        border-radius: 8px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
@@ -56,7 +59,6 @@
 
     div#tongchilabel {
         padding-top: 6px;
-        /*padding-left: 26px;*/
     }
 
     div#formhienthithongtin {
@@ -76,6 +78,7 @@
         padding-right: 18%;
         padding-bottom: 19px;
     }
+
     label#labelSoPhieu {
         margin-left: 33px;
     }
@@ -120,8 +123,20 @@
 
                     var tongchi = @i.TONG_SO_TIN_CHI;
                     var sochicongtiep = @DSMonHoc.SO_CHI;
-                    if (tongchi + sochicongtiep > 20) {
+                    if (@SoNamDangHoc < 3 && tongchi + sochicongtiep > 20) {
                         alert('Phiếu đăng ký hơn 20 chỉ');
+                        return false;
+                    }
+                    if (@SoNamDangHoc == 3 && @i.ID_HOC_KY == 1 && tongchi + sochicongtiep > 20) {
+                        alert('Phiếu đăng ký hơn 20 chỉ');
+                        return false;
+                    }
+                    if (@SoNamDangHoc == 3 && @i.ID_HOC_KY == 2 && tongchi + sochicongtiep > 22) {
+                        alert('Phiếu đăng ký hơn 22 chỉ');
+                        return false;
+                    }
+                    if (@SoNamDangHoc == 4 && (@i.ID_HOC_KY == 1 || @i.ID_HOC_KY == 2) && tongchi + sochicongtiep > 22) {
+                        alert('Phiếu đăng ký hơn 22 chỉ');
                         return false;
                     }
                     if (@ketQuaTrungMon === 1) {
@@ -130,6 +145,14 @@
                     }
                     if (@ketQuaKhoaMon === 1) {
                         alert('Môn học đã bị khóa, không thể đăng ký');
+                        return false;
+                    }
+                    if (@KetQuaTrungNhomMon === 1) {
+                        alert('Phiếu đả tồn tại môn học cùng nhóm môn');
+                        return false;
+                    }
+                    if (@KetQuaMonChuyenNganh === 1) {
+                        alert('Môn học không thuộc chương trình học của sinh viên');
                         return false;
                     }
                     return true;

@@ -16,11 +16,7 @@
         [Display(Name = "Chuyên ngành")]
         public int? ID_CHUYENNGANH { get; set; }
 
-        [Display(Name = "Môn tự chọn ?")]
-        public bool? TU_CHON { get; set; }
-
-        [Display(Name = "Thuộc nhóm tự chọn")]
-        public int? NHOM_TU_CHON { get; set; }
+        
 
         public virtual CHUYEN_NGANH CHUYEN_NGANH { get; set; }
 
