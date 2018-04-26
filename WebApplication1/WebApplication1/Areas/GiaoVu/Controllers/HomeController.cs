@@ -13,8 +13,10 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         // GET: GiaoVu/Home
         public ActionResult Index()
         {
-            ViewBag.sinhvien = new SinhVienDao().ListSinhVien();
-            ViewBag.monhoc = new MonHocDao().ListMonHoc();
+            ViewBag.sinhvien = new SinhVienDao().ListSinhVien().Count();
+            ViewBag.monhoc = new MonHocDao().ListMonHoc().Count();
+            ViewBag.ThongKe = new ThongKeDao().ListThongKe().Count();
+            ViewBag.NamHoc = new NamHocDao().ListNamHoc().Count();
             return View();
         }
     }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Model.EF.SINH_VIEN>
+﻿@model PagedList.IPagedList<Model.EF.SINH_VIEN>
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
@@ -50,67 +51,67 @@
         <table class="table table-bordered">
             <tr class="panel-heading">
                 <th>
-                    @Html.DisplayNameFor(model => model.MA_SINH_VIEN)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().MA_SINH_VIEN)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TEN_SINH_VIEN)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().TEN_SINH_VIEN)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TRANG_THAI)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().TRANG_THAI)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DIEN_THOAI)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().DIEN_THOAI)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DIA_CHI)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().DIA_CHI)
                 </th>
 
                 <th>Tùy Chọn</th>
             </tr>
 
             @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MA_SINH_VIEN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TEN_SINH_VIEN)
-                    </td>
-                    <td>
-                        @if ((bool)item.TRANG_THAI)
-                        {
-                            <span class="label label-success">Hoạt động</span>
-                        }
-                        else
-                        {
-                            <span class="label label-danger">Tạm khóa</span>
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DIEN_THOAI)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DIA_CHI)
-                    </td>
-
-                    <td>
-                        <p class="btn">
-                            @Html.ActionLink("Sửa", "Edit", new { id = item.ID_SINHVIEN })
-                        </p>
-                        <p class="btn">
-                            @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_SINHVIEN })
-                        </p>
-                        <p class="btn">
-                            @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_SINHVIEN })
-                        </p>
-                    </td>
-                </tr>
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MA_SINH_VIEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_SINH_VIEN)
+                </td>
+                <td>
+                    @if ((bool)item.TRANG_THAI)
+                {
+                    <span class="label label-success">Hoạt động</span>
             }
+            else
+            {
+                <span class="label label-danger">Tạm khóa</span>
+        }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIEN_THOAI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIA_CHI)
+                </td>
 
+                <td>
+                    <p class="btn">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID_SINHVIEN })
+                    </p>
+                    <p class="btn">
+                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_SINHVIEN })
+                    </p>
+                    <p class="btn">
+                        @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_SINHVIEN })
+                    </p>
+                </td>
+            </tr>
+    }
         </table>
+        <div>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
     </div>
-
-
 </div>
 

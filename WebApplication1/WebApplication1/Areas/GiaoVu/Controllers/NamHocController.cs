@@ -10,7 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Controllers;
-
+using PagedList;
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
     public class NamHocController : LoginChungController
@@ -18,9 +18,11 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         CoSoDuLieuDbContext db = new CoSoDuLieuDbContext();
         NamHocDao namHocDao = new NamHocDao();
         // GET: GiaoVu/NamHoc
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(namHocDao.ListNamHoc());
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(namHocDao.ListNamHoc().ToPagedList(pageNumber, pageSize));
         }
 
         //// GET: GiaoVu/NamHoc/Details/5

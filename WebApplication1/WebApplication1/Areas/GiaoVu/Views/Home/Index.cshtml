@@ -2,12 +2,10 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
-    var sinhvien = (List<Model.EF.SINH_VIEN>)ViewBag.sinhvien;
-    var monhoc = (List<Model.EF.MON_HOC>)ViewBag.monhoc;
 }
 
 <div class="row">
-    <div class="col-lg-6 col-md-6">
+    <div class="col-xs-3 .col-sm-3 .col-md-3">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -15,7 +13,7 @@
                         <i class="ti-user"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">@sinhvien.Count</div>
+                        <div class="huge">@ViewBag.sinhvien</div>
                         <div>Sinh Viên</div>
                     </div>
                 </div>
@@ -29,7 +27,7 @@
             </a>
         </div>
     </div>
-    <div class="col-lg-6 col-md-6">
+    <div class="col-xs-3 .col-sm-3 .col-md-3">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -37,7 +35,7 @@
                         <i class="ti-view-list-alt"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">@monhoc.Count</div>
+                        <div class="huge">@ViewBag.monhoc</div>
                         <div>Môn Học</div>
                     </div>
                 </div>
@@ -50,6 +48,50 @@
                 </div>
             </a>
         </div>
-    </div>    
+    </div>
+    <div class="col-xs-3 .col-sm-3 .col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="ti-view-list-alt"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@ViewBag.ThongKe</div>
+                        <div>Thống kê</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/GiaoVu/ThongKe">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-xs-3 .col-sm-3 .col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="ti-view-list-alt"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@ViewBag.NamHoc</div>
+                        <div>Năm Học</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/GiaoVu/NamHoc">
+                <div class="panel-footer">
+                    <span class="pull-left">Xem Chi Tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 

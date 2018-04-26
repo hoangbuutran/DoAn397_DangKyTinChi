@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Controllers;
 using WebApplication1.Common;
+using PagedList;
 
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
@@ -30,15 +31,19 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         }
         // GET: GiaoVu/SinhVien
         [HttpGet]
-        public ActionResult Index(string ChuoiTimKiem)
+        public ActionResult Index(string ChuoiTimKiem, int? page)
         {
             if (ChuoiTimKiem == null)
             {
-                return View(dao.ListSinhVien());
+                int pageSize = 5;
+                int pageNumber = (page ?? 1);
+                return View(dao.ListSinhVien().ToPagedList(pageNumber, pageSize));
             }
             else
             {
-                return View(dao.ListSinhVienByCondition(ChuoiTimKiem));
+                int pageSize = 5;
+                int pageNumber = (page ?? 1);
+                return View(dao.ListSinhVienByCondition(ChuoiTimKiem).ToPagedList(pageNumber, pageSize));
             }
             
         }

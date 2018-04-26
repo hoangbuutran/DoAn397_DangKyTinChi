@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Controllers;
+using PagedList;
 
 namespace WebApplication1.Areas.GiaoVu.Controllers
 {
@@ -25,15 +26,19 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         }
 
         // GET: GiaoVu/MonHoc
-        public ActionResult Index(string ChuoiTimKiem)
+        public ActionResult Index(string ChuoiTimKiem, int? page)
         {
             if (ChuoiTimKiem == null)
             {
-                return View(dao.ListMonHoc());
+                int pageSize = 5;
+                int pageNumber = (page ?? 1);
+                return View(dao.ListMonHoc().ToPagedList(pageNumber, pageSize));
             }
             else
             {
-                return View(dao.ListMonHocByCondition(ChuoiTimKiem));
+                int pageSize = 5;
+                int pageNumber = (page ?? 1);
+                return View(dao.ListMonHocByCondition(ChuoiTimKiem).ToPagedList(pageNumber, pageSize));
             }
         }
 

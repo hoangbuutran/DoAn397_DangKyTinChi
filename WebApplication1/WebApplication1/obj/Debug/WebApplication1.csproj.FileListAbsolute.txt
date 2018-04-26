@@ -177,3 +177,7 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Remo
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Remotion.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Remotion.Interfaces.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\LinqToExcel.xml
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.Mvc.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.xml
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.Mvc.xml

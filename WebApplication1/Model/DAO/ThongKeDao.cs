@@ -39,6 +39,11 @@ namespace Model.DAO
             return model;
         }
 
+        public List<PHIEU_DANG_KY> ListThongKe()
+        {
+            return db.PHIEU_DANG_KY.ToList();
+        }
+
         public List<CT_PHIEU_DANG_KY> THONGKETONGTINCHITHEOMON(int namhoc, int hocky)
         {
             object[] parameter =

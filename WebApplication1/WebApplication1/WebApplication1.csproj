@@ -53,6 +53,12 @@
       <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
       <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.dll</HintPath>
     </Reference>
@@ -243,6 +249,7 @@
     <Content Include="Assets\SinhVien\js\jquery-1.10.2.js" />
     <Content Include="Assets\SinhVien\js\paper-dashboard.js" />
     <Content Include="Assets\style.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="FileExcel\SinhVien.xlsx" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\web.config" />

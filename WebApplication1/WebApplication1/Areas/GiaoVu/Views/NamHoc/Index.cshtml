@@ -1,5 +1,5 @@
-﻿@model IEnumerable<Model.EF.NAM_HOC>
-
+﻿@model PagedList.IPagedList<Model.EF.NAM_HOC>
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
@@ -17,10 +17,10 @@
     <table class="table table-bordered">
         <tr class="panel-heading">
             <th>
-                @Html.DisplayNameFor(model => model.TEN_NAM_HOC)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TEN_NAM_HOC)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TRANGTHAI)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TRANGTHAI)
             </th>
             <th>Tùy Chọn</th>
         </tr>
@@ -45,9 +45,6 @@
                     <p class="btn">
                         @Html.ActionLink("Sửa", "Edit", new { id = item.ID_NAM_HOC })
                     </p>
-                    @*<p class="btn">
-                            @Html.ActionLink("Xem chi tiết", "Details", new { id = item.ID_NAM_HOC })
-                        </p>*@
                     <p class="btn">
                         @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_NAM_HOC })
                     </p>
@@ -56,5 +53,8 @@
         }
 
     </table>
-
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+                      new { page }))
+    </div>
 </div>
