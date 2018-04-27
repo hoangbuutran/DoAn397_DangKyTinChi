@@ -21,6 +21,11 @@ namespace Model.DAO
             db = new CoSoDuLieuDbContext();
         }
 
+        /// <summary>
+        /// thêm môn vào chi tiết  phiếu
+        /// </summary>
+        /// <param name="phieu"></param>
+        /// <returns></returns>
         public int AddCTPHIEUDANGKY(CT_PHIEU_DANG_KY phieu)
         {
             int i = 0;
@@ -28,14 +33,6 @@ namespace Model.DAO
             {
                 var daomon = new MonHocDao().MonHocSinger((int)phieu.ID_MON_HOC);
                 var daophieu = new PhieuDangKyDao().PhieuDKSinger((int)phieu.ID_PHIEU_DANG_KY);
-                //if (daomon.TRANG_THAI == false)
-                //{
-                //    i = 3;
-                //}
-                //else
-                //{
-                //    if (daophieu.TONG_SO_TIN_CHI + daomon.SO_CHI <= 20)
-                //    {
                 var timlai = db.CT_PHIEU_DANG_KY.Count(x => x.ID_MON_HOC == phieu.ID_MON_HOC && x.ID_PHIEU_DANG_KY == phieu.ID_PHIEU_DANG_KY);
                 if (timlai == 0)
                 {
@@ -47,8 +44,6 @@ namespace Model.DAO
                 {
                     i = 2;
                 }
-                //    }
-                //}
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
@@ -73,12 +68,20 @@ namespace Model.DAO
             return db.CT_PHIEU_DANG_KY.Where(x => x.ID_PHIEU_DANG_KY == id).ToList();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idCtPhieu"></param>
+        /// <returns>trả về danh sách những môn có trong phiếu</returns>
         public CT_PHIEU_DANG_KY MonTrongPhieuSinger(int idCtPhieu)
         {
             return db.CT_PHIEU_DANG_KY.Where(x => x.ID_CT_PHIEU_DANG_KY == idCtPhieu).SingleOrDefault();
         }
 
-
+        /// <summary>
+        /// xóa môn trong phiếu
+        /// </summary>
+        /// <param name="Mon"></param>
         public void XoaMonTrongPhieuSinger(CT_PHIEU_DANG_KY Mon)
         {
             db.CT_PHIEU_DANG_KY.Remove(Mon);

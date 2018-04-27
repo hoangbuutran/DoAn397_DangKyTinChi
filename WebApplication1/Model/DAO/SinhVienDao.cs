@@ -156,7 +156,6 @@ namespace Model.DAO
                 SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI;
                 SinhVienCu.EMAIL = SinhVienMoi.EMAIL;
                 SinhVienCu.TRANG_THAI = SinhVienMoi.TRANG_THAI;
-                SinhVienCu.ID_TAI_KHOAN = SinhVienMoi.ID_TAI_KHOAN;
                 SinhVienCu.ID_CHUYEN_NGANH = SinhVienMoi.ID_CHUYEN_NGANH;
                 db.SaveChanges();
                 i = 1;

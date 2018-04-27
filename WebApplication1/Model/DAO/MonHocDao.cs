@@ -49,6 +49,12 @@ namespace Model.DAO
         {
             return db.MON_HOC.ToList();
         }
+
+        /// <summary>
+        /// dành cho action index truyền vào giá trị chuổi tìm kiếm
+        /// </summary>
+        /// <param name="chuoiTimKiem"></param>
+        /// <returns>kết quả trùng khớp với chuổi tìm kiếm truyền vào</returns>
         public List<MON_HOC> ListMonHocByCondition(string chuoiTimKiem)
         {
             return db.MON_HOC.Where(x => x.TEN_MON_HOC.Contains(chuoiTimKiem) ||
@@ -63,7 +69,7 @@ namespace Model.DAO
                                         ).ToList();
         }
         /// <summary>
-        /// 
+        /// thêm môn học
         /// </summary>
         /// <param name="MonHoc"></param>
         /// <returns></returns>
@@ -84,7 +90,7 @@ namespace Model.DAO
         }
 
         /// <summary>
-        /// 
+        /// sửa môn học
         /// </summary>
         /// <param name="MonHocMoi"></param>
         /// <returns></returns>
@@ -113,7 +119,6 @@ namespace Model.DAO
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

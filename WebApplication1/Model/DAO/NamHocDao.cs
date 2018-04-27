@@ -22,18 +22,30 @@ namespace Model.DAO
             db = new CoSoDuLieuDbContext();
         }
 
-
+        /// <summary>
+        /// trả về năm học với id truyền vào
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public NAM_HOC NamHocSinger(int id)
         {
             return db.NAM_HOC.SingleOrDefault(x => x.ID_NAM_HOC == id);
         }
 
-
+        /// <summary>
+        /// trả về danh sách năm học
+        /// </summary>
+        /// <returns></returns>
         public List<NAM_HOC> ListNamHoc()
         {
             return db.NAM_HOC.ToList();
         }
 
+        /// <summary>
+        /// thêm năm học vào csdl
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public int AddNamHoc(NAM_HOC model)
         {
             int i;
@@ -51,6 +63,11 @@ namespace Model.DAO
             return i;
         }
 
+        /// <summary>
+        /// sửa thông tin năm học
+        /// </summary>
+        /// <param name="NAM_HOC"></param>
+        /// <returns></returns>
         public int SuaNamHoc(NAM_HOC NAM_HOC)
         {
             int i;
@@ -68,6 +85,12 @@ namespace Model.DAO
             }
             return i;
         }
+
+        /// <summary>
+        /// khóavà mở năm học 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int KhoaMo(int id)
         {
             int i;

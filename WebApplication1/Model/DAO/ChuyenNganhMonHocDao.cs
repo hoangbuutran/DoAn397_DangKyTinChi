@@ -23,7 +23,7 @@ namespace Model.DAO
         }
 
         /// <summary>
-        /// trả về môn học với id có được
+        /// trả về môn học thuộc chuyên ngành với id của môn
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -31,6 +31,7 @@ namespace Model.DAO
         {
             return db.CHUYENNGANH_MONHOC.SingleOrDefault(x => x.ID_MONHOC == id);
         }
+
 
         public int ChuyenNganhMonHocWithIdMonIdChuyenNganh(int idMon, int idCN)
         {
@@ -60,7 +61,7 @@ namespace Model.DAO
         }
 
         /// <summary>
-        /// 
+        /// Thêm môn học vào csdl với những chuyên ngành của môn
         /// </summary>
         /// <param name="MonHoc"></param>
         /// <returns></returns>
@@ -81,7 +82,7 @@ namespace Model.DAO
         }
 
         /// <summary>
-        /// 
+        /// sửa thông tin của môn
         /// </summary>
         /// <param name="MonHocMoi"></param>
         /// <returns></returns>
@@ -104,7 +105,7 @@ namespace Model.DAO
         }
 
         /// <summary>
-        /// 
+        /// khóa mở môn
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -113,8 +114,6 @@ namespace Model.DAO
             int i;
             try
             {
-
-                //var MonHoc = ChuyenNganhMonHocSinger(id);
                 var MonHoc = db.MON_HOC.Find(id);
                 MonHoc.TRANG_THAI = !MonHoc.TRANG_THAI;
                 db.SaveChanges();
