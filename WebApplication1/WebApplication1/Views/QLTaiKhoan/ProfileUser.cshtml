@@ -1,0 +1,47 @@
+﻿@model Model.EF.SINH_VIEN
+
+@{
+    ViewBag.Title = "ProfileUser";
+    Layout = "~/Views/Shared/_LayoutSinhVien.cshtml";
+}
+<style>
+    .col-xs-12.col-sm-6.col-md-8 {
+        margin-left: 130px;
+        margin-top: 21px;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-rounded img-responsive" />
+                </div>
+                <div class="col-sm-6 col-md-8">
+                    <h4>
+                        <label>Tên sinh viên:  </label>@Model.TEN_SINH_VIEN
+                    </h4>
+                    <cite title="San Francisco, USA">
+                        <label>Địa chỉ:  </label>@Model.DIA_CHI
+                    </cite>
+                    <br />
+                    <br />
+                    <p>
+                        <label>Email:  </label>@Model.EMAIL
+                        <br />
+                        <br />
+                        <label>Mã sinh viên:  </label> @Model.MA_SINH_VIEN
+                        <br />
+                        <br />
+                        <label>Ngày sinh:  </label> @Model.NGAY_SINH
+                    </p>
+                    <div class="btn-group">
+                        <a type="button" href="/QLTaiKhoan/EditProfileUser/@Model.ID_SINHVIEN" class="btn btn-primary">
+                            Chỉnh sửa thông tin
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

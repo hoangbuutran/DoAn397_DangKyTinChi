@@ -9,12 +9,17 @@
     div#themmoilabel {
         margin-bottom: 18px;
     }
-
+    table.table.table-bordered {
+        border-radius: 1em;
+        overflow: hidden;
+    }
     .form-control {
         padding-bottom: 44px;
         width: 383px;
     }
-
+    .pagination-container {
+        float: RIGHT;
+    }
     form {
         margin-top: 33px;
     }
@@ -109,6 +114,9 @@
             </tr>
     }
         </table>
+        <div style="float:left">
+            <label>Tổng sinh viên: @Model.Count()/@ViewBag.sinhvien</label>
+        </div>
         <div>
             @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
         </div>

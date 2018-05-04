@@ -11,9 +11,18 @@
         margin-bottom: 18px;
     }
 
+    table.table.table-bordered {
+        border-radius: 1em;
+        overflow: hidden;
+    }
+
     .form-control {
         padding-bottom: 44px;
         width: 383px;
+    }
+
+    .pagination-container {
+        float: RIGHT;
     }
 
     form {
@@ -35,9 +44,6 @@
         <div class="col-md-7" id="themmoilabel">
             <h3>Quản Lý Môn Học</h3>
 
-            @*<p class="btn">
-                    @Html.ActionLink("Tạo mới môn học", "Create")
-                </p>*@
             <p class="btn">
                 @Html.ActionLink("Tạo mới môn học nhiều ngành", "CreateMonNhieuNganh")
             </p>
@@ -73,43 +79,46 @@
             </tr>
 
             @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MA_MON_HOC)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TEN_MON_HOC)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SO_CHI)
-                </td>
-
-                <td>
-                    @if ((bool)item.TRANG_THAI)
-                {
-                    <span class="label label-success">Hoạt động</span>
-            }
-            else
             {
-                <span class="label label-danger">Tạm khóa</span>
-        }
-                </td>
-                <td>
-                    <p class="btn">
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID_MON_HOC })
-                    </p>
-                    <p class="btn">
-                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_MON_HOC })
-                    </p>
-                    <p class="btn">
-                        @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_MON_HOC })
-                    </p>
-                </td>
-            </tr>
-    }
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MA_MON_HOC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TEN_MON_HOC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SO_CHI)
+                    </td>
+
+                    <td>
+                        @if ((bool)item.TRANG_THAI)
+                        {
+                            <span class="label label-success">Hoạt động</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">Tạm khóa</span>
+                        }
+                    </td>
+                    <td>
+                        <p class="btn">
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.ID_MON_HOC })
+                        </p>
+                        <p class="btn">
+                            @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID_MON_HOC })
+                        </p>
+                        <p class="btn">
+                            @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_MON_HOC })
+                        </p>
+                    </td>
+                </tr>
+            }
 
         </table>
+        <div style="float:left">
+            <label>Tổng môn học: @Model.Count()/@ViewBag.monhoc</label>
+        </div>
         <div>
             @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
         </div>

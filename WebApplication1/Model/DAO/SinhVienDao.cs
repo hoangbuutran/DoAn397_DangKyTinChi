@@ -167,6 +167,33 @@ namespace Model.DAO
 
             return i;
         }
+        /// <summary>
+        /// sinh viên tự sửa thông tin của mình
+        /// </summary>
+        /// <param name="SinhVienMoi"></param>
+        /// <returns></returns>
+        public int SuaSinhVienTuSua(SINH_VIEN SinhVienMoi)
+        {
+            int i;
+            try
+            {
+                SINH_VIEN SinhVienCu = db.SINH_VIEN.Find(SinhVienMoi.ID_SINHVIEN);
+                SinhVienCu.NGAY_SINH = SinhVienMoi.NGAY_SINH;
+                SinhVienCu.CMND = SinhVienMoi.CMND;
+                SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI;
+                SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI;
+                SinhVienCu.EMAIL = SinhVienMoi.EMAIL;
+                db.SaveChanges();
+                i = 1;
+            }
+            catch (Exception ex)
+            {
+
+                i = 0;
+            }
+
+            return i;
+        }
 
         /// <summary>
         /// xóa sinh viên với id nhập vào

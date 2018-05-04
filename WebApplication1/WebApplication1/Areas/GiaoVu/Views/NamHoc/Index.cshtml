@@ -4,6 +4,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
 }
+<style>
+    table.table.table-bordered {
+        border-radius: 1em;
+        overflow: hidden;
+    }
+
+    .pagination-container {
+        float: RIGHT;
+    }
+</style>
 <div class="cardTuLamIndex">
 
     <h2>Danh sách năm học</h2>
@@ -53,8 +63,11 @@
         }
 
     </table>
+    <div style="float:left">
+        <label>Tổng năm học: @Model.Count()/@ViewBag.NamHoc</label>
+    </div>
     <div>
         @Html.PagedListPager(Model, page => Url.Action("Index",
-                      new { page }))
+                                new { page }))
     </div>
 </div>

@@ -20,6 +20,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         // GET: GiaoVu/NamHoc
         public ActionResult Index(int? page)
         {
+            ViewBag.NamHoc = new NamHocDao().ListNamHoc().Count();
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(namHocDao.ListNamHoc().ToPagedList(pageNumber, pageSize));

@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    Layout = null;
+    var user = (WebApplication1.Common.SinhVienModel)Session["USER_SESSION"];
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +43,12 @@
             </div>
             <div class="header-right">
                 <div id="duoi">
-
+                    <div class="btn">
+                        <a href="/QLTaiKhoan/ProfileUser/@user.IdSinhVien">Profile</a>
+                    </div>
+                    <div class="btn">
+                        <a href="/QLTaiKhoan/DoiMatKhauSinhVien">Đổi mật khẩu</a>
+                    </div>
                     <div class="btn">
                         <a href="/Login/Login">Đăng xuất</a>
                     </div>

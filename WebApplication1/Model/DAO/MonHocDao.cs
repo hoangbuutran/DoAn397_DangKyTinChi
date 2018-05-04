@@ -101,13 +101,13 @@ namespace Model.DAO
             {
                 var MonHocCu = db.MON_HOC.Find(MonHocMoi.ID_MON_HOC);
                 MonHocCu.SO_CHI = MonHocMoi.SO_CHI;
-                MonHocCu.LOAI_DVHT = MonHocMoi.LOAI_DVHT;
-                MonHocCu.LOAI_HINH = MonHocMoi.LOAI_HINH;
-                MonHocCu.MON_TIEN_QUYET = MonHocMoi.MON_TIEN_QUYET;
-                MonHocCu.MON_SONG_HANH = MonHocMoi.MON_SONG_HANH;
+                MonHocCu.LOAI_DVHT = MonHocMoi.LOAI_DVHT.Trim();
+                MonHocCu.LOAI_HINH = MonHocMoi.LOAI_HINH.Trim();
+                MonHocCu.MON_TIEN_QUYET = MonHocMoi.MON_TIEN_QUYET.Trim();
+                MonHocCu.MON_SONG_HANH = MonHocMoi.MON_SONG_HANH.Trim();
                 MonHocCu.TU_CHON = MonHocMoi.TU_CHON;
                 MonHocCu.NHOM_TU_CHON = MonHocMoi.NHOM_TU_CHON;
-                MonHocCu.MO_TA = MonHocMoi.MO_TA;
+                MonHocCu.MO_TA = MonHocMoi.MO_TA.Trim();
                 db.SaveChanges();
                 i = 1;
             }

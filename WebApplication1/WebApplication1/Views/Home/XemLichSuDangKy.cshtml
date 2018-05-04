@@ -8,6 +8,14 @@
     p#btntaophieuXem {
         margin-left: 4%;
     }
+    table.table.table-bordered.table-responsive {
+        border-radius: 1em;
+        overflow: hidden;
+        text-align: center;
+    }
+    th {
+        text-align: center;
+    }
 </style>
 
 <h2 id="labellichsu">Xem Lịch Sử Đăng Ký</h2>
@@ -16,7 +24,7 @@
 </p>
 <hr />
 <table class="table table-bordered table-responsive">
-    <tr class="active">
+    <tr class="panel-heading">
 
         <th>
             @Html.DisplayName("Năm Học")

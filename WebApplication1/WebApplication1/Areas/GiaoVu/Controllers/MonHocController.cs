@@ -28,6 +28,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         // GET: GiaoVu/MonHoc
         public ActionResult Index(string ChuoiTimKiem, int? page)
         {
+            ViewBag.monhoc = new MonHocDao().ListMonHoc().Count();
             if (ChuoiTimKiem == null)
             {
                 int pageSize = 5;

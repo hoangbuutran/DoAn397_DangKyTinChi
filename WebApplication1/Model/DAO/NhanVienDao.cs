@@ -144,11 +144,11 @@ namespace Model.DAO
             try
             {
                 var NVCu = NhanVienSinger(NVMoi.ID_NHANVIEN);
-                NVCu.TEN_NHANVIEN = NVMoi.TEN_NHANVIEN;
+                NVCu.TEN_NHANVIEN = NVMoi.TEN_NHANVIEN.Trim();
                 NVCu.NGAY_SINH = NVMoi.NGAY_SINH;
-                NVCu.DIEN_THOAI = NVMoi.DIEN_THOAI;
-                NVCu.DIA_CHI = NVMoi.DIA_CHI;
-                NVCu.EMAIL = NVMoi.EMAIL;
+                NVCu.DIEN_THOAI = NVMoi.DIEN_THOAI.Trim();
+                NVCu.DIA_CHI = NVMoi.DIA_CHI.Trim();
+                NVCu.EMAIL = NVMoi.EMAIL.Trim();
                 NVCu.TRANG_THAI = NVMoi.TRANG_THAI;
                 db.SaveChanges();
                 i = 1;
@@ -160,7 +160,31 @@ namespace Model.DAO
 
             return i;
         }
+        /// <summary>
+        /// sửa nhân viên tự sửa
+        /// </summary>
+        /// <param name="SinhVienMoi"></param>
+        /// <returns></returns>
+        public int SuaNhaVienTuSua(NHAN_VIEN NVMoi)
+        {
+            int i;
+            try
+            {
+                var NVCu = NhanVienSinger(NVMoi.ID_NHANVIEN);
+                NVCu.NGAY_SINH = NVMoi.NGAY_SINH;
+                NVCu.DIEN_THOAI = NVMoi.DIEN_THOAI.Trim();
+                NVCu.DIA_CHI = NVMoi.DIA_CHI.Trim();
+                NVCu.EMAIL = NVMoi.EMAIL.Trim();
+                db.SaveChanges();
+                i = 1;
+            }
+            catch (Exception ex)
+            {
+                i = 0;
+            }
 
+            return i;
+        }
         /// <summary>
         /// khóa mở nhan viên với id nhập vào
         /// </summary>

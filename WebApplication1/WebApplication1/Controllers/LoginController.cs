@@ -23,8 +23,10 @@ namespace WebApplication1.Controllers
             if (i == 1)//ad
             {
                 var dao = daoTaiKhoan.TaiKhoanSingle(sinhvien.TenDangNhap, sinhvien.MatKhau);
+                var daoAdmin = new NhanVienDao().NhanVienSingerWithIDTaiKhoan(dao.ID_TAI_KHOAN);
                 var sinhviensession = new SinhVienModel
                 {
+                    IdSinhVien = daoAdmin.ID_NHANVIEN,
                     TenDangNhap = dao.USERNAME,
                     MatKhau = dao.PASS,
                     idloainguoidung = dao.ID_QUYEN
@@ -50,8 +52,10 @@ namespace WebApplication1.Controllers
             else if (i == 2)// giao vu
             {
                 var dao = daoTaiKhoan.TaiKhoanSingle(sinhvien.TenDangNhap, sinhvien.MatKhau);
+                var daoGiaoVu = new NhanVienDao().NhanVienSingerWithIDTaiKhoan(dao.ID_TAI_KHOAN);
                 var sinhviensession = new SinhVienModel
                 {
+                    IdSinhVien = daoGiaoVu.ID_NHANVIEN,
                     TenDangNhap = dao.USERNAME,
                     MatKhau = dao.PASS,
                     idloainguoidung = dao.ID_QUYEN

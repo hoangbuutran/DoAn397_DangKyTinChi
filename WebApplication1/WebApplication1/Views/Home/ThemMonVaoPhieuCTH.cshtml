@@ -69,6 +69,16 @@
         padding-left: 31px;
     }
 
+    table.table.table-bordered.table-responsive {
+        border-radius: 1em;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+
     .PreThongTinMon {
         display: block;
         font-size: 13px;
@@ -148,7 +158,7 @@
                         return false;
                     }
                     if (@KetQuaTrungNhomMon === 1) {
-                        alert('Phiếu đả tồn tại môn học cùng nhóm môn');
+                        alert('Phiếu đã tồn tại môn học cùng nhóm môn');
                         return false;
                     }
                     if (@KetQuaMonChuyenNganh === 1) {
@@ -168,7 +178,7 @@
 <hr />
 <p id="labeltimmondsmon"><strong>Danh sách môn có trong phiếu</strong></p>
 <table class="table table-bordered table-responsive">
-    <tr class="active panel-info">
+    <tr class="panel-heading">
         <th>
             @Html.DisplayName("Mã Môn")
         </th>

@@ -2724,6 +2724,8 @@ th {
     width: 100%;
     max-width: 100%;
     margin-bottom: 20px;
+    border-radius: 1em;
+    overflow: hidden;
 }
 
     .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
@@ -2756,10 +2758,14 @@ th {
 
 .table-bordered {
     border: 1px solid #ddd;
+    border-radius: 1em;
+    overflow: hidden;
 }
 
     .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
         border: 1px solid #ddd;
+        border-radius: 1em;
+        overflow: hidden;
     }
 
     .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {

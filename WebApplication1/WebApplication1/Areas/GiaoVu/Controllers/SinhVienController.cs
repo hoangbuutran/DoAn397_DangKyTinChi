@@ -33,6 +33,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         [HttpGet]
         public ActionResult Index(string ChuoiTimKiem, int? page)
         {
+            ViewBag.sinhvien = new SinhVienDao().ListSinhVien().Count();
             if (ChuoiTimKiem == null)
             {
                 int pageSize = 5;

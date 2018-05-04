@@ -17,6 +17,7 @@
 
     <link href="~/Assets/QuanLy/assets/css/CssTuLam.css" rel="stylesheet" />
 
+    @*  *@
     <link href="~/Assets/QuanLy/assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
     <link href="~/Assets/QuanLy/assets/css/animate.min.css" rel="stylesheet" />
@@ -69,11 +70,20 @@
                                 <ul class="dropdown-menu">
                                     @if (user.idloainguoidung == 1)
                                     {
-                                        <li><a href="/Admin/QLTaiKhoan">Đổi Mật Khẩu</a></li>
+                                        <li><a href="/Admin/QLTaiKhoan/ProfileUser">Profile</a></li>
                                     }
                                     else
                                     {
-                                        <li><a href="/GiaoVu/QLTaiKhoan">Đổi Mật Khẩu</a></li>
+                                        <li><a href="/GiaoVu/QLTaiKhoan/ProfileUser/@user.IdSinhVien">Profile</a></li>
+                                    }
+                                    
+                                    @if (user.idloainguoidung == 1)
+                                    {
+                                        <li><a href="/Admin/QLTaiKhoan/DoiMatKhauAdmin">Đổi Mật Khẩu</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/GiaoVu/QLTaiKhoan/DoiMatKhauGiaoVu">Đổi Mật Khẩu</a></li>
                                     }
                                     <li><a href="/Login">Đăng Xuất</a></li>
                                 </ul>

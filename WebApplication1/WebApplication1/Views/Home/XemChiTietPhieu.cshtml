@@ -17,6 +17,15 @@
         margin-right: 37px;
         margin-bottom: 11px;
     }
+    table.table.table-bordered.table-responsive {
+        border-radius: 1em;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
 </style>
 <div>
     <h3 id="labelchitietphieu">Chi Tiết Phiếu Đăng Ký</h3>
@@ -49,10 +58,11 @@
     </button>
 </p>
 <table class="table table-bordered table-responsive">
-    <tr class="active">
+    <tr class="panel-heading">
         <th>
             @Html.DisplayName("Mã Môn")
         </th>
+
         <th>
             @Html.DisplayName("Tên Môn")
         </th>

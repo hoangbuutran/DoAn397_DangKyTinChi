@@ -5869,6 +5869,7 @@ a.list-group-item-danger, button.list-group-item-danger {
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    background-color: #87f1be;
 }
 
     .panel-heading > .dropdown .dropdown-toggle {

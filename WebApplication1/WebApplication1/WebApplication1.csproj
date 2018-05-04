@@ -198,6 +198,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginChungController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\QLTaiKhoanController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -366,6 +367,27 @@
       <Project>{320bb0dd-923a-4518-9703-94adcab884fd}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\QLTaiKhoan\ProfileUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\GiaoVu\Views\QLTaiKhoan\ProfileUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\QLTaiKhoan\ProfileUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\QLTaiKhoan\DoiMatKhauSinhVien.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\QLTaiKhoan\EditProfileUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\GiaoVu\Views\QLTaiKhoan\EditProfileUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\QLTaiKhoan\EditProfileUser.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,7 +33,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             }
             else if (model.MatKhauCu == session.MatKhau)
             {
-                bool ketQua = dao.DoiMatKhauAdmin(model.MatKhauMoi, model.MatKhauCu, session.TenDangNhap);
+                bool ketQua = dao.DoiMatKhau(model.MatKhauMoi, model.MatKhauCu, session.TenDangNhap);
                 if (ketQua)
                 {
                     return RedirectToAction("Index", "Home");
@@ -45,6 +45,24 @@ namespace WebApplication1.Areas.Admin.Controllers
                 return View("DoiMatKhauAdmin");
             }
             return View("DoiMatKhauAdmin");
+        }
+
+        [HttpGet]
+        public ActionResult ProfileUser()
+        {
+            var session = (WebApplication1.Common.SinhVienModel)Session["USER_SESSION"];
+            return View(new NhanVienDao().NhanVienSinger(session.IdSinhVien));
+        }
+        [HttpGet]
+        public ActionResult EditProfileUser(int id)
+        {
+            return View(new NhanVienDao().NhanVienSinger(id));
+        }
+        [HttpPost]
+        public ActionResult EditProfileUser(NHAN_VIEN nhanVien)
+        {
+            var dao = new NhanVienDao().SuaNhaVienTuSua(nhanVien);
+            return RedirectToAction("ProfileUser", "QLTaiKhoan", new { id = nhanVien.ID_NHANVIEN });
         }
     }
 }

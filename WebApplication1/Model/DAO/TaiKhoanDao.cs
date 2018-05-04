@@ -85,7 +85,7 @@ namespace Model.DAO
             }
             return 0;
         }
-        public bool DoiMatKhauAdmin(string matKhauMoi,string matKhauCu, string tenDangNhap)
+        public bool DoiMatKhau(string matKhauMoi,string matKhauCu, string tenDangNhap)
         {
             try
             {

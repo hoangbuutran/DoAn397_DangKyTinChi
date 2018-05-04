@@ -13,6 +13,11 @@
     margin-left: 58px;
 }
 
+table.table.table-bordered {
+    border-radius: 1em;
+    overflow: hidden;
+}
+
 .cardTuLamIndex {
     padding-left: 36px;
     padding-right: 36px;

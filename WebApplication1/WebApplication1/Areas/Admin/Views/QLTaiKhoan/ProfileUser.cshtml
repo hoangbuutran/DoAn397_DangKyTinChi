@@ -1,0 +1,52 @@
+﻿@model Model.EF.NHAN_VIEN
+
+@{
+    ViewBag.Title = "ProfileUser";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var session = (WebApplication1.Common.SinhVienModel)Session["USER_SESSION"];
+}
+<style>
+    .col-xs-12.col-sm-6.col-md-12 {
+        margin-left: 4px;
+        margin-top: 65px;
+    }
+</style>
+<div class="cardTuLam">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-12">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            <label>Tên Admin: </label>@Model.TEN_NHANVIEN
+                        </h4>
+                        <cite title="San Francisco, USA">
+                            <label>Địa chỉ: </label>@Model.DIA_CHI
+                        </cite>
+                        <br />
+                        <br />
+                        <p>
+                            <label>Email: </label>@Model.EMAIL
+                            <br />
+                            <br />
+                            <label>Điện thoại: </label>@Model.DIEN_THOAI
+                            <br />
+                            <br />
+                            <label>Ngày sinh: </label>@Model.NGAY_SINH
+                        </p>
+
+                        <div class="btn-group">
+                            <a type="button" href="/Admin/QLTaiKhoan/EditProfileUser/@Model.ID_NHANVIEN" class="btn btn-primary">
+                                Chỉnh sửa thông tin
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
