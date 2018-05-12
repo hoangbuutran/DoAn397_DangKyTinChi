@@ -345,6 +345,7 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\Shared\" />
     <Folder Include="Areas\GiaoVu\Views\ThongTinChung\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -388,6 +389,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\QLTaiKhoan\EditProfileUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\GiaoVu\Views\MonHoc\TrungMon.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\GiaoVu\Views\SinhVien\TrungSV.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

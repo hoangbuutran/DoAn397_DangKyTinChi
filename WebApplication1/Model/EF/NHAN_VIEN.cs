@@ -17,6 +17,10 @@
         [StringLength(50)]
         public string TEN_NHANVIEN { get; set; }
 
+        [Display(Name = "Hình ảnh")]
+        [StringLength(800)]
+        public string Image { get; set; }
+
         [Display(Name = "Ngày sinh")]
         [Column(TypeName = "date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]

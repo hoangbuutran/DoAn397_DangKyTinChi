@@ -9,13 +9,17 @@
         margin-left: 130px;
         margin-top: 21px;
     }
+    img.img-rounded.img-responsive {
+        width: 139px;
+        height: 181px;
+    }
 </style>
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-8">
         <div class="well well-sm">
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-rounded img-responsive" />
+                    <img src="@Url.Content(@Model.Image)" alt="" class="img-rounded img-responsive" />
                 </div>
                 <div class="col-sm-6 col-md-8">
                     <h4>

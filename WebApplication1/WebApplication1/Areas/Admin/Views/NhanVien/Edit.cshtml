@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TEN_NHANVIEN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.TEN_NHANVIEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TEN_NHANVIEN, new { htmlAttributes = new { @id = "TenNhanVien", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TEN_NHANVIEN, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NGAY_SINH, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.NGAY_SINH, new { htmlAttributes = new { @type = "date", @class = "form-control" } })
+                @Html.EditorFor(model => model.NGAY_SINH, new { htmlAttributes = new { @id = "NgaySinh", @type = "date", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NGAY_SINH, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DIEN_THOAI, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.DIEN_THOAI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DIEN_THOAI, new { htmlAttributes = new { @id = "DienThoai", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DIEN_THOAI, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DIA_CHI, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.DIA_CHI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DIA_CHI, new { htmlAttributes = new { @id = "DiaChi", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DIA_CHI, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
-                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @id = "Email", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,16 +66,42 @@
             @Html.LabelFor(model => model.TRANG_THAI, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-8">
                 @Html.DropDownListFor(model => model.TRANG_THAI, new SelectList(new[] {
-                                                                            new { Value = "true", Text = "Mở Người Dùng" },
-                                                                            new { Value = "false", Text = "Khóa Người Dùng" },
-                                                                            }, "Value", "Text"))
+                                                                        new { Value = "true", Text = "Mở Người Dùng" },
+                                                                        new { Value = "false", Text = "Khóa Người Dùng" },
+                                                                        }, "Value", "Text"))
                 @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
             </div>
         </div>
+        <script>
+                function Check() {
 
+                    if (document.getElementById('Email').value === '') {
+                        alert("Mời nhập field Email");
+                        return false;
+                    }
+                    if (document.getElementById('DiaChi').value === '') {
+                        alert("Mời nhập field Địa Chỉ");
+                        return false;
+                    }
+                    if (document.getElementById('TenNhanVien').value === '') {
+                        alert("Mời nhập field Tên Nhân Viên");
+                        return false;
+                    }
+                    if (document.getElementById('NgaySinh').value === '') {
+                        alert("Mời nhập field Ngày Sinh");
+                        return false;
+                    }
+                    if (document.getElementById('DienThoai').value === '') {
+                        alert("Mời nhập field Điện Thoại");
+                        return false;
+                    }
+                    return true;
+                }
+
+        </script>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" onclick="return Check()" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

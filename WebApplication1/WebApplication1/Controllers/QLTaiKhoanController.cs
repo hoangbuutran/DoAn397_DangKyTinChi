@@ -58,8 +58,13 @@ namespace WebApplication1.Controllers
             return View(new SinhVienDao().SinhVienSinger(id));
         }
         [HttpPost]
-        public ActionResult EditProfileUser(SINH_VIEN sinhVien)
+        public ActionResult EditProfileUser(SINH_VIEN sinhVien, HttpPostedFileBase Image)
         {
+            if (Image != null)
+            {
+                Image.SaveAs(HttpContext.Server.MapPath("~/Images/") + Image.FileName);
+                sinhVien.Image = "~/Images/" + Image.FileName;
+            }
             var dao = new SinhVienDao().SuaSinhVienTuSua(sinhVien);
             return RedirectToAction("ProfileUser", "QLTaiKhoan", new { id = sinhVien.ID_SINHVIEN });
         }

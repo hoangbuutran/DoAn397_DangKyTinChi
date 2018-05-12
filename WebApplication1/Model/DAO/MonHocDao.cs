@@ -31,7 +31,26 @@ namespace Model.DAO
         {
             return db.MON_HOC.SingleOrDefault(x => x.ID_MON_HOC == id);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="namHoc"></param>
+        public void DeleteMult(MON_HOC monHoc)
+        {
+            var listChuyenNganhMonHoc = db.CHUYENNGANH_MONHOC.Where(x => x.ID_MONHOC == monHoc.ID_MON_HOC).ToList();
+            foreach (var item in listChuyenNganhMonHoc)
+            {
+                db.CHUYENNGANH_MONHOC.Remove(item);
+            }
+            var listCT_PHIEU_DANG_KY = db.CT_PHIEU_DANG_KY.Where(x => x.ID_MON_HOC == monHoc.ID_MON_HOC).ToList();
 
+            foreach (var item in listCT_PHIEU_DANG_KY)
+            {
+                db.CT_PHIEU_DANG_KY.Remove(item);
+            }
+            db.MON_HOC.Remove(monHoc);
+            db.SaveChanges();
+        }
         /// <summary>
         /// tìm kiếm môn học với mã tìm kiếm được nhập vào.
         /// </summary>
@@ -40,6 +59,10 @@ namespace Model.DAO
         public MON_HOC MonHocSingerwithMaTimKiem(string timkiem)
         {
             return db.MON_HOC.Where(x => x.MA_MON_HOC.Contains(timkiem)).SingleOrDefault();
+        }
+        public MON_HOC MonHocSingerwithMaMon(string maMon)
+        {
+            return db.MON_HOC.Where(x => x.MA_MON_HOC == maMon).SingleOrDefault();
         }
         /// <summary>
         /// trả về danh sách mon hoc có trong table

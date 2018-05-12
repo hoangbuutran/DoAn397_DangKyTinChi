@@ -17,57 +17,64 @@
 <div class="cardTuLamIndex">
 
     <h2>Danh sách năm học</h2>
-
-    <p class="btn">
-        @Html.ActionLink("Tạo mới năm học", "Create")
-    </p>
-
-    <hr />
-    <br />
-    <table class="table table-bordered">
-        <tr class="panel-heading">
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().TEN_NAM_HOC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().TRANGTHAI)
-            </th>
-            <th>Tùy Chọn</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TEN_NAM_HOC)
-                </td>
-                <td>
-                    @if ((bool)item.TRANGTHAI)
-                    {
-                        <span class="label label-success">Hoạt động</span>
-                    }
-                    else
-                    {
-                        <span class="label label-danger">Tạm khóa</span>
-                    }
-                </td>
-                <td>
-                    <p class="btn">
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID_NAM_HOC })
-                    </p>
-                    <p class="btn">
-                        @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_NAM_HOC })
-                    </p>
-                </td>
+    @using (Html.BeginForm("DeleteRow", "NamHoc", FormMethod.Post))
+    {
+        <p class="btn">
+            @Html.ActionLink("Tạo mới năm học", "Create")
+        </p>
+        <input type="submit" value="Xóa năm học đã chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa những dữ liệu đã chọn?');" class="btn btn-danger" />
+        <hr />
+        <br />
+        <table class="table table-bordered">
+            <tr class="panel-heading">
+                <th>
+                    Select
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().TEN_NAM_HOC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().TRANGTHAI)
+                </th>
+                <th>Tùy Chọn</th>
             </tr>
-        }
 
-    </table>
-    <div style="float:left">
-        <label>Tổng năm học: @Model.Count()/@ViewBag.NamHoc</label>
-    </div>
-    <div>
-        @Html.PagedListPager(Model, page => Url.Action("Index",
-                                new { page }))
-    </div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="NamHocRecordDeletebyId" id="NamHocRecordDeletebyId" value="@item.ID_NAM_HOC" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TEN_NAM_HOC)
+                    </td>
+                    <td>
+                        @if ((bool)item.TRANGTHAI)
+                        {
+                            <span class="label label-success">Hoạt động</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">Tạm khóa</span>
+                        }
+                    </td>
+                    <td>
+                        <p class="btn">
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.ID_NAM_HOC })
+                        </p>
+                        <p class="btn">
+                            @Html.ActionLink("Khóa/Mở", "KhoaMo", new { id = item.ID_NAM_HOC })
+                        </p>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div style="float:left">
+            <label>Tổng năm học: @Model.Count()/@ViewBag.NamHoc</label>
+        </div>
+        <div>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    }
 </div>

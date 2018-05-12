@@ -48,6 +48,7 @@ namespace WebApplication1.Areas.Admin.Controllers
                     var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
                     var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
                     var pass = model.DIEN_THOAI.Substring(6);//01266625412
+                    model.Image = "~/Assets/QuanLy/assets/img/tim_80x80.png";
                     var taikhoan = new TAIKHOAN
                     {
                         USERNAME = tentaikhoan3,
@@ -111,6 +112,20 @@ namespace WebApplication1.Areas.Admin.Controllers
         {
 
             dao.KhoaMo(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteRow(IEnumerable<int> NhanVienRecordDeletebyId)
+        {
+            if (NhanVienRecordDeletebyId != null)
+            {
+                foreach (var id in NhanVienRecordDeletebyId)
+                {
+                    var nhanVien = dao.NhanVienSinger(id);
+                    dao.DeleteMult(nhanVien);
+                }
+            }
             return RedirectToAction("Index");
         }
     }

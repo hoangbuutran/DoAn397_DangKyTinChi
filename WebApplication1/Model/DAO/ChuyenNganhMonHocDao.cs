@@ -67,12 +67,21 @@ namespace Model.DAO
         /// <returns></returns>
         public int AddMonHoc(CHUYENNGANH_MONHOC MonHoc)
         {
+            var MonExist = new MonHocDao().MonHocSingerwithMaMon(MonHoc.MON_HOC.MA_MON_HOC);
             int i;
             try
             {
-                db.CHUYENNGANH_MONHOC.Add(MonHoc);
-                db.SaveChanges();
-                i = MonHoc.MON_HOC.ID_MON_HOC;
+                if (MonExist == null)
+                {
+                    db.CHUYENNGANH_MONHOC.Add(MonHoc);
+                    db.SaveChanges();
+                    i = MonHoc.MON_HOC.ID_MON_HOC;
+                }
+                else
+                {
+                    i = 0;
+                }
+                
             }
             catch (Exception)
             {

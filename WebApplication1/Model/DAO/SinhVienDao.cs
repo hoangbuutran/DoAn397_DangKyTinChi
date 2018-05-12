@@ -35,6 +35,10 @@ namespace Model.DAO
         {
             return db.SINH_VIEN.SingleOrDefault(x => x.ID_TAI_KHOAN == id);
         }
+        public SINH_VIEN SinhVienSingerWithMaSV(string maSinhVien)
+        {
+            return db.SINH_VIEN.SingleOrDefault(x => x.MA_SINH_VIEN == maSinhVien);
+        }
         /// <summary>
         /// trả về danh sách sinh viên có trong table
         /// </summary>
@@ -183,6 +187,15 @@ namespace Model.DAO
                 SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI;
                 SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI;
                 SinhVienCu.EMAIL = SinhVienMoi.EMAIL;
+                if (SinhVienMoi.Image != null)
+                {
+                    SinhVienCu.Image = SinhVienMoi.Image;
+                }
+                else
+                {
+                    SinhVienCu.Image = SinhVienCu.Image;
+                }
+                
                 db.SaveChanges();
                 i = 1;
             }

@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201804251317249_Passfield.Designer.cs">
       <DependentUpon>201804251317249_Passfield.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805101009119_AddImage.cs" />
+    <Compile Include="Migrations\201805101009119_AddImage.Designer.cs">
+      <DependentUpon>201805101009119_AddImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804251317249_Passfield.resx">
       <DependentUpon>201804251317249_Passfield.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805101009119_AddImage.resx">
+      <DependentUpon>201805101009119_AddImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

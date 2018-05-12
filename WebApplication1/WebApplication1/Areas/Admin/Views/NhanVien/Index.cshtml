@@ -11,34 +11,42 @@
     }
 </style>
 <div class="cardTuLamIndex">
+    @using (Html.BeginForm("DeleteRow", "NhanVien", FormMethod.Post))
+    {
+        <h2>Quản lý Giáo vụ</h2>
 
-    <h2>Quản lý Giáo vụ</h2>
+        <p class="btn">
+            @Html.ActionLink("Tạo mới giáo vụ", "Create")
+        </p>
+        <input type="submit" value="Xóa nhân viên đã chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa những dữ liệu đã chọn?');" class="btn btn-danger" />
+        <hr />
+        <table class="table table-bordered">
+            <tr class="panel-heading">
+                <th>
+                    Select
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TAIKHOAN.USERNAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TEN_NHANVIEN)
+                </th>
 
-    <p class="btn">
-        @Html.ActionLink("Tạo mới giáo vụ", "Create")
-    </p>
-    <hr />
-    <table class="table table-bordered">
-        <tr class="panel-heading">
-            <th>
-                @Html.DisplayNameFor(model => model.TAIKHOAN.USERNAME)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TEN_NHANVIEN)
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EMAIL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TRANG_THAI)
+                </th>
+                <th>Tùy Chọn</th>
+            </tr>
 
-            <th>
-                @Html.DisplayNameFor(model => model.EMAIL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TRANG_THAI)
-            </th>
-            <th>Tùy Chọn</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+            @foreach (var item in Model)
+            {
             <tr>
+                <td>
+                    <input type="checkbox" name="NhanVienRecordDeletebyId" id="NhanVienRecordDeletebyId" value="@item.ID_NHANVIEN" />
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TAIKHOAN.USERNAME)
                 </td>
@@ -50,13 +58,13 @@
                 </td>
                 <td>
                     @if ((bool)item.TRANG_THAI)
-                    {
-                        <span class="label label-success">Hoạt động</span>
-                    }
-                    else
-                    {
-                        <span class="label label-danger">Tạm khóa</span>
-                    }
+        {
+            <span class="label label-success">Hoạt động</span>
+}
+else
+{
+            <span class="label label-danger">Tạm khóa</span>
+}
                 </td>
                 <td>
                     <p class="btn">
@@ -70,8 +78,8 @@
                     </p>
                 </td>
             </tr>
-        }
+            }
 
-    </table>
-
+        </table>
+    }
 </div>

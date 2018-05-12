@@ -199,5 +199,20 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult DeleteRow(IEnumerable<int> NamHocRecordDeletebyId)
+        {
+            if (NamHocRecordDeletebyId != null)
+            {
+                foreach (var id in NamHocRecordDeletebyId)
+                {
+                    var namHoc = namHocDao.NamHocSinger(id);
+                    namHocDao.DeleteMult(namHoc);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

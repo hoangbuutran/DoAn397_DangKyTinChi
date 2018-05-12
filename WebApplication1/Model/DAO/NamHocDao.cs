@@ -32,6 +32,21 @@ namespace Model.DAO
             return db.NAM_HOC.SingleOrDefault(x => x.ID_NAM_HOC == id);
         }
 
+        public void DeleteMult(NAM_HOC namHoc)
+        {
+            var listPhieu = db.PHIEU_DANG_KY.Where(x => x.ID_NAM_HOC == namHoc.ID_NAM_HOC).ToList();
+            foreach (var item in listPhieu)
+            {
+                var listCT_PHIEU_DANG_KY = db.CT_PHIEU_DANG_KY.Where(x => x.ID_PHIEU_DANG_KY == item.ID_PHIEU_DANG_KY).ToList();
+                foreach (var itemChild in listCT_PHIEU_DANG_KY)
+                {
+                    db.CT_PHIEU_DANG_KY.Remove(itemChild);
+                }
+                db.PHIEU_DANG_KY.Remove(item);
+            }
+            db.NAM_HOC.Remove(namHoc);
+            db.SaveChanges();
+        }
         /// <summary>
         /// trả về danh sách năm học
         /// </summary>

@@ -26,7 +26,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TEN_NAM_HOC, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-8">
-                    @Html.EditorFor(model => model.TEN_NAM_HOC, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.TEN_NAM_HOC, new { htmlAttributes = new { @id = "TenNamHoc", @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.TEN_NAM_HOC, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -34,16 +34,27 @@
                 @Html.LabelFor(model => model.TRANGTHAI, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-8">
                     @Html.DropDownListFor(model => model.TRANGTHAI, new SelectList(new[] {
-                                                                                        new { Value = "true", Text = "Mở Năm Học" },
-                                                                                        new { Value = "false", Text = "Khóa Năm Học" },
-                                                                                        }, "Value", "Text"))
+                                                                                            new { Value = "true", Text = "Mở Năm Học" },
+                                                                                            new { Value = "false", Text = "Khóa Năm Học" },
+                                                                                            }, "Value", "Text"))
                     @Html.ValidationMessageFor(model => model.TRANGTHAI, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <script>
+                function Check() {
 
+                    if (document.getElementById('TenNamHoc').value === '') {
+                        alert("Mời nhập field Tên Năm Học");
+                        return false;
+                    }
+
+                    return true;
+                }
+
+            </script>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-8">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" onclick="return Check()" value="Save" class="btn btn-default" />
                 </div>
             </div>
         </div>

@@ -62,33 +62,48 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             return View();
         }
 
+        public ActionResult TrungSV()
+        {
+            return View();
+        }
+
         // POST: GiaoVu/SinhVien/Create
         [HttpPost]
         public ActionResult Create(SINH_VIEN model, FormCollection collection)
         {
             try
             {
-                var tentaikhoan1 = model.TEN_SINH_VIEN.ToLower();
-                var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
-                var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
-                var pass = model.MA_SINH_VIEN.Substring(6);//2121114026
-                var taikhoan = new TAIKHOAN
+                var SinhVienExist = new SinhVienDao().SinhVienSingerWithMaSV(model.MA_SINH_VIEN);
+                if (SinhVienExist == null)
                 {
-                    USERNAME = tentaikhoan3,
-                    PASS = pass,
-                    ID_QUYEN = 3
-                };
-                int i = DaoTaiKhoan.AddTaiKhoan(taikhoan);
-                if (i != 0)
-                {
-                    model.ID_TAI_KHOAN = i;
-                    int j = dao.AddSinhVien(model);
-                    if (j == 1)
+                    var tentaikhoan1 = model.TEN_SINH_VIEN.ToLower();
+                    var tentaikhoan2 = dao.RejectMarks(tentaikhoan1);
+                    var tentaikhoan3 = tentaikhoan2.Replace(" ", "");
+                    var pass = model.MA_SINH_VIEN.Substring(6);//2121114026
+                    model.Image = "~/Assets/QuanLy/assets/img/tim_80x80.png";
+                    var taikhoan = new TAIKHOAN
                     {
-                        return RedirectToAction("Index");
-                    }
+                        USERNAME = tentaikhoan3,
+                        PASS = pass,
+                        ID_QUYEN = 3
+                    };
+                    int i = DaoTaiKhoan.AddTaiKhoan(taikhoan);
+                    if (i != 0)
+                    {
+                        model.ID_TAI_KHOAN = i;
+                        int j = dao.AddSinhVien(model);
+                        if (j == 1)
+                        {
+                            return RedirectToAction("Index");
+                        }
 
+                    }
                 }
+                else
+                {
+                    return RedirectToAction("");
+                }
+                
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
@@ -227,8 +242,10 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
                                     PASS = pass,
                                     ID_QUYEN = 3
                                 };
+
                                 int i = DaoTaiKhoan.AddTaiKhoan(taikhoan);
                                 TU.ID_TAI_KHOAN = i;
+                                TU.Image = "~/Assets/QuanLy/assets/img/tim_80x80.png";
                                 dao.AddSinhVien(TU);
                             }
                             else

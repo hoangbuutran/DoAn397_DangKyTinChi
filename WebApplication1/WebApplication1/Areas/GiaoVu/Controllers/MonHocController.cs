@@ -141,13 +141,18 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [HttpGet]
+        public ActionResult TrungMon()
+        {
+            return View();
+        }
 
 
         // GET: GiaoVu/MonHoc/Create
         public ActionResult CreateMonNhieuNganh()
         {
             ViewBag.DSChuyenNganh = DaoChuyenNganh.ListChuyenNganh();
+            ViewBag.DsMon = new SelectList(dao.ListMonHoc(), "TEN_MON_HOC", "TEN_MON_HOC");
             return View();
         }
 
@@ -169,6 +174,10 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
                     {
                         model[0].ID_CHUYENNGANH = model[i].ID_CHUYENNGANH;
                         idMonNew = daochuyennganhmonhoc.AddMonHoc(model[0]);
+                        if (idMonNew == 0)
+                        {
+                            return RedirectToAction("TrungMon");
+                        }
                         tuChonNew = (bool)model[0].MON_HOC.TU_CHON;
                         nhomTuChonNew = (int)model[0].MON_HOC.NHOM_TU_CHON;
                         k++;
@@ -191,6 +200,18 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             }
             return View();
         }
-
+        [HttpPost]
+        public ActionResult DeleteRow(IEnumerable<int> MonHocRecordDeletebyId)
+        {
+            if (MonHocRecordDeletebyId != null)
+            {
+                foreach (var id in MonHocRecordDeletebyId)
+                {
+                    var namHoc = dao.MonHocSinger(id);
+                    dao.DeleteMult(namHoc);
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

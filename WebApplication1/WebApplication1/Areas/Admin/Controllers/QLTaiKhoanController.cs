@@ -59,8 +59,13 @@ namespace WebApplication1.Areas.Admin.Controllers
             return View(new NhanVienDao().NhanVienSinger(id));
         }
         [HttpPost]
-        public ActionResult EditProfileUser(NHAN_VIEN nhanVien)
+        public ActionResult EditProfileUser(NHAN_VIEN nhanVien, HttpPostedFileBase Image)
         {
+            if (Image != null)
+            {
+                Image.SaveAs(HttpContext.Server.MapPath("~/Images/") + Image.FileName);
+                nhanVien.Image = "~/Images/" + Image.FileName;
+            }
             var dao = new NhanVienDao().SuaNhaVienTuSua(nhanVien);
             return RedirectToAction("ProfileUser", "QLTaiKhoan", new { id = nhanVien.ID_NHANVIEN });
         }

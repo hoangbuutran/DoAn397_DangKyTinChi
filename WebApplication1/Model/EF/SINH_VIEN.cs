@@ -45,6 +45,10 @@
         [StringLength(500)]
         public string EMAIL { get; set; }
 
+        [Display(Name = "Hình ảnh")]
+        [StringLength(800)]
+        public string Image { get; set; }
+
         [Display(Name = "Trạng thái")]
         public bool? TRANG_THAI { get; set; }
 

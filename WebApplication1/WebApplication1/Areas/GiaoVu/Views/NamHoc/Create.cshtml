@@ -26,7 +26,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TEN_NAM_HOC, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-8">
-                    @Html.EditorFor(model => model.TEN_NAM_HOC, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.TEN_NAM_HOC, new {@id="TenNamHoc", htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.TEN_NAM_HOC, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -41,10 +41,21 @@
                     @Html.ValidationMessageFor(model => model.TRANGTHAI, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <script>
+                function Check() {
 
+                    if (document.getElementById('TenNamHoc').value === '') {
+                        alert("Mời nhập field Tên Năm Học");
+                        return false;
+                    }
+                    
+                    return true;
+                }
+
+            </script>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-8">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" onclick="return Check()" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>

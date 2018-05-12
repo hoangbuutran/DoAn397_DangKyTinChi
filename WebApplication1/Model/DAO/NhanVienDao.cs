@@ -34,6 +34,18 @@ namespace Model.DAO
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="namHoc"></param>
+        public void DeleteMult(NHAN_VIEN nhanVien)
+        {
+            var taiKhoan = db.TAIKHOANs.Where(x => x.ID_TAI_KHOAN == nhanVien.ID_TAI_KHOAN).Single();
+            db.TAIKHOANs.Remove(taiKhoan);
+            db.NHAN_VIEN.Remove(nhanVien);
+            db.SaveChanges();
+        }
+
+        /// <summary>
         /// trả về nhân viên với id của tài khoản truyền vào
         /// </summary>
         /// <param name="id"></param>
@@ -175,6 +187,15 @@ namespace Model.DAO
                 NVCu.DIEN_THOAI = NVMoi.DIEN_THOAI.Trim();
                 NVCu.DIA_CHI = NVMoi.DIA_CHI.Trim();
                 NVCu.EMAIL = NVMoi.EMAIL.Trim();
+                if (NVMoi.Image != null)
+                {
+                    NVCu.Image = NVMoi.Image.Trim();
+                }
+                else
+                {
+                    NVCu.Image = NVCu.Image;
+                }
+
                 db.SaveChanges();
                 i = 1;
             }
