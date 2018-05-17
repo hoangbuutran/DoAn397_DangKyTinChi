@@ -1,6 +1,7 @@
 ﻿using Model.EF;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace Model.DAO
         /// <returns></returns>
         public MON_HOC MonHocSingerwithMaTimKiem(string timkiem)
         {
-            return db.MON_HOC.Where(x => x.MA_MON_HOC.Contains(timkiem)).SingleOrDefault();
+            return db.MON_HOC.Where(x => x.MA_MON_HOC == timkiem).SingleOrDefault();
         }
         public MON_HOC MonHocSingerwithMaMon(string maMon)
         {
@@ -123,6 +124,50 @@ namespace Model.DAO
             try
             {
                 var MonHocCu = db.MON_HOC.Find(MonHocMoi.ID_MON_HOC);
+                if (MonHocMoi.SO_CHI != MonHocCu.SO_CHI)
+                {
+                    if (MonHocMoi.SO_CHI > MonHocCu.SO_CHI)
+                    {
+                        //CongChi
+                        var soChi = MonHocMoi.SO_CHI - MonHocCu.SO_CHI;
+                        var listPhieu = new PhieuDangKyDao().ListPhieu();
+                        foreach (var item in listPhieu)
+                        {
+                            var check = new CT_PhieuDangKyDao().CheckMonTrongPhieu(MonHocMoi.ID_MON_HOC, item.ID_PHIEU_DANG_KY);
+                            if (check != null)
+                            {
+                                item.TONG_SO_TIN_CHI = item.TONG_SO_TIN_CHI + soChi;
+                                object[] parameter =
+                                {
+                                    new SqlParameter("@ID_PHIEU", item.ID_PHIEU_DANG_KY),
+                                    new SqlParameter("@TONG_CHI_HIEN_TAI", item.TONG_SO_TIN_CHI),
+                                };
+                                db.Database.ExecuteSqlCommand("TINCHIPHIEUUPDATEMON @ID_PHIEU, @TONG_CHI_HIEN_TAI", parameter);
+                            }
+                        }
+                    }
+                    if (MonHocMoi.SO_CHI < MonHocCu.SO_CHI)
+                    {
+                        //TruChi
+                        var soChi = MonHocCu.SO_CHI - MonHocMoi.SO_CHI;
+                        var listPhieu = new PhieuDangKyDao().ListPhieu();
+                        foreach (var item in listPhieu)
+                        {
+                            var check = new CT_PhieuDangKyDao().CheckMonTrongPhieu(MonHocMoi.ID_MON_HOC, item.ID_PHIEU_DANG_KY);
+                            if (check != null)
+                            {
+                                item.TONG_SO_TIN_CHI = item.TONG_SO_TIN_CHI - soChi;
+                                object[] parameter =
+                                {
+                                    new SqlParameter("@ID_PHIEU", item.ID_PHIEU_DANG_KY),
+                                    new SqlParameter("@TONG_CHI_HIEN_TAI", item.TONG_SO_TIN_CHI),
+                                };
+                                db.Database.ExecuteSqlCommand("TINCHIPHIEUUPDATEMON @ID_PHIEU, @TONG_CHI_HIEN_TAI", parameter);
+                            }
+                        }
+                    }
+                }
+                MonHocCu.MA_MON_HOC = MonHocMoi.MA_MON_HOC.Trim();
                 MonHocCu.SO_CHI = MonHocMoi.SO_CHI;
                 MonHocCu.LOAI_DVHT = MonHocMoi.LOAI_DVHT.Trim();
                 MonHocCu.LOAI_HINH = MonHocMoi.LOAI_HINH.Trim();
@@ -134,7 +179,7 @@ namespace Model.DAO
                 db.SaveChanges();
                 i = 1;
             }
-            catch (Exception)
+            catch (Exception EX)
             {
                 i = 0;
             }

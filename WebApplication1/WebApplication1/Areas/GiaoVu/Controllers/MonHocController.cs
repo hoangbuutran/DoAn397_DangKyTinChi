@@ -88,6 +88,7 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
         {
             //ViewBag.DSChuyenNganh = new SelectList(DaoChuyenNganh.ListChuyenNganh(), "ID_CHUYEN_NGANH", "TEN_CHUYEN_NGANH");
             ViewBag.DSChuyenNganh = DaoChuyenNganh.ListChuyenNganh();
+            ViewBag.DsMon = new SelectList(dao.ListMonHoc(), "TEN_MON_HOC", "TEN_MON_HOC");
             return View(daochuyennganhmonhoc.ChuyenNganhMonHocListWithIdMon(id));
         }
 
@@ -104,10 +105,22 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
                 bool? tuChonNew = new bool();
                 int? nhomTuChonNew = new int();
                 int k = 1;
+                if (model[0].ID_CHUYENNGANH == 0 && model[1].ID_CHUYENNGANH == 0 && model[2].ID_CHUYENNGANH == 0)
+                {
+                    return RedirectToAction("ChuaChonChuyenNganh");
+                }
                 for (int i = 0; i < so; i++)
                 {
                     if (model[i].ID_CHUYENNGANH != 0 && k == 1)
                     {
+                        if (model[0].MON_HOC.MON_TIEN_QUYET == null)
+                        {
+                            model[0].MON_HOC.MON_TIEN_QUYET = "Môn học không có môn tiên quyết";
+                        }
+                        if (model[0].MON_HOC.MON_SONG_HANH == null)
+                        {
+                            model[0].MON_HOC.MON_SONG_HANH = "Môn học không có môn song hành";
+                        }
                         model[0].ID_CHUYENNGANH = model[i].ID_CHUYENNGANH;
                         idMonNew = daochuyennganhmonhoc.SuaMonHoc(model[0]);
                         tuChonNew = (bool)model[0].MON_HOC.TU_CHON;
@@ -147,7 +160,11 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             return View();
         }
 
-
+        [HttpGet]
+        public ActionResult ChuaChonChuyenNganh()
+        {
+            return View();
+        }
         // GET: GiaoVu/MonHoc/Create
         public ActionResult CreateMonNhieuNganh()
         {
@@ -168,10 +185,22 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
                 bool? tuChonNew = new bool();
                 int? nhomTuChonNew = new int();
                 int k = 1;
+                if (model[0].ID_CHUYENNGANH == 0 && model[1].ID_CHUYENNGANH == 0 && model[2].ID_CHUYENNGANH == 0)
+                {
+                    return RedirectToAction("ChuaChonChuyenNganh");
+                }
                 for (int i = 0; i < so; i++)
                 {
                     if (model[i].ID_CHUYENNGANH != 0 && k == 1)
                     {
+                        if (model[0].MON_HOC.MON_TIEN_QUYET == null)
+                        {
+                            model[0].MON_HOC.MON_TIEN_QUYET = "Môn học không có môn tiên quyết";
+                        }
+                        if (model[0].MON_HOC.MON_SONG_HANH == null)
+                        {
+                            model[0].MON_HOC.MON_SONG_HANH = "Môn học không có môn song hành";
+                        }
                         model[0].ID_CHUYENNGANH = model[i].ID_CHUYENNGANH;
                         idMonNew = daochuyennganhmonhoc.AddMonHoc(model[0]);
                         if (idMonNew == 0)

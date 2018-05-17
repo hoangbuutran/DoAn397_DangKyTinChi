@@ -9,15 +9,16 @@
     h3#panelthongke {
         margin-left: 253px;
     }
+
     table.table.table-bordered {
         border-radius: 1em;
         overflow: hidden;
     }
+
     p#panel {
         padding-left: 368px;
     }
 </style>
-
 
 <div class="cardTuLamIndex">
 
@@ -43,8 +44,8 @@
         </thead>
         @foreach (var item in modell)
         {
-            var tongchimon = item.TONGCHIMON;
-            var solop = item.TONGCHIMON / 45;
+            var tongchimon = item.TONGSO;
+            var solop = item.TONGSO / 45;
             <tbody>
                 <tr>
                     <th>
@@ -63,7 +64,7 @@
             </tbody>
         }
     </table>
-
+    <div class="btn">
+        @Html.ActionLink("Xuất file excel", "ExportToExcel", new { namHoc = @thongtinnam.ID_NAM_HOC, hocKy = @thongtinhocky.ID_HOC_KY })
+    </div>
 </div>
-
-

@@ -29,7 +29,7 @@ namespace Model.DAO
         /// <returns></returns>
         public CHUYENNGANH_MONHOC ChuyenNganhMonHocSinger(int id)
         {
-            return db.CHUYENNGANH_MONHOC.SingleOrDefault(x => x.ID_MONHOC == id);
+            return db.CHUYENNGANH_MONHOC.SingleOrDefault(x => x.ID == id);
         }
 
 
@@ -67,7 +67,12 @@ namespace Model.DAO
         /// <returns></returns>
         public int AddMonHoc(CHUYENNGANH_MONHOC MonHoc)
         {
-            var MonExist = new MonHocDao().MonHocSingerwithMaMon(MonHoc.MON_HOC.MA_MON_HOC);
+            var MonExist = new MON_HOC();
+            MonExist = null;
+            if (MonHoc.MON_HOC != null)
+            {
+                MonExist = new MonHocDao().MonHocSingerwithMaMon(MonHoc.MON_HOC.MA_MON_HOC);
+            }
             int i;
             try
             {
@@ -81,7 +86,7 @@ namespace Model.DAO
                 {
                     i = 0;
                 }
-                
+
             }
             catch (Exception)
             {
@@ -101,8 +106,8 @@ namespace Model.DAO
             try
             {
                 var j = new MonHocDao().SuaMonHoc(MonHocMoi.MON_HOC);
-                var MonHocCu = ChuyenNganhMonHocSinger(MonHocMoi.ID);
-                MonHocCu.ID_CHUYENNGANH = MonHocMoi.ID_CHUYENNGANH;
+                var MonHocChuyenNganhCu = ChuyenNganhMonHocSinger(MonHocMoi.ID);
+                MonHocChuyenNganhCu.ID_CHUYENNGANH = MonHocMoi.ID_CHUYENNGANH;
                 db.SaveChanges();
                 i = 1;
             }

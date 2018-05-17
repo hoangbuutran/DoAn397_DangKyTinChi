@@ -253,11 +253,44 @@ namespace WebApplication1.Controllers
             {
                 ViewBag.KetQuaMonChuyenNganh = 1;
             }
+            var coutTongMonCungNhom = 0;
             foreach (var item in dsMon)
             {
                 if (item.MON_HOC.TU_CHON == true && item.MON_HOC.NHOM_TU_CHON == mon.NHOM_TU_CHON)
                 {
-                    ViewBag.KetQuaTrungNhomMon = 1;
+                    coutTongMonCungNhom++;
+                    if (item.MON_HOC.NHOM_TU_CHON == 1 && coutTongMonCungNhom == 1)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 2 && coutTongMonCungNhom == 2)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 3 && coutTongMonCungNhom == 12)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 4 && coutTongMonCungNhom == 1)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 5 && coutTongMonCungNhom == 1)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 6 && coutTongMonCungNhom == 1)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 7 && coutTongMonCungNhom == 1)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
+                    if (item.MON_HOC.NHOM_TU_CHON == 8 && coutTongMonCungNhom == 1)
+                    {
+                        ViewBag.KetQuaTrungNhomMon = 1;
+                    }
                 }
             }
 

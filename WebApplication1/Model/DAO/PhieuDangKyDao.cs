@@ -32,6 +32,11 @@ namespace Model.DAO
             return db.PHIEU_DANG_KY.SingleOrDefault(x => x.ID_PHIEU_DANG_KY == id);
         }
 
+        public List<PHIEU_DANG_KY> ListPhieu()
+        {
+            return db.PHIEU_DANG_KY.ToList();
+        }
+
         /// <summary>
         /// trả về danh sách năm học
         /// </summary>

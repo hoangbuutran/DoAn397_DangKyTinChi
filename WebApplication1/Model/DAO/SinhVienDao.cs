@@ -153,12 +153,12 @@ namespace Model.DAO
             try
             {
                 SINH_VIEN SinhVienCu = db.SINH_VIEN.Find(SinhVienMoi.ID_SINHVIEN);
-                SinhVienCu.TEN_SINH_VIEN = SinhVienMoi.TEN_SINH_VIEN;
+                SinhVienCu.TEN_SINH_VIEN = SinhVienMoi.TEN_SINH_VIEN.Trim();
                 SinhVienCu.NGAY_SINH = SinhVienMoi.NGAY_SINH;
-                SinhVienCu.CMND = SinhVienMoi.CMND;
-                SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI;
-                SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI;
-                SinhVienCu.EMAIL = SinhVienMoi.EMAIL;
+                SinhVienCu.CMND = SinhVienMoi.CMND.Trim();
+                SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI.Trim();
+                SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI.Trim();
+                SinhVienCu.EMAIL = SinhVienMoi.EMAIL.Trim();
                 SinhVienCu.TRANG_THAI = SinhVienMoi.TRANG_THAI;
                 SinhVienCu.ID_CHUYEN_NGANH = SinhVienMoi.ID_CHUYEN_NGANH;
                 db.SaveChanges();
@@ -183,10 +183,10 @@ namespace Model.DAO
             {
                 SINH_VIEN SinhVienCu = db.SINH_VIEN.Find(SinhVienMoi.ID_SINHVIEN);
                 SinhVienCu.NGAY_SINH = SinhVienMoi.NGAY_SINH;
-                SinhVienCu.CMND = SinhVienMoi.CMND;
-                SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI;
-                SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI;
-                SinhVienCu.EMAIL = SinhVienMoi.EMAIL;
+                SinhVienCu.CMND = SinhVienMoi.CMND.Trim();
+                SinhVienCu.DIEN_THOAI = SinhVienMoi.DIEN_THOAI.Trim();
+                SinhVienCu.DIA_CHI = SinhVienMoi.DIA_CHI.Trim();
+                SinhVienCu.EMAIL = SinhVienMoi.EMAIL.Trim();
                 if (SinhVienMoi.Image != null)
                 {
                     SinhVienCu.Image = SinhVienMoi.Image;

@@ -87,7 +87,7 @@
             </td>
             <td>
                 <div class="btn">
-                    @Html.ActionLink("Xóa Môn", "XoaMonTrongPhieu", new { idMon = item.ID_MON_HOC, idCtPhieu = item.ID_CT_PHIEU_DANG_KY, idPhieuDK = item.ID_PHIEU_DANG_KY })
+                    @Html.ActionLink("Xóa Môn", "XoaMonTrongPhieu", new { idMon = item.ID_MON_HOC, idCtPhieu = item.ID_CT_PHIEU_DANG_KY, idPhieuDK = item.ID_PHIEU_DANG_KY }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa môn');" })
                 </div>
             </td>
         </tr>

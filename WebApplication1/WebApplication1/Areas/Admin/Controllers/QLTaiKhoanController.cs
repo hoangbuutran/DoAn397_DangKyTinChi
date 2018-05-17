@@ -41,7 +41,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             }
             else if (model.MatKhauCu != session.MatKhau)
             {
-                ModelState.AddModelError("", "Mật Khẩu Củ Không Đúng");
+                ModelState.AddModelError("", "Mật Khẩu Cũ Không Đúng");
                 return View("DoiMatKhauAdmin");
             }
             return View("DoiMatKhauAdmin");

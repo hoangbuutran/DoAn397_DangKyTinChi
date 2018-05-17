@@ -89,7 +89,7 @@ namespace Model.DAO
             try
             {
                 var NAM_HOCCu = db.NAM_HOC.Find(NAM_HOC.ID_NAM_HOC);
-                NAM_HOCCu.TEN_NAM_HOC = NAM_HOC.TEN_NAM_HOC;
+                NAM_HOCCu.TEN_NAM_HOC = NAM_HOC.TEN_NAM_HOC.Trim();
                 NAM_HOCCu.TRANGTHAI = NAM_HOC.TRANGTHAI;
                 db.SaveChanges();
                 i = 1;

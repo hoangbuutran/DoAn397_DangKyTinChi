@@ -9,6 +9,6 @@ namespace WebApplication1.Areas.GiaoVu.Models
     {
         public string MA_MON_HOC { get; set; }
         public string TEN_MON_HOC { get; set; }
-        public int TONGCHIMON { get; set; }
+        public int TONGSO { get; set; }
     }
 }

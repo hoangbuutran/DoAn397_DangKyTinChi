@@ -3,9 +3,12 @@ using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using WebApplication1.Areas.GiaoVu.Models;
 using WebApplication1.Controllers;
 
@@ -41,5 +44,32 @@ namespace WebApplication1.Areas.GiaoVu.Controllers
             ViewBag.ThongTinHocKy = new ThongTinChungDao().HocKySinger(thongke.HocKy);
             return View();
         }
+
+        public ActionResult ExportToExcel(int namHoc, int hocKy)
+        {
+            GridView gv = new GridView();
+            gv.DataSource = THONGKETONGTINCHITHEOMON(namHoc, hocKy);
+            gv.DataBind();
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=ThongKeExcel.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            htw.WriteLine("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+            gv.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+            ThongKeModel tk = new ThongKeModel
+            {
+                NamHoc = namHoc,
+                HocKy = hocKy
+            };
+            return RedirectToAction("ThongKe", "ThongKe", new { thongke = tk });
+        }
+
     }
 }

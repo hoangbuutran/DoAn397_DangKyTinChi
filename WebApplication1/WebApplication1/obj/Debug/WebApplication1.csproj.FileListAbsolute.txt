@@ -181,3 +181,11 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Page
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.Mvc.dll
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.xml
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\PagedList.Mvc.xml
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ClosedXML.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\DocumentFormat.OpenXml.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ExcelNumberFormat.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\FastMember.Signed.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ClosedXML.pdb
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ClosedXML.xml
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\DocumentFormat.OpenXml.xml
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ExcelNumberFormat.xml
