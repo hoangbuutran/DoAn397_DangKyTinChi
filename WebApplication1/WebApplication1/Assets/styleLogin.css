@@ -17,14 +17,14 @@ body {
 
 .login-form {
 	margin: 100px auto;
-	max-width: 446px;
+	max-width: 660px;
 }
 
 form[role=login] {
 	font: 18px/2.2em Lato, serif;
 	color: #b4b4b4;
 	background: #fff;
-	max-width: 446px;
+	max-width: 660px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;

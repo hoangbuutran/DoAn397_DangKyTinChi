@@ -1,8 +1,28 @@
 ﻿@model WebApplication1.Common.SinhVienModel
-
+@using CaptchaMvc.HtmlHelpers
+@*@using MathCaptcha;*@
+@using CaptchaMvc;
 @{
     Layout = null;
 }
+
+<style>
+    form {
+        max-width: 660px;
+    }
+    section.login-form {
+        max-width: 660px;
+    }
+    form[role=login] {
+        font: 18px/2.2em Lato, serif;
+        color: #b4b4b4;
+        background: #fff;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        padding: 5px 40px 30px 40px;
+    }
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +33,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="~/Assets/QuanLy/assets/img/dtu_favicon.png">
     <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
     <title>Login for DTU</title>
-    <link rel="stylesheet" type="text/css" href="~/Assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/styleLogin.css" />
     <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,12 +70,20 @@
                     <h4>Đăng nhập vào hệ thống DTU</h4>
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 </div>
-                <input type="text" name="TenDangNhap" id="TenDangNhap" placeholder="User Name" required class="form-control input-lg" />
-                <input type="password" name="MatKhau" id="MatKhau" placeholder="Mật khẩu" required class="form-control input-lg" />
-                <button onclick=" return IsEmpty()" type="submit" name="go" class="btn btn-lg btn-block btn-info">Đăng Nhập</button>
-                <div>
-                    <a target="_blank" href="https://mydtu.duytan.edu.vn/Modules/portal/ForgotPassword.aspx">Quên mật khẩu</a>
+                <div class="col-md-7" style="float:left">
+                    <input type="text" name="TenDangNhap" id="TenDangNhap" placeholder="User Name" required class="form-control input-lg" />
+                    <input type="password" name="MatKhau" id="MatKhau" placeholder="Mật khẩu" required class="form-control input-lg" />
+                    <br />
+                    <div>
+                        <a target="_blank" href="https://mydtu.duytan.edu.vn/Modules/portal/ForgotPassword.aspx">Quên mật khẩu</a>
+                    </div>
                 </div>
+                <div class="col-md-5" style="float:right">
+                    @Html.Captcha(4)
+                </div>
+                @*@Html.MathCaptcha()*@
+                <button onclick=" return IsEmpty()" type="submit" name="go" class="btn btn-lg btn-block btn-info">Đăng Nhập</button>
+
             </form>
         </section>
     </section>

@@ -189,3 +189,6 @@ E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\Clos
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ClosedXML.xml
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\DocumentFormat.OpenXml.xml
 E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\ExcelNumberFormat.xml
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\CaptchaMvc.dll
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\CaptchaMvc.pdb
+E:\397\source code\DoAn397_DangKyTinChi\WebApplication1\WebApplication1\bin\CaptchaMvc.xml
